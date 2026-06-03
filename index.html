@@ -1,0 +1,479 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="es" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Aimé Aguado | Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Manrope:wght@400;500;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@100..900&amp;family=Montserrat:wght@100..900&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary": "#ffffff",
+                    "surface-tint": "#705a49",
+                    "on-secondary-fixed-variant": "#594325",
+                    "on-secondary-container": "#785e3e",
+                    "surface-container-low": "#f3f3f4",
+                    "on-background": "#1a1c1c",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed-dim": "#cfc5b9",
+                    "on-error": "#ffffff",
+                    "outline-variant": "#d2c4bb",
+                    "primary-fixed-dim": "#dec1ac",
+                    "secondary-fixed": "#ffddb6",
+                    "on-primary": "#ffffff",
+                    "tertiary-container": "#403a31",
+                    "on-error-container": "#93000a",
+                    "surface-dim": "#dadada",
+                    "inverse-on-surface": "#f0f1f1",
+                    "on-primary-fixed-variant": "#574333",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-bright": "#f9f9f9",
+                    "on-tertiary-container": "#aca498",
+                    "surface-container": "#eeeeee",
+                    "secondary-container": "#fddab2",
+                    "on-surface-variant": "#4e453e",
+                    "on-surface": "#1a1c1c",
+                    "surface-container-high": "#e8e8e8",
+                    "surface-variant": "#e2e2e2",
+                    "secondary-fixed-dim": "#e2c19b",
+                    "primary-container": "#4a3728",
+                    "outline": "#80756d",
+                    "on-primary-fixed": "#28180b",
+                    "error-container": "#ffdad6",
+                    "error": "#ba1a1a",
+                    "primary-fixed": "#fbddc7",
+                    "surface-container-highest": "#e2e2e2",
+                    "on-secondary-fixed": "#291801",
+                    "primary": "#322214",
+                    "inverse-surface": "#2f3131",
+                    "on-tertiary-fixed-variant": "#4c463c",
+                    "on-primary-container": "#bba08c",
+                    "tertiary-fixed": "#ebe1d4",
+                    "secondary": "#735a3a",
+                    "on-tertiary-fixed": "#1f1b13",
+                    "inverse-primary": "#dec1ac",
+                    "background": "#f9f9f9",
+                    "surface": "#f9f9f9",
+                    "tertiary": "#29251c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "section-padding-desktop": "120px",
+                    "section-padding-mobile": "64px",
+                    "container-max": "1140px",
+                    "unit": "8px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Montserrat"],
+                    "display-lg": ["Montserrat"],
+                    "label-caps": ["Manrope"],
+                    "body-lg": ["Manrope"],
+                    "headline-lg-mobile": ["Montserrat"],
+                    "headline-lg": ["Montserrat"],
+                    "body-md": ["Manrope"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-caps": ["12px", {"lineHeight": "1.5", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .timeline-dot::after {
+        content: '';
+        position: absolute;
+        left: -5.5px;
+        top: 8px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: #322214;
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(10px);
+      }
+      .ambient-shadow {
+        box-shadow: 0 30px 60px -12px rgba(74, 55, 40, 0.04);
+      }
+    </style>
+</head>
+<body class="bg-background text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar -->
+<nav class="bg-background/80 backdrop-blur-md sticky top-0 w-full z-50 border-b border-outline-variant/30 shadow-sm">
+<div class="flex justify-between items-center h-20 px-gutter max-w-container-max mx-auto">
+<a class="font-headline-md text-headline-md font-bold tracking-tight text-primary" href="#">Aimé Aguado</a>
+<!-- Desktop Nav -->
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-body-md text-body-md text-primary border-b-2 border-primary pb-1" href="#home">Home</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#about">About</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#skills">Skills</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#experience">Experience</a>
+<a class="ml-4 font-label-caps text-label-caps px-6 py-3 bg-primary text-on-primary rounded-lg hover:opacity-90 transition-all scale-95 active:opacity-80" href="#contact">Get in Touch</a>
+</div>
+<!-- Mobile Menu Toggle (Simplified) -->
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative overflow-hidden pt-20 pb-section-padding-mobile md:pb-section-padding-desktop opacity-100 translate-y-0" id="home">
+<div class="max-w-container-max mx-auto px-gutter grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+<div class="md:col-span-7 space-y-6">
+<span class="font-label-caps text-label-caps text-secondary tracking-widest uppercase">Disponible para nuevos desafíos</span>
+<h1 class="font-display-lg text-[48px] md:text-display-lg leading-tight text-primary">
+                        Aimé Aguado
+                    </h1>
+<p class="font-headline-md text-headline-md text-on-surface-variant leading-relaxed">
+                        Web Developer &amp; Administrative Expert
+                    </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<a class="font-label-caps text-label-caps px-8 py-4 bg-primary text-on-primary rounded-lg hover:opacity-90 transition-all flex items-center gap-2" href="#projects">
+                            Ver Proyectos
+                            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+<a class="font-label-caps text-label-caps px-8 py-4 border border-secondary text-secondary rounded-lg hover:bg-secondary/5 transition-all" href="#contact">
+                            Contactar
+                        </a>
+</div>
+</div>
+<div class="md:col-span-5 relative">
+<div class="aspect-square rounded-2xl overflow-hidden bg-tertiary-fixed ambient-shadow">
+<img alt="Aimé Aguado Professional Portrait" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="A professional and elegant portrait of a woman with a confident expression, set against a minimalist architectural background with soft natural lighting. The visual style is high-end and editorial, featuring a warm neutral color palette with earthy brown tones and cream whites. The lighting is soft and directional, creating a sophisticated and trustworthy professional atmosphere suitable for a high-level developer and administrative expert portfolio." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQhD3VQvCILv1CBhEdzOVw76_H8q5fOqKNh0n5CXcq8Q85CIe_i2tNT3cF3BtDDWY4Idlp3crBr9F0EHqN8suCPy2QtbKEQdPJVBywpC4jx2HmLiY7qSsOIvpw1hZ3iBxP9UzudGnqi4QRsvt_pto5XjdFZzwAJoZtR13ETZiNkCiuuRR_nu_py24XMf_WgkGmEglxXH1jqtAmk3X0odwB_j5XtSn2itrl5RNhw68uqHMtwFwoDCEt5mSE_9F53vc5NTMFh9mL8Ez_7A">
+</div>
+<!-- Decorative Element -->
+<div class="absolute -bottom-6 -right-6 w-32 h-32 bg-secondary-container rounded-full -z-10 blur-2xl opacity-50"></div>
+</div>
+</div>
+</section>
+<!-- About Me Section -->
+<section class="bg-surface-container-lowest py-section-padding-mobile md:py-section-padding-desktop opacity-100 translate-y-0" id="about">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+<div class="space-y-8">
+<h2 class="font-headline-lg text-headline-lg text-primary">Sobre mí</h2>
+<div class="font-body-lg text-body-lg text-on-surface-variant space-y-4">
+<p class="">Soy una persona dinámica, comprometida y estructurada, con una sólida capacidad para adaptarme a entornos cambiantes y trabajar de manera eficiente bajo presión.</p>
+<p class="">Mi trayectoria combina la precisión administrativa con la creatividad del desarrollo web, lo que me permite abordar problemas desde múltiples perspectivas, siempre enfocada en la resolución efectiva y la atención al detalle.</p>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="p-4 bg-tertiary-fixed rounded-xl">
+<span class="material-symbols-outlined text-secondary block mb-2">groups</span>
+<p class="font-label-caps text-label-caps text-primary">Habilidades Interpersonales</p>
+</div>
+<div class="p-4 bg-tertiary-fixed rounded-xl">
+<span class="material-symbols-outlined text-secondary block mb-2">verified</span>
+<p class="font-label-caps text-label-caps text-primary">Compromiso Profesional</p>
+</div>
+</div>
+</div>
+<div class="bg-white p-8 md:p-12 rounded-2xl ambient-shadow border border-outline-variant/30">
+<h3 class="font-headline-md text-headline-md text-primary mb-6">Educación</h3>
+<div class="space-y-8">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-secondary">school</span>
+<div>
+<h4 class="font-body-lg font-bold text-primary">Tecnicatura Analista de Sistemas</h4>
+<p class="font-body-md text-on-surface-variant">Formación Técnica Superior</p>
+</div>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-secondary">workspace_premium</span>
+<div>
+<h4 class="font-body-lg font-bold text-primary">Bachillerato en Economía</h4>
+<p class="font-body-md text-on-surface-variant">Educación Secundaria</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Skills Section -->
+<section class="py-section-padding-mobile md:py-section-padding-desktop bg-background opacity-100 translate-y-0" id="skills">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="text-center max-w-2xl mx-auto mb-16">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">Competencias Técnicas</h2>
+<p class="font-body-md text-on-surface-variant">Un balance entre el desarrollo tecnológico y la gestión estratégica digital.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+<!-- Skill Card -->
+<div class="group p-8 bg-white border border-outline-variant/30 rounded-xl text-center hover:border-secondary transition-all duration-300 ambient-shadow">
+<div class="w-12 h-12 bg-secondary-container rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-on-secondary-container">code</span>
+</div>
+<h4 class="font-label-caps text-label-caps text-primary mb-1">HTML5</h4>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-tighter">Estructura Web</p>
+</div>
+<div class="group p-8 bg-white border border-outline-variant/30 rounded-xl text-center hover:border-secondary transition-all duration-300 ambient-shadow">
+<div class="w-12 h-12 bg-secondary-container rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-on-secondary-container">palette</span>
+</div>
+<h4 class="font-label-caps text-label-caps text-primary mb-1">CSS3</h4>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-tighter">Diseño Visual</p>
+</div>
+<div class="group p-8 bg-white border border-outline-variant/30 rounded-xl text-center hover:border-secondary transition-all duration-300 ambient-shadow">
+<div class="w-12 h-12 bg-secondary-container rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-on-secondary-container">javascript</span>
+</div>
+<h4 class="font-label-caps text-label-caps text-primary mb-1">JavaScript</h4>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-tighter">Coderhouse</p>
+</div>
+<div class="group p-8 bg-white border border-outline-variant/30 rounded-xl text-center hover:border-secondary transition-all duration-300 ambient-shadow">
+<div class="w-12 h-12 bg-secondary-container rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-on-secondary-container">trending_up</span>
+</div>
+<h4 class="font-label-caps text-label-caps text-primary mb-1">Marketing Digital</h4>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-tighter">Google</p>
+</div>
+<div class="group p-8 bg-white border border-outline-variant/30 rounded-xl text-center hover:border-secondary transition-all duration-300 ambient-shadow">
+<div class="w-12 h-12 bg-secondary-container rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-on-secondary-container">hub</span>
+</div>
+<h4 class="font-label-caps text-label-caps text-primary mb-1">Community Manager</h4>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-tighter">Gestión RRSS</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Experience Section -->
+<section class="py-section-padding-mobile md:py-section-padding-desktop bg-surface-container-lowest opacity-100 translate-y-0" id="experience">
+<div class="max-w-container-max mx-auto px-gutter">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-16">Trayectoria Profesional</h2>
+<div class="relative border-l border-primary/20 ml-3 md:ml-6 pl-8 md:pl-12 space-y-12">
+<!-- Item 1 -->
+<div class="relative">
+<div class="timeline-dot"></div>
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
+<h3 class="font-headline-md text-headline-md text-primary">&nbsp; ADMINISTRATIVA - AM PROPIEDADES</h3>
+<span class="font-label-caps text-label-caps text-secondary bg-secondary/10 px-3 py-1 rounded-full w-fit">05/2025 - Presente</span>
+</div>
+<p class="font-body-md text-on-surface-variant max-w-2xl">Gestión de documentación legal, atención al cliente y optimización de procesos administrativos internos en el sector inmobiliario.</p>
+</div>
+<!-- Item 2 -->
+<div class="relative">
+<div class="timeline-dot"></div>
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
+<h3 class="font-headline-md text-headline-md text-primary">&nbsp; VENDEDORA - LUZ DE MAR</h3>
+<span class="font-label-caps text-label-caps text-on-surface-variant">12/2024 - 03/2025</span>
+</div>
+<p class="font-body-md text-on-surface-variant max-w-2xl">Asesoramiento comercial personalizado y gestión de stock en temporada alta, priorizando la satisfacción del cliente.</p>
+</div>
+<!-- Item 3 -->
+<div class="relative">
+<div class="timeline-dot"></div>
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
+<h3 class="font-headline-md text-headline-md text-primary">&nbsp; RECEPCIONISTA - GIMNASIO FULL FITNESS</h3>
+<span class="font-label-caps text-label-caps text-on-surface-variant">01/2024 - 12/2024</span>
+</div>
+<p class="font-body-md text-on-surface-variant max-w-2xl">Coordinación de agendas, atención telefónica y presencial, y gestión de membresías de socios.</p>
+</div>
+<!-- Item 4 -->
+<div class="relative">
+<div class="timeline-dot"></div>
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
+<h3 class="font-headline-md text-headline-md text-primary">&nbsp; VENDEDORA - AP TIENDA DE AROMAS</h3>
+<span class="font-label-caps text-label-caps text-on-surface-variant">02/2022 - 11/2023</span>
+</div>
+<p class="font-body-md text-on-surface-variant max-w-2xl">Gestión integral del punto de venta, cierre de caja y mantenimiento de la imagen institucional.</p>
+</div>
+<!-- Item 5 -->
+<div class="relative">
+<div class="timeline-dot"></div>
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
+<h3 class="font-headline-md text-headline-md text-primary">&nbsp; MOZA - BONAFIDE CAFE</h3>
+<span class="font-label-caps text-label-caps text-on-surface-variant">12/2017 - 09/2021</span>
+</div>
+<p class="font-body-md text-on-surface-variant max-w-2xl">Servicio al cliente de alta calidad en un entorno dinámico, desarrollando habilidades de comunicación y resolución de conflictos.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Projects Section -->
+<section class="py-section-padding-mobile md:py-section-padding-desktop bg-background opacity-100 translate-y-0" id="projects">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
+<div class="max-w-2xl">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">Proyectos Destacados</h2>
+<p class="font-body-md text-on-surface-variant">Explora una selección de mis trabajos recientes en desarrollo web donde aplico lógica, estructura y diseño.</p>
+</div>
+<div class="hidden md:block">
+<span class="font-label-caps text-label-caps text-secondary border-b border-secondary pb-1 cursor-pointer hover:opacity-70 transition-opacity">Ver todos en GitHub</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Project Card 1 -->
+<div class="group bg-white rounded-2xl overflow-hidden border border-outline-variant/30 ambient-shadow hover:-translate-y-2 transition-all duration-500">
+<div class="aspect-video overflow-hidden">
+<img alt="E-commerce Project Mockup" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A sleek and modern web dashboard design displayed on a high-resolution laptop screen. The interface features a clean layout with warm earth-toned accents, minimalist icons, and elegant Montserrat typography. The setting is a bright, airy home office with soft morning sunlight filtering through, creating a professional yet warm creative atmosphere that aligns with the brand's portfolio style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCL4LsARFiAonAIdMQJVuzHnvT-3GnMhxlc5kemlKQ4fQECdpJ9ufbUOHpy-VKwrKj-0cKCy4o1u1cxqtipDCvcdP0TR-VEXo-DSTyszqa5GP4h3TDshqGeD4fxvXMO9LGCzBKIBSWxiWHBRINqw2tGcvtW8PW_uAP0bmDTcTzH60cp7iBpscUe81kkqHIt57mcgJp2VyH5WiKriWgyUdE45pDuGXfxDHI8Is0K4RWhaTckWGDdhsn402KIeQMubc7iL9AKPfCX0ew">
+</div>
+<div class="p-6 space-y-4">
+<div class="flex justify-between items-start">
+<h4 class="font-headline-md text-headline-md text-primary">Plataforma E-commerce</h4>
+<span class="material-symbols-outlined text-secondary hover:scale-110 cursor-pointer">open_in_new</span>
+</div>
+<p class="font-body-md text-on-surface-variant text-sm line-clamp-2">Desarrollo de una tienda online con gestión de carrito y checkout optimizado.</p>
+<div class="flex gap-2">
+<span class="text-[10px] font-bold px-2 py-1 bg-tertiary-fixed text-primary rounded">JAVASCRIPT</span>
+<span class="text-[10px] font-bold px-2 py-1 bg-tertiary-fixed text-primary rounded">CSS3</span>
+</div>
+</div>
+</div>
+<!-- Project Card 2 -->
+<div class="group bg-white rounded-2xl overflow-hidden border border-outline-variant/30 ambient-shadow hover:-translate-y-2 transition-all duration-500">
+<div class="aspect-video overflow-hidden">
+<img alt="Business Website Project" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A minimalist professional website landing page shown on a tablet device. The design uses generous whitespace, a sophisticated brown and cream color palette, and high-quality business-themed imagery. The lighting is bright and clean, emphasizing a 'Warm Minimalism' aesthetic that suggests structured elegance and professional reliability for an administrative or development focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzCLtnCfOBuwmWmXVl9EYgqs9H1u4Y7mDuP6lt5mVnzhUl7gUxspM-EqmQ199WsTcufS2ICcUyT9zvcCdXZRH2bob0twtHum2hfoibY6qHk5g8W4oMqbIlA434ENVovORcaGXzneINNddb5oaoUmCANOJ-T_PDgkLlUAR5p_H6x9-kjrg4kuazysuiymx_3jsOHYdqx_ywqsUxcX5YApIBf1r3iiaLr55KmX0dKCGfN6TsWIlAX3YIfISNEMli_KjbiVqkY4mqIAg">
+</div>
+<div class="p-6 space-y-4">
+<div class="flex justify-between items-start">
+<h4 class="font-headline-md text-headline-md text-primary">Web Corporativa</h4>
+<span class="material-symbols-outlined text-secondary hover:scale-110 cursor-pointer">open_in_new</span>
+</div>
+<p class="font-body-md text-on-surface-variant text-sm line-clamp-2">Sitio web informativo para consultoría profesional con diseño responsive.</p>
+<div class="flex gap-2">
+<span class="text-[10px] font-bold px-2 py-1 bg-tertiary-fixed text-primary rounded">HTML5</span>
+<span class="text-[10px] font-bold px-2 py-1 bg-tertiary-fixed text-primary rounded">UI/UX</span>
+</div>
+</div>
+</div>
+<!-- Project Card 3 -->
+<div class="group bg-white rounded-2xl overflow-hidden border border-outline-variant/30 ambient-shadow hover:-translate-y-2 transition-all duration-500">
+<div class="aspect-video overflow-hidden">
+<img alt="Personal Portfolio Project" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A creative portfolio layout displayed on a high-end mobile smartphone. The screen shows a unique grid of project thumbnails with smooth transitions and subtle drop shadows. The overall aesthetic is editorial and high-end, featuring earth-toned neutrals and sharp typography against a pristine white background, conveying a sense of artistic precision and modern web standards." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDL-Ys0YzA1MXDOeq3R-Hg5yPPxZ8xHB8ftdwUEpv8jD9g1J1t7L81AxwEAv8iyxNZxOewpPusEJT-fWd7-wH0Mado_puQH-TArg_OMCLsgu-WjkEPVYczwH4MGU15MSJ4q4Ug68E5pMhBJyZceUE0jzK6pftngQAjLGEKFLmP9xYslOl1WS0IgVIfvgL1hxMr7VmljvdNXgN9iGb2EOmVpwdwwE7itqxC_JUVyVsxVDD3l0Apd5pObQ41FiUuaVW3LSeuYK1FMZ2U">
+</div>
+<div class="p-6 space-y-4">
+<div class="flex justify-between items-start">
+<h4 class="font-headline-md text-headline-md text-primary">Portfolio Personal</h4>
+<span class="material-symbols-outlined text-secondary hover:scale-110 cursor-pointer">open_in_new</span>
+</div>
+<p class="font-body-md text-on-surface-variant text-sm line-clamp-2">Diseño y desarrollo de este mismo espacio utilizando tecnologías modernas.</p>
+<div class="flex gap-2">
+<span class="text-[10px] font-bold px-2 py-1 bg-tertiary-fixed text-primary rounded">TAILWIND</span>
+<span class="text-[10px] font-bold px-2 py-1 bg-tertiary-fixed text-primary rounded">INTERACTIONS</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-section-padding-mobile md:py-section-padding-desktop bg-surface-container-low opacity-100 translate-y-0" id="contact">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="bg-primary text-on-primary rounded-3xl p-8 md:p-16 relative overflow-hidden">
+<!-- Decor -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-secondary/20 rounded-full blur-3xl -mr-32 -mt-32"></div>
+<div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="space-y-6">
+<h2 class="font-display-lg text-[32px] md:text-headline-lg text-inverse-primary leading-tight">¿Listo para trabajar juntos?</h2>
+<p class="font-body-lg text-body-lg text-on-primary-container">Estoy disponible para consultas, colaboraciones en proyectos web o roles administrativos de alto nivel.</p>
+<div class="space-y-4 pt-4">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-on-primary-container/20 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-inverse-primary">mail</span>
+</div>
+<span class="font-body-md">aime.natalia.2406@gmail.com</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-on-primary-container/20 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-inverse-primary">location_on</span>
+</div>
+<span class="font-body-md">Buenos Aires, Argentina</span>
+</div>
+</div>
+</div>
+<form class="bg-white p-6 md:p-8 rounded-2xl space-y-4 text-on-surface">
+<div>
+<label class="block font-label-caps text-[10px] uppercase text-on-surface-variant mb-1">Nombre Completo</label>
+<input class="w-full bg-transparent border-0 border-b border-tertiary py-2 focus:ring-0 focus:border-secondary transition-all" placeholder="Juan Pérez" type="text">
+</div>
+<div>
+<label class="block font-label-caps text-[10px] uppercase text-on-surface-variant mb-1">Email</label>
+<input class="w-full bg-transparent border-0 border-b border-tertiary py-2 focus:ring-0 focus:border-secondary transition-all" placeholder="juan@ejemplo.com" type="email">
+</div>
+<div>
+<label class="block font-label-caps text-[10px] uppercase text-on-surface-variant mb-1">Mensaje</label>
+<textarea class="w-full bg-transparent border-0 border-b border-tertiary py-2 focus:ring-0 focus:border-secondary transition-all resize-none" placeholder="Cuéntame sobre tu proyecto..." rows="3"></textarea>
+</div>
+<button class="w-full py-4 bg-primary text-on-primary font-label-caps text-label-caps rounded-lg hover:opacity-90 transition-all active:scale-[0.98]" type="submit">
+                                Enviar Mensaje
+                            </button>
+</form>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container py-section-padding-mobile md:py-section-padding-desktop border-t border-outline-variant/50">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 px-gutter max-w-container-max mx-auto text-center md:text-left">
+<div>
+<a class="font-headline-md text-headline-md font-bold text-primary mb-4 block" href="#">Aimé Aguado</a>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm mx-auto md:mx-0">
+                    © 2024 Aimé Aguado. Crafted with precision and creativity.
+                </p>
+</div>
+<div class="flex flex-col md:items-end justify-center gap-4">
+<div class="flex gap-6 justify-center md:justify-end">
+<a class="text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4 transition-opacity font-label-caps text-label-caps" href="#">LinkedIn</a>
+<a class="text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4 transition-opacity font-label-caps text-label-caps" href="#">GitHub</a>
+<a class="text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4 transition-opacity font-label-caps text-label-caps" href="#">Email</a>
+</div>
+<p class="font-label-caps text-[10px] text-on-surface-variant opacity-70">WEB DEVELOPER &amp; ADMINISTRATIVE EXPERT</p>
+</div>
+</div>
+</footer>
+<script>
+        // Simple reveal on scroll effect
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+            observer.observe(section);
+        });
+
+        // Sticky nav background change
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-background/95', 'shadow-md');
+                nav.classList.remove('bg-background/80');
+            } else {
+                nav.classList.add('bg-background/80');
+                nav.classList.remove('bg-background/95', 'shadow-md');
+            }
+        });
+    </script>
+</body></html>
