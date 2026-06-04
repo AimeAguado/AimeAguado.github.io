@@ -147,7 +147,7 @@
                         Aimé Aguado
                     </h1>
 <p class="font-headline-md text-headline-md text-on-surface-variant leading-relaxed">
-                        Web Developer &amp; Administrative Expert
+                        Web Developer &amp; Administrative Assistant
                     </p>
 <div class="flex flex-wrap gap-4 pt-4">
 <a class="font-label-caps text-label-caps px-8 py-4 bg-primary text-on-primary rounded-lg hover:opacity-90 transition-all flex items-center gap-2" href="#projects">
@@ -161,7 +161,7 @@
 </div>
 <div class="md:col-span-5 relative">
 <div class="aspect-square rounded-2xl overflow-hidden bg-tertiary-fixed ambient-shadow">
-<img alt="Aimé Aguado Professional Portrait" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="A professional and elegant portrait of a woman with a confident expression, set against a minimalist architectural background with soft natural lighting. The visual style is high-end and editorial, featuring a warm neutral color palette with earthy brown tones and cream whites. The lighting is soft and directional, creating a sophisticated and trustworthy professional atmosphere suitable for a high-level developer and administrative expert portfolio." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQhD3VQvCILv1CBhEdzOVw76_H8q5fOqKNh0n5CXcq8Q85CIe_i2tNT3cF3BtDDWY4Idlp3crBr9F0EHqN8suCPy2QtbKEQdPJVBywpC4jx2HmLiY7qSsOIvpw1hZ3iBxP9UzudGnqi4QRsvt_pto5XjdFZzwAJoZtR13ETZiNkCiuuRR_nu_py24XMf_WgkGmEglxXH1jqtAmk3X0odwB_j5XtSn2itrl5RNhw68uqHMtwFwoDCEt5mSE_9F53vc5NTMFh9mL8Ez_7A">
+<img alt="Aimé Aguado Professional Portrait" class="w-full h-full object-cover" data-alt="A professional and elegant portrait of a woman with a confident expression, set against a minimalist architectural background with soft natural lighting. The visual style is high-end and editorial, featuring a warm neutral color palette with earthy brown tones and cream whites. The lighting is soft and directional, creating a sophisticated and trustworthy professional atmosphere suitable for a high-level developer and administrative expert portfolio." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQhD3VQvCILv1CBhEdzOVw76_H8q5fOqKNh0n5CXcq8Q85CIe_i2tNT3cF3BtDDWY4Idlp3crBr9F0EHqN8suCPy2QtbKEQdPJVBywpC4jx2HmLiY7qSsOIvpw1hZ3iBxP9UzudGnqi4QRsvt_pto5XjdFZzwAJoZtR13ETZiNkCiuuRR_nu_py24XMf_WgkGmEglxXH1jqtAmk3X0odwB_j5XtSn2itrl5RNhw68uqHMtwFwoDCEt5mSE_9F53vc5NTMFh9mL8Ez_7A">
 </div>
 <!-- Decorative Element -->
 <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-secondary-container rounded-full -z-10 blur-2xl opacity-50"></div>
@@ -403,20 +403,23 @@
 </div>
 </div>
 </div>
-<form class="bg-white p-6 md:p-8 rounded-2xl space-y-4 text-on-surface">
+<form class="bg-white p-6 md:p-8 rounded-2xl space-y-4 text-on-surface" id="contact-form" novalidate>
+<input aria-hidden="true" autocomplete="off" class="hidden" name="_honey" tabindex="-1" type="text">
 <div>
-<label class="block font-label-caps text-[10px] uppercase text-on-surface-variant mb-1">Nombre Completo</label>
-<input class="w-full bg-transparent border-0 border-b border-tertiary py-2 focus:ring-0 focus:border-secondary transition-all" placeholder="Juan Pérez" type="text">
+<label class="block font-label-caps text-[10px] uppercase text-on-surface-variant mb-1" for="contact-name">Nombre Completo</label>
+<input class="w-full bg-transparent border-0 border-b border-tertiary py-2 focus:ring-0 focus:border-secondary transition-all" id="contact-name" name="name" placeholder="Juan Pérez" required type="text">
 </div>
 <div>
-<label class="block font-label-caps text-[10px] uppercase text-on-surface-variant mb-1">Email</label>
-<input class="w-full bg-transparent border-0 border-b border-tertiary py-2 focus:ring-0 focus:border-secondary transition-all" placeholder="juan@ejemplo.com" type="email">
+<label class="block font-label-caps text-[10px] uppercase text-on-surface-variant mb-1" for="contact-email">Email</label>
+<input class="w-full bg-transparent border-0 border-b border-tertiary py-2 focus:ring-0 focus:border-secondary transition-all" id="contact-email" name="email" placeholder="juan@ejemplo.com" required type="email">
 </div>
 <div>
-<label class="block font-label-caps text-[10px] uppercase text-on-surface-variant mb-1">Mensaje</label>
-<textarea class="w-full bg-transparent border-0 border-b border-tertiary py-2 focus:ring-0 focus:border-secondary transition-all resize-none" placeholder="Cuéntame sobre tu proyecto..." rows="3"></textarea>
+<label class="block font-label-caps text-[10px] uppercase text-on-surface-variant mb-1" for="contact-message">Mensaje</label>
+<textarea class="w-full bg-transparent border-0 border-b border-tertiary py-2 focus:ring-0 focus:border-secondary transition-all resize-none" id="contact-message" name="message" placeholder="Cuéntame sobre tu proyecto..." required rows="3"></textarea>
 </div>
-<button class="w-full py-4 bg-primary text-on-primary font-label-caps text-label-caps rounded-lg hover:opacity-90 transition-all active:scale-[0.98]" type="submit">
+<p class="hidden font-body-md text-sm text-secondary" id="contact-form-success" role="status">¡Mensaje enviado! Te responderé pronto.</p>
+<p class="hidden font-body-md text-sm text-error" id="contact-form-error" role="alert">No se pudo enviar. Intentá de nuevo o escribime directo por email.</p>
+<button class="w-full py-4 bg-primary text-on-primary font-label-caps text-label-caps rounded-lg hover:opacity-90 transition-all active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed" id="contact-submit" type="submit">
                                 Enviar Mensaje
                             </button>
 </form>
@@ -436,9 +439,9 @@
 </div>
 <div class="flex flex-col md:items-end justify-center gap-4">
 <div class="flex gap-6 justify-center md:justify-end">
-<a class="text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4 transition-opacity font-label-caps text-label-caps" href="#">LinkedIn</a>
-<a class="text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4 transition-opacity font-label-caps text-label-caps" href="#">GitHub</a>
-<a class="text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4 transition-opacity font-label-caps text-label-caps" href="#">Email</a>
+<a class="text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4 transition-opacity font-label-caps text-label-caps" href="https://www.linkedin.com/in/aime-aguado/" rel="noopener noreferrer" target="_blank">LinkedIn</a>
+<a class="text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4 transition-opacity font-label-caps text-label-caps" href="https://github.com/AimeAguado" rel="noopener noreferrer" target="_blank">GitHub</a>
+<a class="text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4 transition-opacity font-label-caps text-label-caps" href="mailto:aime.natalia.2406@gmail.com">Email</a>
 </div>
 <p class="font-label-caps text-[10px] text-on-surface-variant opacity-70">WEB DEVELOPER &amp; ADMINISTRATIVE EXPERT</p>
 </div>
@@ -462,6 +465,54 @@
         document.querySelectorAll('section').forEach(section => {
             section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
             observer.observe(section);
+        });
+
+        // Contact form → email (FormSubmit)
+        const CONTACT_EMAIL = 'aime.natalia.2406@gmail.com';
+        const contactForm = document.getElementById('contact-form');
+        const contactSubmit = document.getElementById('contact-submit');
+        const contactSuccess = document.getElementById('contact-form-success');
+        const contactError = document.getElementById('contact-form-error');
+
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            contactSuccess.classList.add('hidden');
+            contactError.classList.add('hidden');
+
+            const name = document.getElementById('contact-name').value.trim();
+            const email = document.getElementById('contact-email').value.trim();
+            const message = document.getElementById('contact-message').value.trim();
+
+            contactSubmit.disabled = true;
+            contactSubmit.textContent = 'Enviando...';
+
+            try {
+                const response = await fetch('https://formsubmit.co/ajax/' + encodeURIComponent(CONTACT_EMAIL), {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name,
+                        email,
+                        message,
+                        _subject: 'Nuevo mensaje desde tu portfolio — ' + name,
+                        _replyto: email,
+                        _template: 'table'
+                    })
+                });
+
+                if (!response.ok) throw new Error('send failed');
+
+                contactForm.reset();
+                contactSuccess.classList.remove('hidden');
+            } catch {
+                contactError.classList.remove('hidden');
+            } finally {
+                contactSubmit.disabled = false;
+                contactSubmit.textContent = 'Enviar Mensaje';
+            }
         });
 
         // Sticky nav background change
