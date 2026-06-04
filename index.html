@@ -441,7 +441,7 @@
 <div class="flex gap-6 justify-center md:justify-end">
 <a class="text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4 transition-opacity font-label-caps text-label-caps" href="https://www.linkedin.com/in/aime-aguado/" rel="noopener noreferrer" target="_blank">LinkedIn</a>
 <a class="text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4 transition-opacity font-label-caps text-label-caps" href="https://github.com/AimeAguado" rel="noopener noreferrer" target="_blank">GitHub</a>
-<a class="text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4 transition-opacity font-label-caps text-label-caps" href="mailto:aime.natalia.2406@gmail.com">Email</a>
+<a class="text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4 transition-opacity font-label-caps text-label-caps" href="mailto:aime.natalia.2406@gmail.com" id="footer-email">Email</a>
 </div>
 <p class="font-label-caps text-[10px] text-on-surface-variant opacity-70">WEB DEVELOPER &amp; ADMINISTRATIVE EXPERT</p>
 </div>
@@ -467,8 +467,20 @@
             observer.observe(section);
         });
 
-        // Contact form → email (FormSubmit)
         const CONTACT_EMAIL = 'aime.natalia.2406@gmail.com';
+        const GMAIL_COMPOSE_URL = 'https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(CONTACT_EMAIL);
+
+        // Footer Email: mailto en móvil, Gmail web en escritorio (mailto no abre sin cliente configurado)
+        const footerEmail = document.getElementById('footer-email');
+        const isMobileDevice = /Android|iPhone|iPad|iPod|Mobile|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+        if (!isMobileDevice) {
+            footerEmail.href = GMAIL_COMPOSE_URL;
+            footerEmail.target = '_blank';
+            footerEmail.rel = 'noopener noreferrer';
+        }
+
+        // Contact form → email (FormSubmit)
         const contactForm = document.getElementById('contact-form');
         const contactSubmit = document.getElementById('contact-submit');
         const contactSuccess = document.getElementById('contact-form-success');
