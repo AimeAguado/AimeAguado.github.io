@@ -120,7 +120,7 @@
 </head>
 <body class="bg-background text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
 <!-- TopNavBar -->
-<nav class="bg-background/80 backdrop-blur-md sticky top-0 w-full z-50 border-b border-outline-variant/30 shadow-sm">
+<nav class="bg-background/80 backdrop-blur-sm sticky top-0 w-full z-50 border-b border-outline-variant/30 shadow-sm">
 <div class="flex justify-between items-center h-20 px-gutter max-w-container-max mx-auto">
 <a class="font-headline-md text-headline-md font-bold tracking-tight text-primary" href="#">Aimé Aguado</a>
 <!-- Desktop Nav -->
@@ -131,12 +131,22 @@
 <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#experience">Experience</a>
 <a class="ml-4 font-label-caps text-label-caps px-6 py-3 bg-primary text-on-primary rounded-lg hover:opacity-90 transition-all scale-95 active:opacity-80" href="#contact">Get in Touch</a>
 </div>
-<!-- Mobile Menu Toggle (Simplified) -->
-<button class="md:hidden text-primary">
-<span class="material-symbols-outlined">menu</span>
-</button>
 </div>
 </nav>
+<!-- Mobile Menu Toggle -->
+<button id="menu-toggle" class="md:hidden fixed top-5 right-6 z-[70] text-primary p-2 rounded-lg bg-background/50 backdrop-blur-sm shadow-md">
+  <span id="menu-icon" class="material-symbols-outlined">menu</span>
+</button>
+<!-- Mobile Menu Overlay -->
+<div id="mobile-menu" class="md:hidden fixed inset-0 z-[60] translate-x-full transition-transform duration-300 ease-in-out bg-background/50 backdrop-blur-sm">
+  <div class="flex flex-col items-center justify-center h-full pt-20 pb-10 gap-6 px-gutter">
+    <a onclick="closeMobileMenu()" class="font-body-md text-lg text-on-surface-variant hover:text-primary transition-colors" href="#home">Home</a>
+    <a onclick="closeMobileMenu()" class="font-body-md text-lg text-on-surface-variant hover:text-primary transition-colors" href="#about">About</a>
+    <a onclick="closeMobileMenu()" class="font-body-md text-lg text-on-surface-variant hover:text-primary transition-colors" href="#skills">Skills</a>
+    <a onclick="closeMobileMenu()" class="font-body-md text-lg text-on-surface-variant hover:text-primary transition-colors" href="#experience">Experience</a>
+    <a onclick="closeMobileMenu()" class="mt-2 font-label-caps text-label-caps px-6 py-3 bg-primary text-on-primary rounded-lg hover:opacity-90 transition-all" href="#contact">Get in Touch</a>
+  </div>
+</div>
 <main>
 <!-- Hero Section -->
 <section class="relative overflow-hidden pt-20 pb-section-padding-mobile md:pb-section-padding-desktop opacity-100 translate-y-0" id="home">
@@ -147,7 +157,7 @@
                         Aimé Aguado
                     </h1>
 <p class="font-headline-md text-headline-md text-on-surface-variant leading-relaxed">
-                        Web Developer &amp; Administrative Assistant
+                        QA Automation Engineer
                     </p>
 <div class="flex flex-wrap gap-4 pt-4">
 <a class="font-label-caps text-label-caps px-8 py-4 bg-primary text-on-primary rounded-lg hover:opacity-90 transition-all flex items-center gap-2" href="#projects">
@@ -176,7 +186,8 @@
 <h2 class="font-headline-lg text-headline-lg text-primary">Sobre mí</h2>
 <div class="font-body-lg text-body-lg text-on-surface-variant space-y-4">
 <p class="">Soy una persona dinámica, comprometida y estructurada, con una sólida capacidad para adaptarme a entornos cambiantes y trabajar de manera eficiente bajo presión.</p>
-<p class="">Mi trayectoria combina la precisión administrativa con la creatividad del desarrollo web, lo que me permite abordar problemas desde múltiples perspectivas, siempre enfocada en la resolución efectiva y la atención al detalle.</p>
+<p class="">Ayudo a los equipos de desarrollo a entregar software de calidad detectando errores antes de que lleguen al usuario final. Automatizo pruebas funcionales y de API, y disfruto encontrar ese bug.</p>
+<p class="">Actualmente enfocada en fortalecer mis skills en testing automatizado y buenas prácticas de QA.</p>
 </div>
 <div class="grid grid-cols-2 gap-4">
 <div class="p-4 bg-tertiary-fixed rounded-xl">
@@ -216,10 +227,45 @@
 <div class="max-w-container-max mx-auto px-gutter">
 <div class="text-center max-w-2xl mx-auto mb-16">
 <h2 class="font-headline-lg text-headline-lg text-primary mb-4">Competencias Técnicas</h2>
-<p class="font-body-md text-on-surface-variant">Un balance entre el desarrollo tecnológico y la gestión estratégica digital.</p>
+<p class="font-body-md text-on-surface-variant">Herramientas y tecnologías que utilizo para garantizar la calidad del software.</p>
 </div>
-<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
 <!-- Skill Card -->
+<div class="group p-8 bg-white border border-outline-variant/30 rounded-xl text-center hover:border-secondary transition-all duration-300 ambient-shadow">
+<div class="w-12 h-12 bg-secondary-container rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-on-secondary-container">science</span>
+</div>
+<h4 class="font-label-caps text-label-caps text-primary mb-1">Selenium</h4>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-tighter">Web Automation</p>
+</div>
+<div class="group p-8 bg-white border border-outline-variant/30 rounded-xl text-center hover:border-secondary transition-all duration-300 ambient-shadow">
+<div class="w-12 h-12 bg-secondary-container rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-on-secondary-container">bug_report</span>
+</div>
+<h4 class="font-label-caps text-label-caps text-primary mb-1">Cypress</h4>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-tighter">E2E Testing</p>
+</div>
+<div class="group p-8 bg-white border border-outline-variant/30 rounded-xl text-center hover:border-secondary transition-all duration-300 ambient-shadow">
+<div class="w-12 h-12 bg-secondary-container rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-on-secondary-container">play_arrow</span>
+</div>
+<h4 class="font-label-caps text-label-caps text-primary mb-1">Playwright</h4>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-tighter">Cross-Browser</p>
+</div>
+<div class="group p-8 bg-white border border-outline-variant/30 rounded-xl text-center hover:border-secondary transition-all duration-300 ambient-shadow">
+<div class="w-12 h-12 bg-secondary-container rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-on-secondary-container">cloud_upload</span>
+</div>
+<h4 class="font-label-caps text-label-caps text-primary mb-1">Postman</h4>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-tighter">API Testing</p>
+</div>
+<div class="group p-8 bg-white border border-outline-variant/30 rounded-xl text-center hover:border-secondary transition-all duration-300 ambient-shadow">
+<div class="w-12 h-12 bg-secondary-container rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-on-secondary-container">task_alt</span>
+</div>
+<h4 class="font-label-caps text-label-caps text-primary mb-1">Jira</h4>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-tighter">Test Management</p>
+</div>
 <div class="group p-8 bg-white border border-outline-variant/30 rounded-xl text-center hover:border-secondary transition-all duration-300 ambient-shadow">
 <div class="w-12 h-12 bg-secondary-container rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
 <span class="material-symbols-outlined text-on-secondary-container">code</span>
@@ -239,21 +285,7 @@
 <span class="material-symbols-outlined text-on-secondary-container">javascript</span>
 </div>
 <h4 class="font-label-caps text-label-caps text-primary mb-1">JavaScript</h4>
-<p class="text-[10px] text-on-surface-variant uppercase tracking-tighter">Coderhouse</p>
-</div>
-<div class="group p-8 bg-white border border-outline-variant/30 rounded-xl text-center hover:border-secondary transition-all duration-300 ambient-shadow">
-<div class="w-12 h-12 bg-secondary-container rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-on-secondary-container">trending_up</span>
-</div>
-<h4 class="font-label-caps text-label-caps text-primary mb-1">Marketing Digital</h4>
-<p class="text-[10px] text-on-surface-variant uppercase tracking-tighter">Google</p>
-</div>
-<div class="group p-8 bg-white border border-outline-variant/30 rounded-xl text-center hover:border-secondary transition-all duration-300 ambient-shadow">
-<div class="w-12 h-12 bg-secondary-container rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-on-secondary-container">hub</span>
-</div>
-<h4 class="font-label-caps text-label-caps text-primary mb-1">Community Manager</h4>
-<p class="text-[10px] text-on-surface-variant uppercase tracking-tighter">Gestión RRSS</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-tighter">Lógica y DOM</p>
 </div>
 </div>
 </div>
@@ -317,7 +349,7 @@
 <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
 <div class="max-w-2xl">
 <h2 class="font-headline-lg text-headline-lg text-primary mb-4">Proyectos Destacados</h2>
-<p class="font-body-md text-on-surface-variant">Explora una selección de mis trabajos recientes en desarrollo web donde aplico lógica, estructura y diseño.</p>
+<p class="font-body-md text-on-surface-variant">Proyectos de automatización de pruebas y aseguramiento de calidad de software.</p>
 </div>
 <div class="hidden md:block">
 <span class="font-label-caps text-label-caps text-secondary border-b border-secondary pb-1 cursor-pointer hover:opacity-70 transition-opacity">Ver todos en GitHub</span>
@@ -331,13 +363,13 @@
 </div>
 <div class="p-6 space-y-4">
 <div class="flex justify-between items-start">
-<h4 class="font-headline-md text-headline-md text-primary">Plataforma E-commerce</h4>
+<h4 class="font-headline-md text-headline-md text-primary">Suite de Tests E-commerce</h4>
 <span class="material-symbols-outlined text-secondary hover:scale-110 cursor-pointer">open_in_new</span>
 </div>
-<p class="font-body-md text-on-surface-variant text-sm line-clamp-2">Desarrollo de una tienda online con gestión de carrito y checkout optimizado.</p>
+<p class="font-body-md text-on-surface-variant text-sm line-clamp-2">Automatización de tests end-to-end para flujos de compra, carrito y checkout.</p>
 <div class="flex gap-2">
-<span class="text-[10px] font-bold px-2 py-1 bg-tertiary-fixed text-primary rounded">JAVASCRIPT</span>
-<span class="text-[10px] font-bold px-2 py-1 bg-tertiary-fixed text-primary rounded">CSS3</span>
+<span class="text-[10px] font-bold px-2 py-1 bg-tertiary-fixed text-primary rounded">SELENIUM</span>
+<span class="text-[10px] font-bold px-2 py-1 bg-tertiary-fixed text-primary rounded">PLAYWRIGHT</span>
 </div>
 </div>
 </div>
@@ -348,13 +380,13 @@
 </div>
 <div class="p-6 space-y-4">
 <div class="flex justify-between items-start">
-<h4 class="font-headline-md text-headline-md text-primary">Web Corporativa</h4>
+<h4 class="font-headline-md text-headline-md text-primary">Testing de APIs REST</h4>
 <span class="material-symbols-outlined text-secondary hover:scale-110 cursor-pointer">open_in_new</span>
 </div>
-<p class="font-body-md text-on-surface-variant text-sm line-clamp-2">Sitio web informativo para consultoría profesional con diseño responsive.</p>
+<p class="font-body-md text-on-surface-variant text-sm line-clamp-2">Validación de endpoints REST con tests automatizados de respuesta, status codes y schemas.</p>
 <div class="flex gap-2">
-<span class="text-[10px] font-bold px-2 py-1 bg-tertiary-fixed text-primary rounded">HTML5</span>
-<span class="text-[10px] font-bold px-2 py-1 bg-tertiary-fixed text-primary rounded">UI/UX</span>
+<span class="text-[10px] font-bold px-2 py-1 bg-tertiary-fixed text-primary rounded">POSTMAN</span>
+<span class="text-[10px] font-bold px-2 py-1 bg-tertiary-fixed text-primary rounded">NEWMAN</span>
 </div>
 </div>
 </div>
@@ -365,13 +397,13 @@
 </div>
 <div class="p-6 space-y-4">
 <div class="flex justify-between items-start">
-<h4 class="font-headline-md text-headline-md text-primary">Portfolio Personal</h4>
+<h4 class="font-headline-md text-headline-md text-primary">Framework de Automatización</h4>
 <span class="material-symbols-outlined text-secondary hover:scale-110 cursor-pointer">open_in_new</span>
 </div>
-<p class="font-body-md text-on-surface-variant text-sm line-clamp-2">Diseño y desarrollo de este mismo espacio utilizando tecnologías modernas.</p>
+<p class="font-body-md text-on-surface-variant text-sm line-clamp-2">Framework de testing con reporting integrado y ejecución en pipeline CI/CD.</p>
 <div class="flex gap-2">
-<span class="text-[10px] font-bold px-2 py-1 bg-tertiary-fixed text-primary rounded">TAILWIND</span>
-<span class="text-[10px] font-bold px-2 py-1 bg-tertiary-fixed text-primary rounded">INTERACTIONS</span>
+<span class="text-[10px] font-bold px-2 py-1 bg-tertiary-fixed text-primary rounded">CYPRESS</span>
+<span class="text-[10px] font-bold px-2 py-1 bg-tertiary-fixed text-primary rounded">CI/CD</span>
 </div>
 </div>
 </div>
@@ -387,7 +419,7 @@
 <div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 <div class="space-y-6">
 <h2 class="font-display-lg text-[32px] md:text-headline-lg text-inverse-primary leading-tight">¿Listo para trabajar juntos?</h2>
-<p class="font-body-lg text-body-lg text-on-primary-container">Estoy disponible para consultas, colaboraciones en proyectos web o roles administrativos de alto nivel.</p>
+<p class="font-body-lg text-body-lg text-on-primary-container">Estoy disponible para consultas, colaboraciones en proyectos de QA o roles de automatización de testing.</p>
 <div class="space-y-4 pt-4">
 <div class="flex items-center gap-4">
 <div class="w-10 h-10 bg-on-primary-container/20 rounded-full flex items-center justify-center">
@@ -443,7 +475,7 @@
 <a class="text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4 transition-opacity font-label-caps text-label-caps" href="https://github.com/AimeAguado" rel="noopener noreferrer" target="_blank">GitHub</a>
 <a class="text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4 transition-opacity font-label-caps text-label-caps" href="mailto:aime.natalia.2406@gmail.com" id="footer-email">Email</a>
 </div>
-<p class="font-label-caps text-[10px] text-on-surface-variant opacity-70">WEB DEVELOPER &amp; ADMINISTRATIVE EXPERT</p>
+<p class="font-label-caps text-[10px] text-on-surface-variant opacity-70">QA AUTOMATION ENGINEER</p>
 </div>
 </div>
 </footer>
@@ -536,6 +568,34 @@
             } else {
                 nav.classList.add('bg-background/80');
                 nav.classList.remove('bg-background/95', 'shadow-md');
+            }
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        function closeMobileMenu() {
+            mobileMenu.classList.add('translate-x-full');
+            menuIcon.textContent = 'menu';
+            document.body.style.overflow = '';
+        }
+
+        menuToggle.addEventListener('click', () => {
+            const isOpen = !mobileMenu.classList.contains('translate-x-full');
+            if (isOpen) {
+                closeMobileMenu();
+            } else {
+                mobileMenu.classList.remove('translate-x-full');
+                menuIcon.textContent = 'close';
+                document.body.style.overflow = 'hidden';
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !mobileMenu.classList.contains('translate-x-full')) {
+                closeMobileMenu();
             }
         });
     </script>
