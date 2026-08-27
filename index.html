@@ -116,6 +116,19 @@
       .ambient-shadow {
         box-shadow: 0 30px 60px -12px rgba(74, 55, 40, 0.04);
       }
+      .modal-pop-in {
+        animation: modalPop 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      @keyframes modalPop {
+        from {
+          opacity: 0;
+          transform: translateY(16px) scale(0.97);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
     </style>
 </head>
 <body class="bg-background text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
@@ -444,7 +457,7 @@
 <span class="text-[10px] font-bold px-2 py-1 bg-tertiary-fixed text-primary rounded">TRACE + VIDEO</span>
 <span class="text-[10px] font-bold px-2 py-1 bg-tertiary-fixed text-primary rounded">HTML REPORT</span>
 </div>
-<a class="mt-auto inline-flex items-center justify-center gap-2 font-label-caps text-label-caps px-6 py-3 bg-primary text-on-primary rounded-lg hover:opacity-90 transition-all w-fit" href="https://github.com/AimeAguado/Bronza/tree/main/tests/e2e" rel="noopener noreferrer" target="_blank">Ver tests<span class="material-symbols-outlined text-sm">open_in_new</span></a>
+<button class="mt-auto inline-flex items-center justify-center gap-2 font-label-caps text-label-caps px-6 py-3 bg-primary text-on-primary rounded-lg hover:opacity-90 transition-all active:opacity-80 w-fit cursor-pointer" data-open-tests="playwright" type="button">Ver tests<span class="material-symbols-outlined text-sm">visibility</span></button>
 </article>
 <!-- Cypress Card -->
 <article class="group flex flex-col p-6 md:p-8 bg-surface-bright border border-outline-variant/30 rounded-xl hover:border-secondary transition-all duration-300">
@@ -480,7 +493,7 @@
 <span class="text-[10px] font-bold px-2 py-1 bg-tertiary-fixed text-primary rounded">VIDEO + SCREENSHOTS</span>
 <span class="text-[10px] font-bold px-2 py-1 bg-tertiary-fixed text-primary rounded">MOCHAWESOME REPORTS</span>
 </div>
-<a class="mt-auto inline-flex items-center justify-center gap-2 font-label-caps text-label-caps px-6 py-3 bg-primary text-on-primary rounded-lg hover:opacity-90 transition-all w-fit" href="https://github.com/AimeAguado/Bronza/tree/main/cypress/e2e" rel="noopener noreferrer" target="_blank">Ver tests<span class="material-symbols-outlined text-sm">open_in_new</span></a>
+<button class="mt-auto inline-flex items-center justify-center gap-2 font-label-caps text-label-caps px-6 py-3 bg-primary text-on-primary rounded-lg hover:opacity-90 transition-all active:opacity-80 w-fit cursor-pointer" data-open-tests="cypress" type="button">Ver tests<span class="material-symbols-outlined text-sm">visibility</span></button>
 </article>
 </div>
 </div>
@@ -556,6 +569,21 @@
 </div>
 </div>
 </footer>
+<!-- Tests Modal -->
+<div aria-hidden="true" class="fixed inset-0 z-[80] hidden items-center justify-center p-4 md:p-6" id="tests-modal">
+<div class="absolute inset-0 bg-[#1a1c1c]/60 backdrop-blur-sm" data-close-tests></div>
+<div class="relative bg-surface w-full max-w-4xl max-h-[90vh] overflow-hidden rounded-2xl shadow-2xl modal-pop-in" role="dialog" aria-label="Detalle de tests automatizados" aria-modal="true">
+<div class="sticky top-0 z-10 bg-surface/95 backdrop-blur-sm border-b border-outline-variant/30 px-6 md:px-10 py-5 flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl flex items-center justify-center text-on-primary font-headline-md text-sm font-bold shrink-0" id="tests-modal-logo">PW</div>
+<div class="flex-1 min-w-0">
+<h4 class="font-headline-md text-headline-md text-primary leading-tight truncate" id="tests-modal-title">Playwright</h4>
+<p class="text-[11px] uppercase tracking-wider text-secondary font-bold truncate" id="tests-modal-subtitle">End-to-End Testing</p>
+</div>
+<button aria-label="Cerrar" class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors shrink-0 cursor-pointer" data-close-tests type="button"><span class="material-symbols-outlined">close</span></button>
+</div>
+<div class="overflow-y-auto max-h-[calc(90vh-84px)]" id="tests-modal-body"></div>
+</div>
+</div>
 <script>
         // Simple reveal on scroll effect
         const observerOptions = {
@@ -673,6 +701,691 @@
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && !mobileMenu.classList.contains('translate-x-full')) {
                 closeMobileMenu();
+            }
+        });
+
+        // ===== Presentador de tests (Playwright & Cypress) =====
+        const SPEC_MEDIA = {
+            'Login de usuario': { video: 'videos/login.webm', poster: 'screenshots/login.png', caption: 'Demo real grabado: inicio de sesión con una cuenta registrada.' },
+            'Registro de usuario': { video: 'videos/registro.webm', poster: 'screenshots/registro.png', caption: 'Demo real grabado: alta de un usuario nuevo con email único.' },
+            'Carrito de compras': { video: 'videos/carrito.webm', poster: 'screenshots/carrito.png', caption: 'Demo real grabado: agregar un producto, subir su cantidad y ver el total actualizarse.' },
+            'Checkout — Integración MercadoPago': { video: 'videos/checkout.webm', poster: 'screenshots/checkout.png', caption: 'Demo real grabado: del carrito a "IR A CHECKOUT" — al confirmar la compra pide iniciar sesión.' },
+            'Botón flotante de WhatsApp': { video: 'videos/whatsapp.webm', poster: 'screenshots/home.png', caption: 'Demo real grabado: el botón flotante de WhatsApp acompaña el scroll y es siempre visible.' }
+        };
+        const FRIENDLY = {
+            'permite iniciar sesión con credenciales válidas': 'Entra con un usuario real y la app lo deja pasar: después del login ya no estás en /login.',
+            'muestra error con contraseña incorrecta': 'Si ponés mal la contraseña, la app te lo avisa y te deja seguir intentándolo en el mismo lugar.',
+            'muestra error con un email no registrado': 'Un email sin cuenta no entra: aparece el error y nadie se mete.',
+            'no permite loguear con campos vacíos': 'Apretar "Entrar" sin completar los campos no te loguea, te queda todo para completar.',
+            'mantiene la sesión iniciada al navegar entre páginas': 'Después de entrar, si navegás por el sitio seguís logueado (el link "Iniciar sesión" desaparece).',
+            'registra un usuario nuevo con datos válidos': 'Crea una cuenta nueva desde cero, con un email único para que la prueba sirva siempre.',
+            'muestra error cuando las contraseñas no coinciden': 'Si la contraseña y su confirmación no son iguales, la app lo detecta y no te deja avanzar.',
+            'muestra error con un formato de email inválido': 'Con un email mal escrito no se permite el alta: el formulario te queda para corregirlo.',
+            'no permite enviar el formulario con campos vacíos': 'Sin datos en el formulario no se registra nada, por más que aprietes el botón.',
+            'no permite registrar un email ya existente': 'Si el email ya tiene cuenta, la app te avisa para no crear duplicados.',
+            'muestra el carrito vacío inicialmente': 'Al entrar al carrito sin agregar nada, se ve el mensaje de que está vacío.',
+            'permite agregar un producto al carrito': 'Tocás "agregar" en un producto y aparece en el carrito como item.',
+            'permite aumentar la cantidad de un producto': 'Con el botón "+" subís la cantidad y el número se actualiza.',
+            'permite eliminar un producto del carrito': 'Con "Eliminar" sacás el producto y el carrito vuelve a quedar vacío.',
+            'actualiza el total al agregar más de un producto': 'Agregás dos productos y el carrito recalcula el total solo.',
+            'el botón de checkout está deshabilitado con el carrito vacío': 'Carrito vacío = no se puede pagar: el botón de checkout queda deshabilitado.',
+            'redirige al usuario al checkout de MercadoPago al confirmar la compra': 'Al confirmar la compra, la app pide la preferencia de pago al backend y responde bien: es la puerta de entrada a MercadoPago.',
+            'muestra el resumen de la orden con el total correcto antes de pagar': 'Antes de pagar, ves el resumen de tu pedido con el monto total en pantalla.',
+            'maneja un error del backend al crear la preferencia de pago': 'Simulan que el backend falla (error 500) y la app no se rompe: sigue mostrando el resumen sin caerse.',
+            'no permite ir a checkout si el carrito está vacío': 'Sin productos en el carrito, el botón para ir a checkout queda bloqueado.',
+            'el botón de WhatsApp es visible en el inicio': 'Apenas abrís la página, el botón flotante de WhatsApp se ve en la esquina.',
+            'apunta al número de WhatsApp correcto': 'Se revisa que el botón lleve al número real de la tienda.',
+            'incluye un mensaje automático pre-cargado': 'El link ya trae un mensaje armado, para que llegue escrito al abrir WhatsApp.',
+            'se abre en una pestaña nueva (target=_blank)': 'El chat se abre en otra pestaña, sin sacarte de la tienda.',
+            "usa rel='noopener noreferrer' por seguridad": 'Detalle de seguridad: la pestaña nueva no puede manipular a la tienda.',
+            'permanece visible al hacer scroll en la página': 'Por más que bajes la página, el botón sigue flotando para que no tengas que volver arriba.'
+        };
+        const TEST_SUITES = {
+            playwright: {
+                framework: 'Playwright',
+                subtitle: 'End-to-End Testing · tests/e2e · 5 specs · 26 casos',
+                monogram: 'PW',
+                brand: '#2D4552',
+                githubUrl: 'https://github.com/AimeAguado/Bronza/tree/main/tests/e2e',
+                description: 'Suite E2E desarrollada sobre el e-commerce Bronza Club con Playwright. Page Object Model, fixtures JSON, login vía API para arrancar autenticado y reporting con trace + video.',
+                characteristics: ['PAGE OBJECT MODEL', 'FIXTURES JSON', 'LOGIN VÍA API', 'MOCKING DE APIS', 'TRACE + VIDEO', 'HTML REPORT'],
+                specs: [
+                    {
+                        title: 'Login de usuario',
+                        icon: 'login',
+                        file: 'tests/e2e/auth/login.spec.js',
+                        goal: 'Verifica el acceso de usuarios existentes y el manejo de errores de autenticación. Cada caso resetea el estado de la app en un beforeEach para que el escenario arranque siempre desde cero.',
+                        tests: [
+                            {
+                                name: 'permite iniciar sesión con credenciales válidas',
+                                why: 'Confirma que un usuario registrado accede correctamente y que tras el login se abandona la URL /login.',
+                                code: `await login.visit();
+await login.login(users.existingUser.email, users.existingUser.password);
+await expect(page).not.toHaveURL(/\\/login/);`
+                            },
+                            {
+                                name: 'muestra error con contraseña incorrecta',
+                                why: 'Garantiza que una contraseña inválida muestra el mensaje de error en pantalla y mantiene al usuario en /login.',
+                                code: `await login.login(users.existingUser.email, "PasswordIncorrecta123!");
+await expect(login.errorMessage).toBeVisible();
+await expect(page).toHaveURL(/\\/login/);`
+                            },
+                            {
+                                name: 'muestra error con un email no registrado',
+                                why: 'Valida que un email inexistente recibe el feedback de error en pantalla y no permite el acceso.',
+                                code: `await login.login("noexiste@bronza-test.com", "CualquierPassword123!");
+await expect(login.errorMessage).toBeVisible();`
+                            },
+                            {
+                                name: 'no permite loguear con campos vacíos',
+                                why: 'Comprueba que enviar el formulario sin completar los campos no inicia sesión: el usuario permanece en /login.',
+                                code: `await login.visit();
+await login.submitButton.click();
+await expect(page).toHaveURL(/\\/login/);`
+                            },
+                            {
+                                name: 'mantiene la sesión iniciada al navegar entre páginas',
+                                why: 'Verifica la persistencia de la sesión: al volver al Home, el link "Iniciar sesión" ya no aparece en el header.',
+                                code: `const home = new HomePage(page);
+await home.visit();
+await expect(home.navLoginLink).toHaveCount(0);`
+                            }
+                        ]
+                    },
+                    {
+                        title: 'Registro de usuario',
+                        icon: 'person_add',
+                        file: 'tests/e2e/auth/register.spec.js',
+                        goal: 'Cubre el alta de usuarios nuevos: caso feliz, validación de contraseñas y formato de email, campos obligatorios y emails duplicados.',
+                        tests: [
+                            {
+                                name: 'registra un usuario nuevo con datos válidos',
+                                why: 'Usa un email único por ejecución (uniqueEmail) para que el alta sea siempre reproducible y no colisione con datos previos.',
+                                code: `await register.fillForm({
+  ...users.validNewUser,
+  email: uniqueEmail(users.validNewUser.email),
+});
+await register.submit();
+await expect(page).not.toHaveURL(/\\/registro/);`
+                            },
+                            {
+                                name: 'muestra error cuando las contraseñas no coinciden',
+                                why: 'Valida el control de coincidencia entre password y confirmPassword del formulario de registro.',
+                                code: `await register.fillForm(users.invalidPasswordMismatch);
+await register.submit();
+await expect(register.errorMessage).toBeVisible();
+await expect(page).toHaveURL(/\\/registro/);`
+                            },
+                            {
+                                name: 'muestra error con un formato de email inválido',
+                                why: 'Asegura que el registro rechaza emails mal formados y el usuario permanece en /registro.',
+                                code: `await register.fillForm(users.invalidEmailFormat);
+await register.submit();
+await expect(page).toHaveURL(/\\/registro/);`
+                            },
+                            {
+                                name: 'no permite enviar el formulario con campos vacíos',
+                                why: 'Comprueba que el botón de envío no produce un alta con el formulario vacío.',
+                                code: `await register.visit();
+await register.submitButton.click();
+await expect(page).toHaveURL(/\\/registro/);`
+                            },
+                            {
+                                name: 'no permite registrar un email ya existente',
+                                why: 'Evita cuentas duplicadas: un email previamente registrado debe mostrar mensaje de error.',
+                                code: `await register.fillForm({
+  name: "Usuario Duplicado",
+  email: users.existingUser.email,
+  password: "OtraPassword123!",
+  confirmPassword: "OtraPassword123!",
+});
+await register.submit();
+await expect(register.errorMessage).toBeVisible();`
+                            }
+                        ]
+                    },
+                    {
+                        title: 'Carrito de compras',
+                        icon: 'shopping_cart',
+                        file: 'tests/e2e/cart/cart.spec.js',
+                        goal: 'Valida el ciclo completo del carrito: estado vacío, agregar productos, modificar cantidad, eliminar, recálculo del total y estado del botón de checkout.',
+                        tests: [
+                            {
+                                name: 'muestra el carrito vacío inicialmente',
+                                why: 'Estado base del negocio: sin productos agregados se muestra el mensaje de carrito vacío.',
+                                code: `await cart.visit();
+await expect(cart.emptyCartMessage).toBeVisible();`
+                            },
+                            {
+                                name: 'permite agregar un producto al carrito',
+                                why: 'Agrega el primer producto desde el Home y confirma que aparece como item en el carrito.',
+                                code: `await home.productCards.first().getByTestId("add-to-cart-button").click();
+await home.navCartIcon.click();
+await expect(cart.cartItems).toHaveCount(1);`
+                            },
+                            {
+                                name: 'permite aumentar la cantidad de un producto',
+                                why: 'Incrementa la cantidad de un item y verifica que el contador muestre el nuevo valor (2).',
+                                code: `await cart.increaseQuantity(0);
+await expect(cart.cartItems.nth(0).getByTestId("cart-item-quantity")).toContainText("2");`
+                            },
+                            {
+                                name: 'permite eliminar un producto del carrito',
+                                why: 'Quita un item del carrito y confirma que el carrito vuelve a su estado vacío.',
+                                code: `await cart.removeItemByIndex(0);
+await expect(cart.emptyCartMessage).toBeVisible();`
+                            },
+                            {
+                                name: 'actualiza el total al agregar más de un producto',
+                                why: 'Agrega dos productos distintos y verifica que el carrito liste ambos items con el total recalculado.',
+                                code: `await home.productCards.nth(0).getByTestId("add-to-cart-button").click();
+await home.productCards.nth(1).getByTestId("add-to-cart-button").click();
+await expect(cart.cartItems).toHaveCount(2);
+await expect(cart.cartTotal).toBeVisible();`
+                            },
+                            {
+                                name: 'el botón de checkout está deshabilitado con el carrito vacío',
+                                why: 'Buenas prácticas de UX: sin items en el carrito no se puede avanzar al pago.',
+                                code: `await cart.visit();
+await expect(cart.checkoutButton).toBeDisabled();`
+                            }
+                        ]
+                    },
+                    {
+                        title: 'Checkout — Integración MercadoPago',
+                        icon: 'credit_card',
+                        file: 'tests/e2e/checkout/mercadopago.spec.js',
+                        goal: 'Estrategia de testing "hasta el límite del contrato": no se automatiza dentro del sitio de MercadoPago (dominio de terceros). Se intercepta la creación de la preferencia de pago y se valida la respuesta del backend. Usa login vía API para arrancar autenticado.',
+                        tests: [
+                            {
+                                name: 'redirige al usuario al checkout de MercadoPago al confirmar la compra',
+                                why: 'Intercepta la request POST a la API de preferencia de pago y valida que el backend responde 200, confirmando que la integración dispara correctamente.',
+                                code: `const createPreference = page.waitForResponse(
+  (resp) =>
+    resp.url().includes("/api/") &&
+    resp.url().includes("preference") &&
+    resp.request().method() === "POST"
+);
+await cart.goToCheckout();
+const resp = await createPreference;
+expect(resp.status()).toBe(200);`
+                            },
+                            {
+                                name: 'muestra el resumen de la orden con el total correcto antes de pagar',
+                                why: 'Antes de llegar a MercadoPago, la UI debe mostrar el resumen de la orden y el monto total.',
+                                code: `await cart.goToCheckout();
+const checkout = new CheckoutPage(page);
+await expect(checkout.orderSummary).toBeVisible();
+await expect(checkout.totalAmount).toBeVisible();`
+                            },
+                            {
+                                name: 'maneja un error del backend al crear la preferencia de pago',
+                                why: 'Simula una falla del backend (mocking con status 500) para verificar que la UI responde sin romperse ante el error.',
+                                code: `await page.route("**/api/**preference**", (route) =>
+  route.fulfill({
+    status: 500,
+    contentType: "application/json",
+    body: JSON.stringify({ error: "Error al crear preferencia" }),
+  })
+);`
+                            },
+                            {
+                                name: 'no permite ir a checkout si el carrito está vacío',
+                                why: 'Sin items en el carrito, la opción de ir a checkout permanece deshabilitada.',
+                                code: `await cart.removeItemByIndex(0);
+await expect(cart.checkoutButton).toBeDisabled();`
+                            }
+                        ]
+                    },
+                    {
+                        title: 'Botón flotante de WhatsApp',
+                        icon: 'chat',
+                        file: 'tests/e2e/navigation/whatsapp.spec.js',
+                        goal: 'Sin navegar al dominio externo wa.me: se valida que el botón flotante sea visible, apunte al número correcto, contenga el mensaje pre-cargado y cumpla buenas prácticas de seguridad (target="_blank" + rel="noopener noreferrer").',
+                        tests: [
+                            {
+                                name: 'el botón de WhatsApp es visible en el inicio',
+                                why: 'El botón flotante de contacto debe estar presente apenas el usuario entra al Home.',
+                                code: `await expect(new HomePage(page).whatsappButton).toBeVisible();`
+                            },
+                            {
+                                name: 'apunta al número de WhatsApp correcto',
+                                why: 'Lee el atributo href del botón y verifica que incluya el número configurado en el fixture whatsapp.json.',
+                                code: `const href = await new HomePage(page).whatsappButton.getAttribute("href");
+expect(href).toContain(whatsapp.expectedPhoneNumber);`
+                            },
+                            {
+                                name: 'incluye un mensaje automático pre-cargado',
+                                why: 'El link debe traer el mensaje de bienvenida ya codificado, para que al abrir WhatsApp llegue armado.',
+                                code: `expect(decodeURIComponent(href)).toContain(whatsapp.expectedMessageSnippet);`
+                            },
+                            {
+                                name: 'se abre en una pestaña nueva (target=_blank)',
+                                why: 'Confirma que la charla de WhatsApp no reemplaza la pestaña del e-commerce.',
+                                code: `await expect(new HomePage(page).whatsappButton).toHaveAttribute("target", "_blank");`
+                            },
+                            {
+                                name: "usa rel='noopener noreferrer' por seguridad",
+                                why: 'Buenas prácticas de seguridad web al abrir ventanas externas.',
+                                code: `const rel = await new HomePage(page).whatsappButton.getAttribute("rel");
+expect(rel).toContain("noopener");`
+                            },
+                            {
+                                name: 'permanece visible al hacer scroll en la página',
+                                why: 'El botón flotante es sticky: debe seguir visible al navegar hasta el final de la página.',
+                                code: `await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+await expect(new HomePage(page).whatsappButton).toBeVisible();`
+                            }
+                        ]
+                    }
+                ]
+            },
+            cypress: {
+                framework: 'Cypress',
+                subtitle: 'End-to-End Testing · cypress/e2e · 5 specs · 26 casos',
+                monogram: 'CY',
+                brand: '#17202C',
+                githubUrl: 'https://github.com/AimeAguado/Bronza/tree/main/cypress/e2e',
+                description: 'Suite E2E desarrollada sobre el e-commerce Bronza Club con Cypress. Comandos personalizados, tags @smoke/@regression para ejecuciones selectivas e interceptación de red para validar integraciones externas como MercadoPago y WhatsApp.',
+                characteristics: ['PAGE OBJECT MODEL', 'CUSTOM COMMANDS', 'TAGS @SMOKE / @REGRESSION', 'INTERCEPT & STUBBING', 'VIDEO + SCREENSHOTS', 'MOCHAWESOME REPORTS'],
+                specs: [
+                    {
+                        title: 'Login de usuario',
+                        icon: 'login',
+                        file: 'cypress/e2e/auth/login.cy.js',
+                        goal: 'El mismo flujo que Playwright pero con sintaxis de Cypress. Los tags @smoke/@regression permiten ejecutar solo un subconjunto de tests desde la CLI. Cada caso resetea el estado con el comando personalizado cy.resetAppState().',
+                        tests: [
+                            {
+                                name: 'permite iniciar sesión con credenciales válidas',
+                                tags: ['@smoke', '@regression'],
+                                why: 'Confirma que un usuario registrado accede correctamente y que tras el login se abandona la URL /login.',
+                                code: `LoginPage.visit().login(users.existingUser.email, users.existingUser.password);
+
+cy.url().should("not.include", "/login");`
+                            },
+                            {
+                                name: 'muestra error con contraseña incorrecta',
+                                tags: ['@regression'],
+                                why: 'Garantiza que una contraseña inválida muestra el mensaje de error en pantalla y mantiene al usuario en /login.',
+                                code: `LoginPage.visit().login(users.existingUser.email, "PasswordIncorrecta123!");
+
+LoginPage.errorMessage.should("be.visible");
+cy.url().should("include", "/login");`
+                            },
+                            {
+                                name: 'muestra error con un email no registrado',
+                                tags: ['@regression'],
+                                why: 'Valida que un email inexistente recibe el feedback de error en pantalla y no permite el acceso.',
+                                code: `LoginPage.visit().login("noexiste@bronza-test.com", "CualquierPassword123!");
+
+LoginPage.errorMessage.should("be.visible");`
+                            },
+                            {
+                                name: 'no permite loguear con campos vacíos',
+                                tags: ['@regression'],
+                                why: 'Comprueba que enviar el formulario sin completar los campos no inicia sesión: el usuario permanece en /login.',
+                                code: `LoginPage.visit();
+LoginPage.submitButton.click();
+
+cy.url().should("include", "/login");`
+                            },
+                            {
+                                name: 'mantiene la sesión iniciada al navegar entre páginas',
+                                tags: ['@regression'],
+                                why: 'Verifica la persistencia de la sesión: al volver al Home, el link "Iniciar sesión" ya no aparece en el header.',
+                                code: `LoginPage.visit().login(users.existingUser.email, users.existingUser.password);
+HomePage.visit();
+
+HomePage.navLoginLink.should("not.exist");`
+                            }
+                        ]
+                    },
+                    {
+                        title: 'Registro de usuario',
+                        icon: 'person_add',
+                        file: 'cypress/e2e/auth/register.cy.js',
+                        goal: 'Las fixtures de Cypress (cy.fixture("users")) alimentan los datos del formulario. El email único se genera con Date.now() reemplazando el placeholder {{timestamp}} dentro del fixture.',
+                        tests: [
+                            {
+                                name: 'registra un usuario nuevo con datos válidos',
+                                tags: ['@smoke', '@regression'],
+                                why: 'Genera un email único por ejecución a partir del fixture para que el alta sea reproducible.',
+                                code: `const timestamp = Date.now();
+const newUser = {
+  ...users.validNewUser,
+  email: users.validNewUser.email.replace("{{timestamp}}", timestamp),
+};
+
+RegisterPage.visit().fillForm(newUser).submit();
+cy.url().should("not.include", "/registro");`
+                            },
+                            {
+                                name: 'muestra error cuando las contraseñas no coinciden',
+                                tags: ['@regression'],
+                                why: 'Valida el control de coincidencia entre password y confirmPassword del formulario de registro.',
+                                code: `RegisterPage.visit().fillForm(users.invalidPasswordMismatch).submit();
+
+RegisterPage.errorMessage.should("be.visible");
+cy.url().should("include", "/registro");`
+                            },
+                            {
+                                name: 'muestra error con un formato de email inválido',
+                                tags: ['@regression'],
+                                why: 'Asegura que el registro rechaza emails mal formados y el usuario permanece en /registro.',
+                                code: `RegisterPage.visit().fillForm(users.invalidEmailFormat).submit();
+
+cy.url().should("include", "/registro");`
+                            },
+                            {
+                                name: 'no permite enviar el formulario con campos vacíos',
+                                tags: ['@regression'],
+                                why: 'Comprueba que el botón de envío no produce un alta con el formulario vacío.',
+                                code: `RegisterPage.visit();
+RegisterPage.submitButton.click();
+
+cy.url().should("include", "/registro");`
+                            },
+                            {
+                                name: 'no permite registrar un email ya existente',
+                                tags: ['@regression'],
+                                why: 'Evita cuentas duplicadas: un email previamente registrado debe mostrar mensaje de error.',
+                                code: `RegisterPage.visit()
+  .fillForm({
+    name: "Usuario Duplicado",
+    email: users.existingUser.email,
+    password: "OtraPassword123!",
+    confirmPassword: "OtraPassword123!",
+  })
+  .submit();
+
+RegisterPage.errorMessage.should("be.visible");`
+                            }
+                        ]
+                    },
+                    {
+                        title: 'Carrito de compras',
+                        icon: 'shopping_cart',
+                        file: 'cypress/e2e/cart/cart.cy.js',
+                        goal: 'Comandos personalizados (cy.getByTestId) y Page Object Model estático: las page objects exponen selectores y acciones como propiedades encadenables con la API de Cypress.',
+                        tests: [
+                            {
+                                name: 'muestra el carrito vacío inicialmente',
+                                tags: ['@smoke'],
+                                why: 'Estado base del negocio: sin productos agregados se muestra el mensaje de carrito vacío.',
+                                code: `CartPage.visit();
+CartPage.emptyCartMessage.should("be.visible");`
+                            },
+                            {
+                                name: 'permite agregar un producto al carrito',
+                                tags: ['@smoke', '@regression'],
+                                why: 'Agrega el primer producto desde el Home y confirma que aparece como item en el carrito.',
+                                code: `HomePage.productCards.first().within(() => {
+  cy.getByTestId("add-to-cart-button").click();
+});
+HomePage.navCartIcon.click();
+CartPage.cartItems.should("have.length.at.least", 1);`
+                            },
+                            {
+                                name: 'permite aumentar la cantidad de un producto',
+                                tags: ['@regression'],
+                                why: 'Incrementa la cantidad de un item y verifica que el contador muestre el nuevo valor (2).',
+                                code: `CartPage.increaseQuantity(0);
+
+CartPage.cartItems.eq(0)
+  .find("[data-testid='cart-item-quantity']")
+  .should("contain.text", "2");`
+                            },
+                            {
+                                name: 'permite eliminar un producto del carrito',
+                                tags: ['@regression'],
+                                why: 'Quita un item del carrito y confirma que el carrito vuelve a su estado vacío.',
+                                code: `CartPage.removeItemByIndex(0);
+
+CartPage.emptyCartMessage.should("be.visible");`
+                            },
+                            {
+                                name: 'actualiza el total al agregar más de un producto',
+                                tags: ['@regression'],
+                                why: 'Agrega dos productos distintos y verifica que el carrito liste ambos items con el total recalculado.',
+                                code: `HomePage.productCards.eq(0).within(() => {
+  cy.getByTestId("add-to-cart-button").click();
+});
+HomePage.productCards.eq(1).within(() => {
+  cy.getByTestId("add-to-cart-button").click();
+});
+
+CartPage.cartItems.should("have.length", 2);
+CartPage.cartTotal.should("be.visible");`
+                            },
+                            {
+                                name: 'el botón de checkout está deshabilitado con el carrito vacío',
+                                tags: ['@regression'],
+                                why: 'Buenas prácticas de UX: sin items en el carrito no se puede avanzar al pago.',
+                                code: `CartPage.visit();
+CartPage.checkoutButton.should("be.disabled");`
+                            }
+                        ]
+                    },
+                    {
+                        title: 'Checkout — Integración MercadoPago',
+                        icon: 'credit_card',
+                        file: 'cypress/e2e/checkout/mercadopago.cy.js',
+                        goal: 'Interceptación de red con cy.intercept(): se captura la request de creación de la preferencia de pago y se valida su status, o se mockea el error 500 sin llegar tocar MercadoPago.',
+                        tests: [
+                            {
+                                name: 'redirige al usuario al checkout de MercadoPago al confirmar la compra',
+                                tags: ['@smoke', '@regression'],
+                                why: 'Intercepta la request POST a la API de preferencia de pago y valida que el backend responde 200, confirmando que la integración dispara correctamente.',
+                                code: `cy.intercept("POST", /\\/api\\/.*preference/).as("createPreference");
+
+CartPage.goToCheckout();
+CheckoutPage.orderSummary.should("be.visible");
+CheckoutPage.mercadoPagoButton.should("be.visible");
+
+cy.wait("@createPreference").its("response.statusCode").should("eq", 200);`
+                            },
+                            {
+                                name: 'muestra el resumen de la orden con el total correcto antes de pagar',
+                                tags: ['@regression'],
+                                why: 'Antes de llegar a MercadoPago, la UI debe mostrar el resumen de la orden y el monto total.',
+                                code: `CartPage.goToCheckout();
+
+CheckoutPage.orderSummary.should("be.visible");
+CheckoutPage.totalAmount.should("be.visible");`
+                            },
+                            {
+                                name: 'maneja un error del backend al crear la preferencia de pago',
+                                tags: ['@regression'],
+                                why: 'Mockea la respuesta del backend con status 500 (stubbing) para verificar que la UI responde sin romperse ante el error.',
+                                code: `cy.intercept("POST", /\\/api\\/.*preference/, {
+  statusCode: 500,
+  body: { error: "Error al crear preferencia" },
+}).as("createPreferenceError");
+
+CartPage.goToCheckout();
+cy.wait("@createPreferenceError");`
+                            },
+                            {
+                                name: 'no permite ir a checkout si el carrito está vacío',
+                                tags: ['@regression'],
+                                why: 'Sin items en el carrito, la opción de ir a checkout permanece deshabilitada.',
+                                code: `CartPage.removeItemByIndex(0);
+CartPage.checkoutButton.should("be.disabled");`
+                            }
+                        ]
+                    },
+                    {
+                        title: 'Botón flotante de WhatsApp',
+                        icon: 'chat',
+                        file: 'cypress/e2e/navigation/whatsapp.cy.js',
+                        goal: 'Cypress no puede verificar la apertura real de wa.me (dominio externo). La estrategia es validar los atributos del enlace: href con número y mensaje pre-codificados, target="_blank" y rel="noopener noreferrer".',
+                        tests: [
+                            {
+                                name: 'el botón de WhatsApp es visible en el inicio',
+                                tags: ['@smoke'],
+                                why: 'El botón flotante de contacto debe estar presente apenas el usuario entra al Home.',
+                                code: `HomePage.whatsappButton.should("be.visible");`
+                            },
+                            {
+                                name: 'apunta al número de WhatsApp correcto',
+                                tags: ['@smoke', '@regression'],
+                                why: 'Lee el atributo href del botón y verifica que incluya el número configurado en el fixture whatsapp.json.',
+                                code: `HomePage.whatsappButton.should("have.attr", "href")
+  .and("include", whatsappData.expectedPhoneNumber);`
+                            },
+                            {
+                                name: 'incluye un mensaje automático pre-cargado',
+                                tags: ['@regression'],
+                                why: 'El link debe traer el mensaje de bienvenida ya codificado, para que al abrir WhatsApp llegue armado.',
+                                code: `HomePage.whatsappButton.should("have.attr", "href").then((href) => {
+  const decodedHref = decodeURIComponent(href);
+  expect(decodedHref).to.include(whatsappData.expectedMessageSnippet);
+});`
+                            },
+                            {
+                                name: 'se abre en una pestaña nueva (target=_blank)',
+                                tags: ['@regression'],
+                                why: 'Confirma que la charla de WhatsApp no reemplaza la pestaña del e-commerce.',
+                                code: `HomePage.whatsappButton.should("have.attr", "target", "_blank");`
+                            },
+                            {
+                                name: "usa rel='noopener noreferrer' por seguridad",
+                                tags: ['@regression'],
+                                why: 'Buenas prácticas de seguridad web al abrir ventanas externas.',
+                                code: `HomePage.whatsappButton.should("have.attr", "rel").and("include", "noopener");`
+                            },
+                            {
+                                name: 'permanece visible al hacer scroll en la página',
+                                tags: ['@regression'],
+                                why: 'El botón flotante es sticky: debe seguir visible al navegar hasta el final de la página.',
+                                code: `cy.scrollTo("bottom");
+HomePage.whatsappButton.should("be.visible");`
+                            }
+                        ]
+                    }
+                ]
+            }
+        };
+
+        const testsModal = document.getElementById('tests-modal');
+        const testsModalBody = document.getElementById('tests-modal-body');
+        const testsModalTitle = document.getElementById('tests-modal-title');
+        const testsModalSubtitle = document.getElementById('tests-modal-subtitle');
+        const testsModalLogo = document.getElementById('tests-modal-logo');
+
+        function escapeHtml(str) {
+            return str.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+        }
+
+        function testsSpecCard(spec, index) {
+            return `
+            <div class="border border-outline-variant/30 rounded-xl overflow-hidden bg-white">
+              <button class="spec-toggle w-full flex items-center gap-4 p-4 md:p-5 text-left hover:bg-surface-bright transition-colors cursor-pointer" data-index="${index}" type="button" aria-expanded="false">
+                <span class="w-10 h-10 shrink-0 rounded-lg bg-secondary-container flex items-center justify-center">
+                  <span class="material-symbols-outlined text-on-secondary-container">${spec.icon}</span>
+                </span>
+                <span class="flex-1 min-w-0">
+                  <span class="block font-body-md text-sm font-bold text-primary">${spec.title}</span>
+                  <span class="block font-mono text-[11px] text-on-surface-variant truncate">${spec.file} · ${spec.tests.length} casos</span>
+                </span>
+                <span class="material-symbols-outlined text-secondary transition-transform duration-300 spec-chevron">expand_more</span>
+              </button>
+              <div class="spec-panel hidden">
+                <div class="px-4 md:px-5 pb-5 bg-surface-bright border-t border-outline-variant/20">
+                  <p class="text-xs leading-relaxed text-on-surface-variant italic mt-4 mb-4">
+                    <span class="font-bold not-italic text-secondary uppercase tracking-wider text-[10px] block mb-1">Objetivo del spec</span>
+                    ${spec.goal}
+                  </p>
+                  ${SPEC_MEDIA[spec.title] ? `
+                  <div class="mb-4">
+                    <video class="w-full rounded-lg border border-outline-variant/30 bg-[#211d18]" controls autoplay loop muted playsinline poster="${SPEC_MEDIA[spec.title].poster}" aria-label="Video demo: ${spec.title}">
+                      <source src="${SPEC_MEDIA[spec.title].video}" type="video/webm">
+                      Tu navegador no soporta video.
+                    </video>
+                    <p class="text-[11px] text-on-surface-variant mt-2 flex items-start gap-1"><span class="material-symbols-outlined text-sm text-secondary shrink-0">play_circle</span>${SPEC_MEDIA[spec.title].caption}</p>
+                  </div>
+                  ` : ''}
+                  <div class="space-y-3">
+                    ${spec.tests.map((t) => `
+                      <div class="bg-white border border-outline-variant/20 rounded-lg p-4">
+                        <div class="flex flex-wrap items-start gap-x-2 gap-y-1 mb-2">
+                          <span class="material-symbols-outlined text-base text-secondary shrink-0 mt-0.5">check_circle</span>
+                          <p class="font-body-md text-sm font-semibold text-primary flex-1 min-w-0">${t.name}</p>
+                          ${(t.tags || []).map((g) => `<span class="text-[9px] font-bold px-1.5 py-0.5 rounded bg-tertiary-fixed text-primary uppercase whitespace-nowrap">${g}</span>`).join('')}
+                        </div>
+                        <p class="text-xs text-on-surface leading-relaxed mb-1"><span class="font-bold text-secondary">En simple · </span>${FRIENDLY[t.name] || t.why}</p>
+                        <p class="text-xs text-on-surface-variant mb-3"><span class="font-bold text-secondary">Qué valida · </span>${t.why}</p>
+                        <pre class="bg-[#211d18] text-[#e8e0d5] rounded-md p-3 text-[11px] leading-relaxed font-mono overflow-x-auto"><code>${escapeHtml(t.code)}</code></pre>
+                      </div>
+                    `).join('')}
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+        }
+
+        function renderTestSuite(key) {
+            const suite = TEST_SUITES[key];
+            testsModalTitle.textContent = suite.framework;
+            testsModalSubtitle.textContent = suite.subtitle;
+            testsModalLogo.textContent = suite.monogram;
+            testsModalLogo.style.background = suite.brand;
+
+            testsModalBody.innerHTML = `
+            <div class="px-6 md:px-10 py-6 md:py-8">
+              <p class="font-body-md text-sm text-on-surface-variant leading-relaxed">${suite.description}</p>
+              <div class="flex flex-wrap gap-2 mt-4">
+                ${suite.characteristics.map((c) => `<span class="text-[10px] font-bold px-2 py-1 bg-tertiary-fixed text-primary rounded">${c}</span>`).join('')}
+              </div>
+              <div class="mt-6 space-y-3">
+                ${suite.specs.map(testsSpecCard).join('')}
+              </div>
+              <p class="mt-6 text-center text-xs text-on-surface-variant">¿Querés ver el código completo? <a class="underline decoration-2 underline-offset-2 hover:text-primary transition-colors font-semibold" href="${suite.githubUrl}" rel="noopener noreferrer" target="_blank">abrir ${suite.framework.toLowerCase()} en GitHub</a></p>
+            </div>
+          `;
+        }
+
+        function openTestsModal(key) {
+            renderTestSuite(key);
+            testsModal.classList.remove('hidden');
+            testsModal.classList.add('flex');
+            testsModal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeTestsModal() {
+            testsModal.classList.add('hidden');
+            testsModal.classList.remove('flex');
+            testsModal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        document.addEventListener('click', (e) => {
+            const openBtn = e.target.closest('[data-open-tests]');
+            if (openBtn) {
+                openTestsModal(openBtn.dataset.openTests);
+                return;
+            }
+            if (e.target.closest('[data-close-tests]')) {
+                closeTestsModal();
+                return;
+            }
+            const toggle = e.target.closest('.spec-toggle');
+            if (toggle && testsModal.contains(toggle)) {
+                const panel = toggle.parentElement.querySelector('.spec-panel');
+                const chevron = toggle.querySelector('.spec-chevron');
+                const isOpen = !panel.classList.contains('hidden');
+                panel.classList.toggle('hidden', isOpen);
+                chevron.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+                chevron.textContent = isOpen ? 'expand_more' : 'expand_less';
+                toggle.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !testsModal.classList.contains('hidden')) {
+                closeTestsModal();
             }
         });
     </script>
