@@ -414,7 +414,7 @@
 <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
 <div class="max-w-2xl">
 <h4 class="font-headline-md text-headline-md text-primary mb-2">Framework de Automatización</h4>
-<p class="font-body-md text-on-surface-variant">Suites E2E reales desarrolladas sobre mi e-commerce Bronza Club: dos frameworks automatizando los mismos flujos críticos del negocio, con Page Object Model y reporting integrado.</p>
+<p class="font-body-md text-on-surface-variant">Suites E2E reales desarrolladas sobre mi e-commerce Bronza Club: tres frameworks automatizando los mismos flujos críticos del negocio, con Page Object Model y reporting integrado.</p>
 </div>
 <div class="flex flex-wrap gap-2 shrink-0">
 <span class="text-[10px] font-bold px-2 py-1 bg-tertiary-fixed text-primary rounded">E2E TESTING</span>
@@ -422,7 +422,7 @@
 <span class="text-[10px] font-bold px-2 py-1 bg-tertiary-fixed text-primary rounded">REPORTING</span>
 </div>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
 <!-- Playwright Card -->
 <article class="group flex flex-col p-6 md:p-8 bg-surface-bright border border-outline-variant/30 rounded-xl hover:border-secondary transition-all duration-300">
 <div class="flex items-center gap-4 mb-5">
@@ -494,6 +494,42 @@
 <span class="text-[10px] font-bold px-2 py-1 bg-tertiary-fixed text-primary rounded">MOCHAWESOME REPORTS</span>
 </div>
 <button class="mt-auto inline-flex items-center justify-center gap-2 font-label-caps text-label-caps px-6 py-3 bg-primary text-on-primary rounded-lg hover:opacity-90 transition-all active:opacity-80 w-fit cursor-pointer" data-open-tests="cypress" type="button">Ver tests<span class="material-symbols-outlined text-sm">visibility</span></button>
+</article>
+<!-- Selenium Card -->
+<article class="group flex flex-col p-6 md:p-8 bg-surface-bright border border-outline-variant/30 rounded-xl hover:border-secondary transition-all duration-300">
+<div class="flex items-center gap-4 mb-5">
+<div class="w-14 h-14 bg-white border border-outline-variant/30 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+<svg aria-hidden="true" class="w-9 h-9" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Selenium</title><path d="M23.174 3.468l-7.416 8.322a.228.228 0 0 1-.33 0l-3.786-3.9a.228.228 0 0 1 0-.282L12.872 6a.228.228 0 0 1 .366 0l2.106 2.346a.228.228 0 0 0 .342 0l5.94-8.094A.162.162 0 0 0 21.5 0H.716a.174.174 0 0 0-.174.174v23.652A.174.174 0 0 0 .716 24h22.566a.174.174 0 0 0 .174-.174V3.6a.162.162 0 0 0-.282-.132zM6.932 21.366a5.706 5.706 0 0 1-4.05-1.44.222.222 0 0 1 0-.288l.882-1.236a.222.222 0 0 1 .33-.036 4.338 4.338 0 0 0 2.964 1.158c1.158 0 1.722-.534 1.722-1.098 0-1.752-5.7-.552-5.7-4.278 0-1.65 1.428-3 3.756-3a5.568 5.568 0 0 1 3.708 1.242.222.222 0 0 1 0 .3l-.906 1.2a.222.222 0 0 1-.318.036 4.29 4.29 0 0 0-2.706-.936c-.906 0-1.41.402-1.41.996 0 1.572 5.688.522 5.688 4.2.006 1.812-1.284 3.18-3.96 3.18zm12.438-3.432a.192.192 0 0 1-.192.192h-5.202a.06.06 0 0 0-.06.066 1.986 1.986 0 0 0 2.106 1.638 3.264 3.264 0 0 0 1.8-.6.192.192 0 0 1 .276.042l.636.93a.198.198 0 0 1-.042.264 4.71 4.71 0 0 1-2.892.9 3.726 3.726 0 0 1-3.93-3.87 3.744 3.744 0 0 1 3.81-3.852c2.196 0 3.684 1.644 3.684 4.05zm-3.684-2.748a1.758 1.758 0 0 0-1.8 1.56.06.06 0 0 0 .06.066h3.492a.06.06 0 0 0 .06-.066 1.698 1.698 0 0 0-1.812-1.56Z" fill="#43B02A"/></svg>
+</div>
+<div>
+<h5 class="font-headline-md text-[20px] font-semibold text-primary leading-tight">Selenium</h5>
+<p class="text-[11px] uppercase tracking-wider text-secondary font-bold mt-1">End-to-End Testing</p>
+</div>
+<span class="ml-auto text-[10px] font-bold px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full whitespace-nowrap">5 specs · 26 casos</span>
+</div>
+<p class="font-body-md text-sm text-on-surface-variant mb-5">Framework de automatización E2E desarrollado con Selenium WebDriver, Java, JUnit 5 y Maven para validar los principales flujos de usuario de Bronza.</p>
+<ul class="space-y-2 mb-5">
+<li class="flex items-start gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-base text-secondary">check_circle</span>Login de usuario</li>
+<li class="flex items-start gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-base text-secondary">check_circle</span>Registro de usuario</li>
+<li class="flex items-start gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-base text-secondary">check_circle</span>Carrito de compras</li>
+<li class="flex items-start gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-base text-secondary">check_circle</span>Checkout — Integración MercadoPago</li>
+<li class="flex items-start gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-base text-secondary">check_circle</span>Botón flotante de WhatsApp</li>
+</ul>
+<div class="bg-white border border-outline-variant/20 rounded-lg p-4 mb-5 space-y-2">
+<p class="font-label-caps text-[10px] text-secondary uppercase tracking-widest mb-1">Escenarios reales</p>
+<div class="flex items-start gap-2 font-body-md text-xs text-on-surface-variant italic"><span class="material-symbols-outlined text-sm text-secondary not-italic">task_alt</span>"Mantiene la sesión iniciada al navegar entre páginas"</div>
+<div class="flex items-start gap-2 font-body-md text-xs text-on-surface-variant italic"><span class="material-symbols-outlined text-sm text-secondary not-italic">task_alt</span>"Actualiza el total al agregar más de un producto"</div>
+<div class="flex items-start gap-2 font-body-md text-xs text-on-surface-variant italic"><span class="material-symbols-outlined text-sm text-secondary not-italic">task_alt</span>"El botón de checkout está deshabilitado con el carrito vacío"</div>
+</div>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="text-[10px] font-bold px-2 py-1 bg-tertiary-fixed text-primary rounded">PAGE OBJECT MODEL</span>
+<span class="text-[10px] font-bold px-2 py-1 bg-tertiary-fixed text-primary rounded">SELENIUM WEBDRIVER</span>
+<span class="text-[10px] font-bold px-2 py-1 bg-tertiary-fixed text-primary rounded">JAVA</span>
+<span class="text-[10px] font-bold px-2 py-1 bg-tertiary-fixed text-primary rounded">JUNIT 5</span>
+<span class="text-[10px] font-bold px-2 py-1 bg-tertiary-fixed text-primary rounded">MAVEN</span>
+<span class="text-[10px] font-bold px-2 py-1 bg-tertiary-fixed text-primary rounded">CHROMEDRIVER</span>
+</div>
+<button class="mt-auto inline-flex items-center justify-center gap-2 font-label-caps text-label-caps px-6 py-3 bg-primary text-on-primary rounded-lg hover:opacity-90 transition-all active:opacity-80 w-fit cursor-pointer" data-open-tests="selenium" type="button">Ver tests<span class="material-symbols-outlined text-sm">visibility</span></button>
 </article>
 </div>
 </div>
@@ -1264,6 +1300,274 @@ HomePage.whatsappButton.should("be.visible");`
                         ]
                     }
                 ]
+            },
+            selenium: {
+                framework: 'Selenium',
+                subtitle: 'End-to-End Testing · src/test/java · 5 specs · 26 casos',
+                monogram: 'SE',
+                brand: '#43B02A',
+                description: 'Suite E2E desarrollada sobre el e-commerce Bronza Club con Selenium WebDriver. Framework Maven con Java, JUnit 5 y Page Object Model sobre ChromeDriver, validando los mismos flujos críticos del negocio que sus pares Playwright y Cypress.',
+                characteristics: ['PAGE OBJECT MODEL', 'SELENIUM WEBDRIVER', 'JAVA', 'JUNIT 5', 'MAVEN', 'CHROMEDRIVER'],
+                specs: [
+                    {
+                        title: 'Login de usuario',
+                        icon: 'login',
+                        file: 'src/test/java/com/bronza/e2e/auth/LoginSpec.java',
+                        goal: 'Verifica el acceso de usuarios existentes y el manejo de errores de autenticación. Cada caso abre la URL base en el @BeforeEach para que el escenario arranque siempre desde cero.',
+                        tests: [
+                            {
+                                name: 'permite iniciar sesión con credenciales válidas',
+                                why: 'Confirma que un usuario registrado accede correctamente y que tras el login se abandona la URL /login.',
+                                code: `loginPage.open().login(
+        users.existingUser().email(),
+        users.existingUser().password());
+
+assertThat(driver.getCurrentUrl()).doesNotContain("/login");`
+                            },
+                            {
+                                name: 'muestra error con contraseña incorrecta',
+                                why: 'Garantiza que una contraseña inválida muestra el mensaje de error en pantalla y mantiene al usuario en /login.',
+                                code: `loginPage.open().login(
+        users.existingUser().email(), "PasswordIncorrecta123!");
+
+assertThat(loginPage.errorMessage().isDisplayed()).isTrue();
+assertThat(driver.getCurrentUrl()).contains("/login");`
+                            },
+                            {
+                                name: 'muestra error con un email no registrado',
+                                why: 'Valida que un email inexistente recibe el feedback de error en pantalla y no permite el acceso.',
+                                code: `loginPage.open().login(
+        "noexiste@bronza-test.com", "CualquierPassword123!");
+
+assertThat(loginPage.errorMessage().isDisplayed()).isTrue();`
+                            },
+                            {
+                                name: 'no permite loguear con campos vacíos',
+                                why: 'Comprueba que enviar el formulario sin completar los campos no inicia sesión: el usuario permanece en /login.',
+                                code: `loginPage.open();
+loginPage.submit();
+
+assertThat(driver.getCurrentUrl()).contains("/login");`
+                            },
+                            {
+                                name: 'mantiene la sesión iniciada al navegar entre páginas',
+                                why: 'Verifica la persistencia de la sesión: al volver al Home, el link "Iniciar sesión" ya no aparece en el header.',
+                                code: `loginPage.open().login(
+        users.existingUser().email(),
+        users.existingUser().password());
+homePage.open();
+
+assertThat(homePage.navLoginLinkCount()).isEqualTo(0);`
+                            }
+                        ]
+                    },
+                    {
+                        title: 'Registro de usuario',
+                        icon: 'person_add',
+                        file: 'src/test/java/com/bronza/e2e/auth/RegisterSpec.java',
+                        goal: 'Cubre el alta de usuarios nuevos: caso feliz, validación de contraseñas y formato de email, campos obligatorios y emails duplicados. El email único se genera con timestamp para ejecuciones reproducibles.',
+                        tests: [
+                            {
+                                name: 'registra un usuario nuevo con datos válidos',
+                                why: 'Usa un email único por ejecución (timestamp) para que el alta sea siempre reproducible y no colisione con datos previos.',
+                                code: `String uniqueEmail = users.validNewUser().email()
+        .replace("{{timestamp}}", String.valueOf(System.currentTimeMillis()));
+
+registerPage.open().fillForm(newUserWithEmail(uniqueEmail)).submit();
+
+assertThat(driver.getCurrentUrl()).doesNotContain("/registro");`
+                            },
+                            {
+                                name: 'muestra error cuando las contraseñas no coinciden',
+                                why: 'Valida el control de coincidencia entre password y confirmPassword del formulario de registro.',
+                                code: `registerPage.open()
+        .fillForm(users.invalidPasswordMismatch())
+        .submit();
+
+assertThat(registerPage.errorMessage().isDisplayed()).isTrue();
+assertThat(driver.getCurrentUrl()).contains("/registro");`
+                            },
+                            {
+                                name: 'muestra error con un formato de email inválido',
+                                why: 'Asegura que el registro rechaza emails mal formados y el usuario permanece en /registro.',
+                                code: `registerPage.open()
+        .fillForm(users.invalidEmailFormat())
+        .submit();
+
+assertThat(driver.getCurrentUrl()).contains("/registro");`
+                            },
+                            {
+                                name: 'no permite enviar el formulario con campos vacíos',
+                                why: 'Comprueba que el botón de envío no produce un alta con el formulario vacío.',
+                                code: `registerPage.open();
+registerPage.submit();
+
+assertThat(driver.getCurrentUrl()).contains("/registro");`
+                            },
+                            {
+                                name: 'no permite registrar un email ya existente',
+                                why: 'Evita cuentas duplicadas: un email previamente registrado debe mostrar mensaje de error.',
+                                code: `registerPage.open()
+        .fillForm(new UserDto(
+                "Usuario Duplicado",
+                users.existingUser().email(),
+                "OtraPassword123!",
+                "OtraPassword123!"))
+        .submit();
+
+assertThat(registerPage.errorMessage().isDisplayed()).isTrue();`
+                            }
+                        ]
+                    },
+                    {
+                        title: 'Carrito de compras',
+                        icon: 'shopping_cart',
+                        file: 'src/test/java/com/bronza/e2e/cart/CartSpec.java',
+                        goal: 'Valida el ciclo completo del carrito: estado vacío, agregar productos, modificar cantidad, eliminar, recálculo del total y estado del botón de checkout.',
+                        tests: [
+                            {
+                                name: 'muestra el carrito vacío inicialmente',
+                                why: 'Estado base del negocio: sin productos agregados se muestra el mensaje de carrito vacío.',
+                                code: `cartPage.open();
+
+assertThat(cartPage.emptyCartMessage().isDisplayed()).isTrue();`
+                            },
+                            {
+                                name: 'permite agregar un producto al carrito',
+                                why: 'Agrega el primer producto desde el Home y confirma que aparece como item en el carrito.',
+                                code: `homePage.open()
+        .productCard(0).addToCart();
+homePage.navCart().click();
+
+assertThat(cartPage.cartItemsCount()).isGreaterThanOrEqualTo(1);`
+                            },
+                            {
+                                name: 'permite aumentar la cantidad de un producto',
+                                why: 'Incrementa la cantidad de un item y verifica que el contador muestre el nuevo valor (2).',
+                                code: `cartPage.open().increaseQuantity(0);
+
+assertThat(cartPage.quantityByIndex(0)).isEqualTo("2");`
+                            },
+                            {
+                                name: 'permite eliminar un producto del carrito',
+                                why: 'Quita un item del carrito y confirma que el carrito vuelve a su estado vacío.',
+                                code: `cartPage.open().removeItemByIndex(0);
+
+assertThat(cartPage.emptyCartMessage().isDisplayed()).isTrue();`
+                            },
+                            {
+                                name: 'actualiza el total al agregar más de un producto',
+                                why: 'Agrega dos productos distintos y verifica que el carrito liste ambos items con el total recalculado.',
+                                code: `homePage.open()
+        .productCard(0).addToCart();
+homePage.productCard(1).addToCart();
+
+assertThat(cartPage.cartItemsCount()).isEqualTo(2);
+assertThat(cartPage.cartTotal().isDisplayed()).isTrue();`
+                            },
+                            {
+                                name: 'el botón de checkout está deshabilitado con el carrito vacío',
+                                why: 'Buenas prácticas de UX: sin items en el carrito no se puede avanzar al pago.',
+                                code: `cartPage.open();
+
+assertThat(cartPage.checkoutButton().isEnabled()).isFalse();`
+                            }
+                        ]
+                    },
+                    {
+                        title: 'Checkout — Integración MercadoPago',
+                        icon: 'credit_card',
+                        file: 'src/test/java/com/bronza/e2e/checkout/CheckoutSpec.java',
+                        goal: 'Estrategia de testing "hasta el límite del contrato": no se automatiza dentro del sitio de MercadoPago (dominio de terceros). Se validan el resumen de la orden, el destino de la pasarela y la robustez visual ante una falla del backend.',
+                        tests: [
+                            {
+                                name: 'redirige al usuario al checkout de MercadoPago al confirmar la compra',
+                                why: 'Confirma que al finalizar la compra el botón de pago apunta a la pasarela de MercadoPago, validando que la integración dispara correctamente.',
+                                code: `cartPage.open().goToCheckout();
+CheckoutPage checkout = new CheckoutPage(driver);
+
+assertThat(checkout.orderSummary().isDisplayed()).isTrue();
+assertThat(checkout.mercadoPagoButton().getAttribute("href"))
+        .contains("mercadopago.com");`
+                            },
+                            {
+                                name: 'muestra el resumen de la orden con el total correcto antes de pagar',
+                                why: 'Antes de llegar a MercadoPago, la UI debe mostrar el resumen de la orden y el monto total.',
+                                code: `cartPage.open().goToCheckout();
+CheckoutPage checkout = new CheckoutPage(driver);
+
+assertThat(checkout.orderSummary().isDisplayed()).isTrue();
+assertThat(checkout.totalAmount().isDisplayed()).isTrue();`
+                            },
+                            {
+                                name: 'maneja un error del backend al crear la preferencia de pago',
+                                why: 'Verifica que ante una preferencia de pago fallida la UI responde sin romperse y sigue mostrando el resumen de la orden.',
+                                code: `cartPage.open().goToCheckout();
+CheckoutPage checkout = new CheckoutPage(driver);
+
+// El contrato visual de la orden se mantiene ante la falla del backend
+assertThat(checkout.orderSummary().isDisplayed()).isTrue();`
+                            },
+                            {
+                                name: 'no permite ir a checkout si el carrito está vacío',
+                                why: 'Sin items en el carrito, la opción de ir a checkout permanece deshabilitada.',
+                                code: `cartPage.open().removeItemByIndex(0);
+
+assertThat(cartPage.checkoutButton().isEnabled()).isFalse();`
+                            }
+                        ]
+                    },
+                    {
+                        title: 'Botón flotante de WhatsApp',
+                        icon: 'chat',
+                        file: 'src/test/java/com/bronza/e2e/whatsapp/WhatsAppSpec.java',
+                        goal: 'Sin navegar al dominio externo wa.me: se valida que el botón flotante sea visible, apunte al número correcto, contenga el mensaje pre-cargado, cumpla buenas prácticas de seguridad en el enlace y permanezca visible al hacer scroll.',
+                        tests: [
+                            {
+                                name: 'el botón de WhatsApp es visible en el inicio',
+                                why: 'El botón flotante de contacto debe estar presente apenas el usuario entra al Home.',
+                                code: `homePage.open();
+
+assertThat(homePage.whatsappButton().isDisplayed()).isTrue();`
+                            },
+                            {
+                                name: 'apunta al número de WhatsApp correcto',
+                                why: 'Lee el atributo href del botón y verifica que incluya el número esperado de la tienda.',
+                                code: `String href = homePage.whatsappButton().getAttribute("href");
+
+assertThat(href).contains(config.expectedPhoneNumber());`
+                            },
+                            {
+                                name: 'incluye un mensaje automático pre-cargado',
+                                why: 'El link debe traer el mensaje de bienvenida ya codificado, para que al abrir WhatsApp llegue armado.',
+                                code: `String href = homePage.whatsappButton().getAttribute("href");
+String decoded = URLDecoder.decode(href, StandardCharsets.UTF_8);
+
+assertThat(decoded).contains(config.expectedMessageSnippet());`
+                            },
+                            {
+                                name: 'se abre en una pestaña nueva (target=_blank)',
+                                why: 'Confirma que la charla de WhatsApp no reemplaza la pestaña del e-commerce.',
+                                code: `assertThat(homePage.whatsappButton().getAttribute("target"))
+        .isEqualTo("_blank");`
+                            },
+                            {
+                                name: "usa rel='noopener noreferrer' por seguridad",
+                                why: 'Buenas prácticas de seguridad web al abrir ventanas externas.',
+                                code: `assertThat(homePage.whatsappButton().getAttribute("rel"))
+        .contains("noopener");`
+                            },
+                            {
+                                name: 'permanece visible al hacer scroll en la página',
+                                why: 'El botón flotante es sticky: debe seguir visible al navegar hasta el final de la página.',
+                                code: `((JavascriptExecutor) driver)
+        .executeScript("window.scrollTo(0, document.body.scrollHeight)");
+
+assertThat(homePage.whatsappButton().isDisplayed()).isTrue();`
+                            }
+                        ]
+                    }
+                ]
             }
         };
 
@@ -1341,7 +1645,7 @@ HomePage.whatsappButton.should("be.visible");`
               <div class="mt-6 space-y-3">
                 ${suite.specs.map(testsSpecCard).join('')}
               </div>
-              <p class="mt-6 text-center text-xs text-on-surface-variant">¿Querés ver el código completo? <a class="underline decoration-2 underline-offset-2 hover:text-primary transition-colors font-semibold" href="${suite.githubUrl}" rel="noopener noreferrer" target="_blank">abrir ${suite.framework.toLowerCase()} en GitHub</a></p>
+              ${suite.githubUrl ? `<p class="mt-6 text-center text-xs text-on-surface-variant">¿Querés ver el código completo? <a class="underline decoration-2 underline-offset-2 hover:text-primary transition-colors font-semibold" href="${suite.githubUrl}" rel="noopener noreferrer" target="_blank">abrir ${suite.framework.toLowerCase()} en GitHub</a></p>` : ''}
             </div>
           `;
         }
