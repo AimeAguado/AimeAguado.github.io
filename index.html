@@ -138,11 +138,23 @@
 <a class="font-headline-md text-headline-md font-bold tracking-tight text-primary" href="#">Aimé Aguado</a>
 <!-- Desktop Nav -->
 <div class="hidden md:flex gap-8 items-center">
-<a class="font-body-md text-body-md text-primary border-b-2 border-primary pb-1" href="#home">Home</a>
-<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#about">About</a>
-<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#skills">Skills</a>
-<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#experience">Experience</a>
-<a class="ml-4 font-label-caps text-label-caps px-6 py-3 bg-primary text-on-primary rounded-lg hover:opacity-90 transition-all scale-95 active:opacity-80" href="#contact">Get in Touch</a>
+<a class="font-body-md text-body-md text-primary border-b-2 border-primary pb-1" data-i18n="nav_home" href="#home">Home</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-i18n="nav_about" href="#about">About</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-i18n="nav_skills" href="#skills">Skills</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-i18n="nav_experience" href="#experience">Experience</a>
+<div class="relative" id="lang-select-wrap">
+<button aria-haspopup="true" aria-expanded="false" class="flex items-center gap-1 font-label-caps text-label-caps px-3 py-2 border border-outline-variant/50 text-on-surface-variant hover:text-primary hover:border-primary rounded-lg transition-all cursor-pointer" id="lang-toggle" type="button">
+<span class="material-symbols-outlined text-base">language</span>
+<span id="lang-current">ES</span>
+<span class="material-symbols-outlined text-sm transition-transform" id="lang-chevron">expand_more</span>
+</button>
+<div class="absolute right-0 mt-2 w-40 hidden flex-col bg-white border border-outline-variant/30 rounded-lg shadow-lg overflow-hidden z-[60]" id="lang-menu" role="menu">
+<button class="lang-option text-left px-4 py-2.5 font-body-md text-sm text-on-surface-variant hover:bg-surface-container transition-colors cursor-pointer" data-lang="es" role="menuitem" type="button">Español</button>
+<button class="lang-option text-left px-4 py-2.5 font-body-md text-sm text-on-surface-variant hover:bg-surface-container transition-colors cursor-pointer" data-lang="en" role="menuitem" type="button">English</button>
+<button class="lang-option text-left px-4 py-2.5 font-body-md text-sm text-on-surface-variant hover:bg-surface-container transition-colors cursor-pointer" data-lang="pt" role="menuitem" type="button">Português</button>
+</div>
+</div>
+<a class="ml-4 font-label-caps text-label-caps px-6 py-3 bg-primary text-on-primary rounded-lg hover:opacity-90 transition-all scale-95 active:opacity-80" data-i18n="nav_contact" href="#contact">Get in Touch</a>
 </div>
 </div>
 </nav>
@@ -153,11 +165,19 @@
 <!-- Mobile Menu Overlay -->
 <div id="mobile-menu" class="md:hidden fixed inset-0 z-[60] translate-x-full transition-transform duration-300 ease-in-out bg-background/50 backdrop-blur-sm">
   <div class="flex flex-col items-center justify-center h-full pt-20 pb-10 gap-6 px-gutter">
-    <a onclick="closeMobileMenu()" class="font-body-md text-lg text-on-surface-variant hover:text-primary transition-colors" href="#home">Home</a>
-    <a onclick="closeMobileMenu()" class="font-body-md text-lg text-on-surface-variant hover:text-primary transition-colors" href="#about">About</a>
-    <a onclick="closeMobileMenu()" class="font-body-md text-lg text-on-surface-variant hover:text-primary transition-colors" href="#skills">Skills</a>
-    <a onclick="closeMobileMenu()" class="font-body-md text-lg text-on-surface-variant hover:text-primary transition-colors" href="#experience">Experience</a>
-    <a onclick="closeMobileMenu()" class="mt-2 font-label-caps text-label-caps px-6 py-3 bg-primary text-on-primary rounded-lg hover:opacity-90 transition-all" href="#contact">Get in Touch</a>
+    <a onclick="closeMobileMenu()" class="font-body-md text-lg text-on-surface-variant hover:text-primary transition-colors" data-i18n="nav_home" href="#home">Home</a>
+    <a onclick="closeMobileMenu()" class="font-body-md text-lg text-on-surface-variant hover:text-primary transition-colors" data-i18n="nav_about" href="#about">About</a>
+    <a onclick="closeMobileMenu()" class="font-body-md text-lg text-on-surface-variant hover:text-primary transition-colors" data-i18n="nav_skills" href="#skills">Skills</a>
+    <a onclick="closeMobileMenu()" class="font-body-md text-lg text-on-surface-variant hover:text-primary transition-colors" data-i18n="nav_experience" href="#experience">Experience</a>
+    <div class="mt-2 flex flex-col items-center gap-3">
+      <span class="font-label-caps text-label-caps text-on-surface-variant">Idioma</span>
+      <div class="flex gap-2">
+        <button class="lang-option font-label-caps text-label-caps px-4 py-2 border border-outline-variant/50 rounded-lg text-on-surface-variant hover:border-primary transition-colors cursor-pointer" data-lang="es" type="button">ES</button>
+        <button class="lang-option font-label-caps text-label-caps px-4 py-2 border border-outline-variant/50 rounded-lg text-on-surface-variant hover:border-primary transition-colors cursor-pointer" data-lang="en" type="button">EN</button>
+        <button class="lang-option font-label-caps text-label-caps px-4 py-2 border border-outline-variant/50 rounded-lg text-on-surface-variant hover:border-primary transition-colors cursor-pointer" data-lang="pt" type="button">PT</button>
+      </div>
+    </div>
+    <a onclick="closeMobileMenu()" class="mt-2 font-label-caps text-label-caps px-6 py-3 bg-primary text-on-primary rounded-lg hover:opacity-90 transition-all" data-i18n="nav_contact" href="#contact">Get in Touch</a>
   </div>
 </div>
 <main>
@@ -165,19 +185,19 @@
 <section class="relative overflow-hidden pt-8 pb-8 md:pb-12 opacity-100 translate-y-0" id="home">
 <div class="max-w-container-max mx-auto px-gutter grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
 <div class="md:col-span-7 space-y-6">
-<span class="font-label-caps text-label-caps text-secondary tracking-widest uppercase">Disponible para nuevos desafíos</span>
+<span class="font-label-caps text-label-caps text-secondary tracking-widest uppercase" data-i18n="hero_available">Disponible para nuevos desafíos</span>
 <h1 class="font-display-lg text-[48px] md:text-display-lg leading-tight text-primary">
                         Aimé Aguado
                     </h1>
-<p class="font-headline-md text-headline-md text-on-surface-variant leading-relaxed">
+<p class="font-headline-md text-headline-md text-on-surface-variant leading-relaxed" data-i18n="hero_role">
                         QA Automation Engineer
                     </p>
 <div class="flex flex-wrap gap-4 pt-4">
 <a class="font-label-caps text-label-caps px-8 py-4 bg-primary text-on-primary rounded-lg hover:opacity-90 transition-all flex items-center gap-2" href="#projects">
-                            Ver Proyectos
+                            <span data-i18n="hero_projects">Ver Proyectos</span>
                             <span class="material-symbols-outlined text-sm">arrow_forward</span>
-</a>
-<a class="font-label-caps text-label-caps px-8 py-4 border border-secondary text-secondary rounded-lg hover:bg-secondary/5 transition-all" href="#contact">
+                        </a>
+<a class="font-label-caps text-label-caps px-8 py-4 border border-secondary text-secondary rounded-lg hover:bg-secondary/5 transition-all" data-i18n="hero_contact" href="#contact">
                             Contactar
                         </a>
 </div>
@@ -196,38 +216,38 @@
 <div class="max-w-container-max mx-auto px-gutter">
 <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
 <div class="space-y-8">
-<h2 class="font-headline-lg text-headline-lg text-primary">Sobre mí</h2>
+<h2 class="font-headline-lg text-headline-lg text-primary" data-i18n="about_title">Sobre mí</h2>
 <div class="font-body-lg text-body-lg text-on-surface-variant space-y-4">
-<p class="">Soy una persona dinámica, comprometida y estructurada, con una sólida capacidad para adaptarme a entornos cambiantes y trabajar de manera eficiente bajo presión.</p>
-<p class="">Ayudo a los equipos de desarrollo a entregar software de calidad detectando errores antes de que lleguen al usuario final. Automatizo pruebas funcionales y de API, y disfruto encontrar ese bug.</p>
-<p class="">Actualmente enfocada en fortalecer mis skills en testing automatizado y buenas prácticas de QA.</p>
+<p class="" data-i18n="about_p1">Soy una persona dinámica, comprometida y estructurada, con una sólida capacidad para adaptarme a entornos cambiantes y trabajar de manera eficiente bajo presión.</p>
+<p class="" data-i18n="about_p2">Ayudo a los equipos de desarrollo a entregar software de calidad detectando errores antes de que lleguen al usuario final. Automatizo pruebas funcionales y de API, y disfruto encontrar ese bug.</p>
+<p class="" data-i18n="about_p3">Actualmente enfocada en fortalecer mis skills en testing automatizado y buenas prácticas de QA.</p>
 </div>
 <div class="grid grid-cols-2 gap-4">
 <div class="p-4 bg-tertiary-fixed rounded-xl">
 <span class="material-symbols-outlined text-secondary block mb-2">groups</span>
-<p class="font-label-caps text-label-caps text-primary">Habilidades Interpersonales</p>
+<p class="font-label-caps text-label-caps text-primary" data-i18n="about_soft">Habilidades Interpersonales</p>
 </div>
 <div class="p-4 bg-tertiary-fixed rounded-xl">
 <span class="material-symbols-outlined text-secondary block mb-2">verified</span>
-<p class="font-label-caps text-label-caps text-primary">Compromiso Profesional</p>
+<p class="font-label-caps text-label-caps text-primary" data-i18n="about_commit">Compromiso Profesional</p>
 </div>
 </div>
 </div>
 <div class="bg-white p-8 md:p-12 rounded-2xl ambient-shadow border border-outline-variant/30">
-<h3 class="font-headline-md text-headline-md text-primary mb-6">Educación</h3>
+<h3 class="font-headline-md text-headline-md text-primary mb-6" data-i18n="edu_title">Educación</h3>
 <div class="space-y-8">
 <div class="flex gap-4">
 <span class="material-symbols-outlined text-secondary">school</span>
 <div>
-<h4 class="font-body-lg font-bold text-primary">Tecnicatura Analista de Sistemas</h4>
-<p class="font-body-md text-on-surface-variant">Formación Técnica Superior</p>
+<h4 class="font-body-lg font-bold text-primary" data-i18n="edu_deg1">Tecnicatura Analista de Sistemas</h4>
+<p class="font-body-md text-on-surface-variant" data-i18n="edu_deg1_sub">Formación Técnica Superior</p>
 </div>
 </div>
 <div class="flex gap-4">
 <span class="material-symbols-outlined text-secondary">workspace_premium</span>
 <div>
-<h4 class="font-body-lg font-bold text-primary">Bachillerato en Economía</h4>
-<p class="font-body-md text-on-surface-variant">Educación Secundaria</p>
+<h4 class="font-body-lg font-bold text-primary" data-i18n="edu_deg2">Bachillerato en Economía</h4>
+<p class="font-body-md text-on-surface-variant" data-i18n="edu_deg2_sub">Educación Secundaria</p>
 </div>
 </div>
 </div>
@@ -239,8 +259,8 @@
 <section class="py-8 md:py-12 bg-background opacity-100 translate-y-0" id="skills">
 <div class="max-w-container-max mx-auto px-gutter">
 <div class="text-center max-w-2xl mx-auto mb-16">
-<h2 class="font-headline-lg text-headline-lg text-primary mb-4">Competencias Técnicas</h2>
-<p class="font-body-md text-on-surface-variant">Herramientas y tecnologías que utilizo para garantizar la calidad del software.</p>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4" data-i18n="skills_title">Competencias Técnicas</h2>
+<p class="font-body-md text-on-surface-variant" data-i18n="skills_sub">Herramientas y tecnologías que utilizo para garantizar la calidad del software.</p>
 </div>
 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
 <!-- Skill Card -->
@@ -284,21 +304,21 @@
 <span class="material-symbols-outlined text-on-secondary-container">code</span>
 </div>
 <h4 class="font-label-caps text-label-caps text-primary mb-1">HTML5</h4>
-<p class="text-[10px] text-on-surface-variant uppercase tracking-tighter">Estructura Web</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-tighter" data-i18n="skill_web">Estructura Web</p>
 </div>
 <div class="group p-8 bg-white border border-outline-variant/30 rounded-xl text-center hover:border-secondary transition-all duration-300 ambient-shadow">
 <div class="w-12 h-12 bg-secondary-container rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
 <span class="material-symbols-outlined text-on-secondary-container">palette</span>
 </div>
 <h4 class="font-label-caps text-label-caps text-primary mb-1">CSS3</h4>
-<p class="text-[10px] text-on-surface-variant uppercase tracking-tighter">Diseño Visual</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-tighter" data-i18n="skill_visual">Diseño Visual</p>
 </div>
 <div class="group p-8 bg-white border border-outline-variant/30 rounded-xl text-center hover:border-secondary transition-all duration-300 ambient-shadow">
 <div class="w-12 h-12 bg-secondary-container rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
 <span class="material-symbols-outlined text-on-secondary-container">javascript</span>
 </div>
 <h4 class="font-label-caps text-label-caps text-primary mb-1">JavaScript</h4>
-<p class="text-[10px] text-on-surface-variant uppercase tracking-tighter">Lógica y DOM</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-tighter" data-i18n="skill_dom">Lógica y DOM</p>
 </div>
 </div>
 </div>
@@ -306,34 +326,34 @@
 <!-- Experience Section -->
 <section class="py-8 md:py-12 bg-surface-container-lowest opacity-100 translate-y-0" id="experience">
 <div class="max-w-container-max mx-auto px-gutter">
-<h2 class="font-headline-lg text-headline-lg text-primary mb-16">Trayectoria Profesional</h2>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-16" data-i18n="exp_title">Trayectoria Profesional</h2>
 <div class="relative border-l border-primary/20 ml-3 md:ml-6 pl-8 md:pl-12 space-y-12">
 <!-- Item 1 -->
 <div class="relative">
 <div class="timeline-dot"></div>
 <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
-<h3 class="font-headline-md text-headline-md text-primary">&nbsp; BRONZA CLUB — Proyecto Propio</h3>
-<span class="font-label-caps text-label-caps text-secondary bg-secondary/10 px-3 py-1 rounded-full w-fit">En desarrollo</span>
+<h3 class="font-headline-md text-headline-md text-primary">&nbsp; BRONZA CLUB — <span data-i18n="exp_own_project">Proyecto Propio</span></h3>
+<span class="font-label-caps text-label-caps text-secondary bg-secondary/10 px-3 py-1 rounded-full w-fit" data-i18n="exp_in_progress">En desarrollo</span>
 </div>
-<p class="font-body-md text-on-surface-variant max-w-2xl">Desarrollo full stack de página E-Commerce con React JS, Node.js, HTML y CSS. Integración de pasarela de pagos Mercado Pago y pasarela de WhatsApp con mensaje automático. Implementación de testing QA Automation con Cypress, Playwright y testing de APIs con Postman.</p>
+<p class="font-body-md text-on-surface-variant max-w-2xl" data-i18n="exp_bronza">Desarrollo full stack de página E-Commerce con React JS, Node.js, HTML y CSS. Integración de pasarela de pagos Mercado Pago y pasarela de WhatsApp con mensaje automático. Implementación de testing QA Automation con Cypress, Playwright y testing de APIs con Postman.</p>
 </div>
 <!-- Item 1b: Inmotask -->
 <div class="relative">
 <div class="timeline-dot"></div>
 <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
-<h3 class="font-headline-md text-headline-md text-primary">&nbsp; INMOTASK — Proyecto Propio</h3>
-<span class="font-label-caps text-label-caps text-secondary bg-secondary/10 px-3 py-1 rounded-full w-fit">En desarrollo</span>
+<h3 class="font-headline-md text-headline-md text-primary">&nbsp; INMOTASK — <span data-i18n="exp_own_project">Proyecto Propio</span></h3>
+<span class="font-label-caps text-label-caps text-secondary bg-secondary/10 px-3 py-1 rounded-full w-fit" data-i18n="exp_in_progress">En desarrollo</span>
 </div>
-<p class="font-body-md text-on-surface-variant max-w-2xl">Plataforma web integral para inmobiliarias: CRM de clientes, administración de propiedades y tablero ágil de tareas. Full stack con React, TypeScript, Node.js y MongoDB, con autenticación JWT.</p>
+<p class="font-body-md text-on-surface-variant max-w-2xl" data-i18n="exp_inmotask">Plataforma web integral para inmobiliarias: CRM de clientes, administración de propiedades y tablero ágil de tareas. Full stack con React, TypeScript, Node.js y MongoDB, con autenticación JWT.</p>
 </div>
 <!-- Item 2 -->
 <div class="relative">
 <div class="timeline-dot"></div>
 <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
 <h3 class="font-headline-md text-headline-md text-primary">&nbsp; ADMINISTRATIVA - AM PROPIEDADES</h3>
-<span class="font-label-caps text-label-caps text-secondary bg-secondary/10 px-3 py-1 rounded-full w-fit">05/2025 - Presente</span>
+<span class="font-label-caps text-label-caps text-secondary bg-secondary/10 px-3 py-1 rounded-full w-fit" data-i18n="exp_present">05/2025 - Presente</span>
 </div>
-<p class="font-body-md text-on-surface-variant max-w-2xl">Gestión de documentación legal, atención al cliente y optimización de procesos administrativos internos en el sector inmobiliario.</p>
+<p class="font-body-md text-on-surface-variant max-w-2xl" data-i18n="exp_am">Gestión de documentación legal, atención al cliente y optimización de procesos administrativos internos en el sector inmobiliario.</p>
 </div>
 <!-- Item 3 -->
 <div class="relative">
@@ -342,7 +362,7 @@
 <h3 class="font-headline-md text-headline-md text-primary">&nbsp; VENDEDORA - LUZ DE MAR</h3>
 <span class="font-label-caps text-label-caps text-on-surface-variant">12/2024 - 03/2025</span>
 </div>
-<p class="font-body-md text-on-surface-variant max-w-2xl">Asesoramiento comercial personalizado y gestión de stock en temporada alta, priorizando la satisfacción del cliente.</p>
+<p class="font-body-md text-on-surface-variant max-w-2xl" data-i18n="exp_luz">Asesoramiento comercial personalizado y gestión de stock en temporada alta, priorizando la satisfacción del cliente.</p>
 </div>
 <!-- Item 4 -->
 <div class="relative">
@@ -351,7 +371,7 @@
 <h3 class="font-headline-md text-headline-md text-primary">&nbsp; RECEPCIONISTA - GIMNASIO FULL FITNESS</h3>
 <span class="font-label-caps text-label-caps text-on-surface-variant">01/2024 - 12/2024</span>
 </div>
-<p class="font-body-md text-on-surface-variant max-w-2xl">Coordinación de agendas, atención telefónica y presencial, y gestión de membresías de socios.</p>
+<p class="font-body-md text-on-surface-variant max-w-2xl" data-i18n="exp_gym">Coordinación de agendas, atención telefónica y presencial, y gestión de membresías de socios.</p>
 </div>
 <!-- Item 5 -->
 <div class="relative">
@@ -360,7 +380,7 @@
 <h3 class="font-headline-md text-headline-md text-primary">&nbsp; VENDEDORA - AP TIENDA DE AROMAS</h3>
 <span class="font-label-caps text-label-caps text-on-surface-variant">02/2022 - 11/2023</span>
 </div>
-<p class="font-body-md text-on-surface-variant max-w-2xl">Gestión integral del punto de venta, cierre de caja y mantenimiento de la imagen institucional.</p>
+<p class="font-body-md text-on-surface-variant max-w-2xl" data-i18n="exp_aromas">Gestión integral del punto de venta, cierre de caja y mantenimiento de la imagen institucional.</p>
 </div>
 <!-- Item 6 -->
 <div class="relative">
@@ -369,7 +389,7 @@
 <h3 class="font-headline-md text-headline-md text-primary">&nbsp; MOZA - BONAFIDE CAFE</h3>
 <span class="font-label-caps text-label-caps text-on-surface-variant">12/2017 - 09/2021</span>
 </div>
-<p class="font-body-md text-on-surface-variant max-w-2xl">Servicio al cliente de alta calidad en un entorno dinámico, desarrollando habilidades de comunicación y resolución de conflictos.</p>
+<p class="font-body-md text-on-surface-variant max-w-2xl" data-i18n="exp_cafe">Servicio al cliente de alta calidad en un entorno dinámico, desarrollando habilidades de comunicación y resolución de conflictos.</p>
 </div>
 </div>
 </div>
@@ -378,8 +398,8 @@
 <section class="py-8 md:py-12 bg-background opacity-100 translate-y-0" id="projects">
 <div class="max-w-container-max mx-auto px-gutter">
 <div class="max-w-2xl mb-16">
-<h2 class="font-headline-lg text-headline-lg text-primary mb-4">Proyectos Destacados</h2>
-<p class="font-body-md text-on-surface-variant">Proyectos de automatización de pruebas y aseguramiento de calidad de software.</p>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4" data-i18n="projects_title">Proyectos Destacados</h2>
+<p class="font-body-md text-on-surface-variant" data-i18n="projects_sub">Proyectos de automatización de pruebas y aseguramiento de calidad de software.</p>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 <!-- Project Card 1 -->
@@ -392,7 +412,7 @@
 <h4 class="font-headline-md text-headline-md text-primary">Bronza Club</h4>
 <span class="material-symbols-outlined text-secondary group-hover:scale-110 transition-transform">open_in_new</span>
 </div>
-<p class="font-body-md text-on-surface-variant text-sm">E-Commerce desarrollado con React JS, Node.js, HTML y CSS. Integración de pasarela de pagos Mercado Pago y botón flotante de WhatsApp con mensaje automático.</p>
+<p class="font-body-md text-on-surface-variant text-sm" data-i18n="proj_bronza_desc">E-Commerce desarrollado con React JS, Node.js, HTML y CSS. Integración de pasarela de pagos Mercado Pago y botón flotante de WhatsApp con mensaje automático.</p>
 <div class="flex gap-2">
 <span class="text-[10px] font-bold px-2 py-1 bg-tertiary-fixed text-primary rounded">REACT</span>
 <span class="text-[10px] font-bold px-2 py-1 bg-tertiary-fixed text-primary rounded">NODE.JS</span>
@@ -408,10 +428,10 @@
 </div>
 <div class="flex-1 p-6 md:p-10 flex flex-col justify-center space-y-4">
 <div class="flex justify-between items-start">
-<h4 class="font-headline-md text-headline-md text-primary">Testing de APIs REST</h4>
+<h4 class="font-headline-md text-headline-md text-primary" data-i18n="proj_api_title">Testing de APIs REST</h4>
 <span class="material-symbols-outlined text-secondary group-hover:scale-110 transition-transform">open_in_new</span>
 </div>
-<p class="font-body-md text-on-surface-variant text-sm">Validación de endpoints REST con tests automatizados de respuesta, status codes y schemas.</p>
+<p class="font-body-md text-on-surface-variant text-sm" data-i18n="proj_api_desc">Validación de endpoints REST con tests automatizados de respuesta, status codes y schemas.</p>
 <div class="flex gap-2">
 <span class="text-[10px] font-bold px-2 py-1 bg-tertiary-fixed text-primary rounded">POSTMAN</span>
 <span class="text-[10px] font-bold px-2 py-1 bg-tertiary-fixed text-primary rounded">NEWMAN</span>
@@ -428,7 +448,7 @@
 <a href="https://inmo-task.vercel.app/" target="_blank" rel="noopener noreferrer" class="font-headline-md text-headline-md text-primary">Inmotask</a>
 <a href="https://inmo-task.vercel.app/" target="_blank" rel="noopener noreferrer"><span class="material-symbols-outlined text-secondary group-hover:scale-110 transition-transform">open_in_new</span></a>
 </div>
-<p class="font-body-md text-on-surface-variant text-sm">Plataforma web integral para inmobiliarias: CRM de clientes, administración de propiedades y tablero ágil de tareas, con autenticación de usuarios.</p>
+<p class="font-body-md text-on-surface-variant text-sm" data-i18n="proj_inmotask_desc">Plataforma web integral para inmobiliarias: CRM de clientes, administración de propiedades y tablero ágil de tareas, con autenticación de usuarios.</p>
 <div class="flex flex-wrap gap-2">
 <span class="text-[10px] font-bold px-2 py-1 bg-tertiary-fixed text-primary rounded">REACT</span>
 <span class="text-[10px] font-bold px-2 py-1 bg-tertiary-fixed text-primary rounded">VITE</span>
@@ -443,8 +463,8 @@
 <div class="md:col-span-2 lg:col-span-3 bg-white rounded-2xl border border-outline-variant/30 ambient-shadow p-6 md:p-10 space-y-8">
 <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
 <div class="max-w-2xl">
-<h4 class="font-headline-md text-headline-md text-primary mb-2">Framework de Automatización</h4>
-<p class="font-body-md text-on-surface-variant">Suites E2E reales desarrolladas sobre mi e-commerce Bronza Club: tres frameworks automatizando los mismos flujos críticos del negocio, con Page Object Model y reporting integrado.</p>
+<h4 class="font-headline-md text-headline-md text-primary mb-2" data-i18n="fw_title">Framework de Automatización</h4>
+<p class="font-body-md text-on-surface-variant" data-i18n="fw_desc">Suites E2E reales desarrolladas sobre mi e-commerce Bronza Club: tres frameworks automatizando los mismos flujos críticos del negocio, con Page Object Model y reporting integrado.</p>
 <div class="flex flex-wrap items-center gap-3 mt-4">
 <span class="text-[10px] font-bold uppercase tracking-widest text-secondary">CI/CD</span>
 <a href="https://github.com/AimeAguado/Bronza/actions/workflows/playwright.yml" target="_blank" rel="noopener noreferrer" class="inline-block"><img src="https://github.com/AimeAguado/Bronza/actions/workflows/playwright.yml/badge.svg" alt="Playwright Tests" class="h-5" loading="lazy"></a>
@@ -469,23 +489,23 @@
 <h5 class="font-headline-md text-[20px] font-semibold text-primary leading-tight">Playwright</h5>
 <p class="text-[11px] uppercase tracking-wider text-secondary font-bold mt-1">End-to-End Testing</p>
 </div>
-<span class="ml-auto text-[10px] font-bold px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full whitespace-nowrap">6 specs · 29 casos</span>
+<span class="ml-auto text-[10px] font-bold px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full whitespace-nowrap" data-i18n="count_pw">6 specs · 29 casos</span>
 </div>
-<p class="font-body-md text-sm text-on-surface-variant mb-5">Suite E2E sobre el flujo completo del e-commerce, con Page Object Model, fixtures JSON y login vía API para tests más rápidos y estables.</p>
+<p class="font-body-md text-sm text-on-surface-variant mb-5" data-i18n="card_pw_desc">Suite E2E sobre el flujo completo del e-commerce, con Page Object Model, fixtures JSON y login vía API para tests más rápidos y estables.</p>
 <ul class="space-y-2 mb-5">
-<li class="flex items-start gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-base text-secondary">check_circle</span>Login de usuario</li>
-<li class="flex items-start gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-base text-secondary">check_circle</span>Registro de usuario</li>
-<li class="flex items-start gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-base text-secondary">check_circle</span>Carrito de compras</li>
-<li class="flex items-start gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-base text-secondary">check_circle</span>Checkout — Integración MercadoPago</li>
-<li class="flex items-start gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-base text-secondary">check_circle</span>Checkout — Pago por transferencia</li>
-<li class="flex items-start gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-base text-secondary">check_circle</span>Botón flotante de WhatsApp</li>
+<li class="flex items-start gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-base text-secondary">check_circle</span><span data-i18n="spec_login">Login de usuario</span></li>
+<li class="flex items-start gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-base text-secondary">check_circle</span><span data-i18n="spec_register">Registro de usuario</span></li>
+<li class="flex items-start gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-base text-secondary">check_circle</span><span data-i18n="spec_cart">Carrito de compras</span></li>
+<li class="flex items-start gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-base text-secondary">check_circle</span><span data-i18n="spec_mp">Checkout — Integración MercadoPago</span></li>
+<li class="flex items-start gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-base text-secondary">check_circle</span><span data-i18n="spec_transfer">Checkout — Pago por transferencia</span></li>
+<li class="flex items-start gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-base text-secondary">check_circle</span><span data-i18n="spec_whatsapp">Botón flotante de WhatsApp</span></li>
 </ul>
 <div class="bg-white border border-outline-variant/20 rounded-lg p-4 mb-5 space-y-2">
-<p class="font-label-caps text-[10px] text-secondary uppercase tracking-widest mb-1">Escenarios reales</p>
-<div class="flex items-start gap-2 font-body-md text-xs text-on-surface-variant italic"><span class="material-symbols-outlined text-sm text-secondary not-italic">task_alt</span>"Confirma el pedido por transferencia y muestra el modal de éxito"</div>
-<div class="flex items-start gap-2 font-body-md text-xs text-on-surface-variant italic"><span class="material-symbols-outlined text-sm text-secondary not-italic">task_alt</span>"Maneja un error del backend al crear la preferencia de pago"</div>
-<div class="flex items-start gap-2 font-body-md text-xs text-on-surface-variant italic"><span class="material-symbols-outlined text-sm text-secondary not-italic">task_alt</span>"Actualiza el total al agregar más de un producto"</div>
-<div class="flex items-start gap-2 font-body-md text-xs text-on-surface-variant italic"><span class="material-symbols-outlined text-sm text-secondary not-italic">task_alt</span>"Mantiene la sesión iniciada al navegar entre páginas"</div>
+<p class="font-label-caps text-[10px] text-secondary uppercase tracking-widest mb-1" data-i18n="real_scenarios">Escenarios reales</p>
+<div class="flex items-start gap-2 font-body-md text-xs text-on-surface-variant italic"><span class="material-symbols-outlined text-sm text-secondary not-italic">task_alt</span><span data-i18n="scen_pw_1">"Confirma el pedido por transferencia y muestra el modal de éxito"</span></div>
+<div class="flex items-start gap-2 font-body-md text-xs text-on-surface-variant italic"><span class="material-symbols-outlined text-sm text-secondary not-italic">task_alt</span><span data-i18n="scen_pw_2">"Maneja un error del backend al crear la preferencia de pago"</span></div>
+<div class="flex items-start gap-2 font-body-md text-xs text-on-surface-variant italic"><span class="material-symbols-outlined text-sm text-secondary not-italic">task_alt</span><span data-i18n="scen_pw_3">"Actualiza el total al agregar más de un producto"</span></div>
+<div class="flex items-start gap-2 font-body-md text-xs text-on-surface-variant italic"><span class="material-symbols-outlined text-sm text-secondary not-italic">task_alt</span><span data-i18n="scen_pw_4">"Mantiene la sesión iniciada al navegar entre páginas"</span></div>
 </div>
 <div class="flex flex-wrap gap-2 mb-3">
 <span class="text-[10px] font-bold px-2 py-1 bg-tertiary-fixed text-primary rounded">PAGE OBJECT MODEL</span>
@@ -496,7 +516,7 @@
 <span class="text-[10px] font-bold px-2 py-1 bg-tertiary-fixed text-primary rounded">HTML REPORT</span>
 <span class="text-[10px] font-bold px-2 py-1 bg-primary/10 text-primary rounded flex items-center gap-1"><span class="material-symbols-outlined text-xs">hub</span>CI/CD GITHUB ACTIONS</span>
 </div>
-<button class="mt-auto inline-flex items-center justify-center gap-2 font-label-caps text-label-caps px-6 py-3 bg-primary text-on-primary rounded-lg hover:opacity-90 transition-all active:opacity-80 w-fit cursor-pointer" data-open-tests="playwright" type="button">Ver tests<span class="material-symbols-outlined text-sm">visibility</span></button>
+<button class="mt-auto inline-flex items-center justify-center gap-2 font-label-caps text-label-caps px-6 py-3 bg-primary text-on-primary rounded-lg hover:opacity-90 transition-all active:opacity-80 w-fit cursor-pointer" data-open-tests="playwright" type="button"><span data-i18n="view_tests">Ver tests</span><span class="material-symbols-outlined text-sm">visibility</span></button>
 </article>
 <!-- Cypress Card -->
 <article class="group flex flex-col p-6 md:p-8 bg-surface-bright border border-outline-variant/30 rounded-xl hover:border-secondary transition-all duration-300">
@@ -508,22 +528,22 @@
 <h5 class="font-headline-md text-[20px] font-semibold text-primary leading-tight">Cypress</h5>
 <p class="text-[11px] uppercase tracking-wider text-secondary font-bold mt-1">End-to-End Testing</p>
 </div>
-<span class="ml-auto text-[10px] font-bold px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full whitespace-nowrap">6 specs · 29 casos</span>
+<span class="ml-auto text-[10px] font-bold px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full whitespace-nowrap" data-i18n="count_cy">6 specs · 29 casos</span>
 </div>
-<p class="font-body-md text-sm text-on-surface-variant mb-5">Suite E2E con comandos personalizados, tags de smoke/regresión para ejecuciones selectivas e interceptación de red sobre los mismos flujos del negocio.</p>
+<p class="font-body-md text-sm text-on-surface-variant mb-5" data-i18n="card_cy_desc">Suite E2E con comandos personalizados, tags de smoke/regresión para ejecuciones selectivas e interceptación de red sobre los mismos flujos del negocio.</p>
 <ul class="space-y-2 mb-5">
-<li class="flex items-start gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-base text-secondary">check_circle</span>Login de usuario</li>
-<li class="flex items-start gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-base text-secondary">check_circle</span>Registro de usuario</li>
-<li class="flex items-start gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-base text-secondary">check_circle</span>Carrito de compras</li>
-<li class="flex items-start gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-base text-secondary">check_circle</span>Checkout — Integración MercadoPago</li>
-<li class="flex items-start gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-base text-secondary">check_circle</span>Checkout — Pago por transferencia</li>
-<li class="flex items-start gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-base text-secondary">check_circle</span>Botón flotante de WhatsApp</li>
+<li class="flex items-start gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-base text-secondary">check_circle</span><span data-i18n="spec_login">Login de usuario</span></li>
+<li class="flex items-start gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-base text-secondary">check_circle</span><span data-i18n="spec_register">Registro de usuario</span></li>
+<li class="flex items-start gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-base text-secondary">check_circle</span><span data-i18n="spec_cart">Carrito de compras</span></li>
+<li class="flex items-start gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-base text-secondary">check_circle</span><span data-i18n="spec_mp">Checkout — Integración MercadoPago</span></li>
+<li class="flex items-start gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-base text-secondary">check_circle</span><span data-i18n="spec_transfer">Checkout — Pago por transferencia</span></li>
+<li class="flex items-start gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-base text-secondary">check_circle</span><span data-i18n="spec_whatsapp">Botón flotante de WhatsApp</span></li>
 </ul>
 <div class="bg-white border border-outline-variant/20 rounded-lg p-4 mb-5 space-y-2">
-<p class="font-label-caps text-[10px] text-secondary uppercase tracking-widest mb-1">Escenarios reales</p>
-<div class="flex items-start gap-2 font-body-md text-xs text-on-surface-variant italic"><span class="material-symbols-outlined text-sm text-secondary not-italic">task_alt</span>"No permite registrar un email ya existente"</div>
-<div class="flex items-start gap-2 font-body-md text-xs text-on-surface-variant italic"><span class="material-symbols-outlined text-sm text-secondary not-italic">task_alt</span>"Permite aumentar la cantidad de un producto"</div>
-<div class="flex items-start gap-2 font-body-md text-xs text-on-surface-variant italic"><span class="material-symbols-outlined text-sm text-secondary not-italic">task_alt</span>"El botón de checkout está deshabilitado con el carrito vacío"</div>
+<p class="font-label-caps text-[10px] text-secondary uppercase tracking-widest mb-1" data-i18n="real_scenarios">Escenarios reales</p>
+<div class="flex items-start gap-2 font-body-md text-xs text-on-surface-variant italic"><span class="material-symbols-outlined text-sm text-secondary not-italic">task_alt</span><span data-i18n="scen_cy_1">"No permite registrar un email ya existente"</span></div>
+<div class="flex items-start gap-2 font-body-md text-xs text-on-surface-variant italic"><span class="material-symbols-outlined text-sm text-secondary not-italic">task_alt</span><span data-i18n="scen_cy_2">"Permite aumentar la cantidad de un producto"</span></div>
+<div class="flex items-start gap-2 font-body-md text-xs text-on-surface-variant italic"><span class="material-symbols-outlined text-sm text-secondary not-italic">task_alt</span><span data-i18n="scen_cy_3">"El botón de checkout está deshabilitado con el carrito vacío"</span></div>
 </div>
 <div class="flex flex-wrap gap-2 mb-6">
 <span class="text-[10px] font-bold px-2 py-1 bg-tertiary-fixed text-primary rounded">PAGE OBJECT MODEL</span>
@@ -534,7 +554,7 @@
 <span class="text-[10px] font-bold px-2 py-1 bg-tertiary-fixed text-primary rounded">MOCHAWESOME REPORTS</span>
 <span class="text-[10px] font-bold px-2 py-1 bg-primary/10 text-primary rounded flex items-center gap-1"><span class="material-symbols-outlined text-xs">hub</span>CI/CD GITHUB ACTIONS</span>
 </div>
-<button class="mt-auto inline-flex items-center justify-center gap-2 font-label-caps text-label-caps px-6 py-3 bg-primary text-on-primary rounded-lg hover:opacity-90 transition-all active:opacity-80 w-fit cursor-pointer" data-open-tests="cypress" type="button">Ver tests<span class="material-symbols-outlined text-sm">visibility</span></button>
+<button class="mt-auto inline-flex items-center justify-center gap-2 font-label-caps text-label-caps px-6 py-3 bg-primary text-on-primary rounded-lg hover:opacity-90 transition-all active:opacity-80 w-fit cursor-pointer" data-open-tests="cypress" type="button"><span data-i18n="view_tests">Ver tests</span><span class="material-symbols-outlined text-sm">visibility</span></button>
 </article>
 <!-- Selenium Card -->
 <article class="group flex flex-col p-6 md:p-8 bg-surface-bright border border-outline-variant/30 rounded-xl hover:border-secondary transition-all duration-300">
@@ -546,15 +566,15 @@
 <h5 class="font-headline-md text-[20px] font-semibold text-primary leading-tight">Selenium</h5>
 <p class="text-[11px] uppercase tracking-wider text-secondary font-bold mt-1">End-to-End Testing</p>
 </div>
-<span class="ml-auto text-[10px] font-bold px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full whitespace-nowrap">1 spec · 1 caso</span>
+<span class="ml-auto text-[10px] font-bold px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full whitespace-nowrap" data-i18n="count_se">1 spec · 1 caso</span>
 </div>
-<p class="font-body-md text-sm text-on-surface-variant mb-5">Proyecto de automatización E2E con Selenium WebDriver, Java, JUnit 5 y Maven, con CI/CD vía GitHub Actions. Suite en crecimiento sobre flujos de autenticación (login sobre the-internet).</p>
+<p class="font-body-md text-sm text-on-surface-variant mb-5" data-i18n="card_se_desc">Proyecto de automatización E2E con Selenium WebDriver, Java, JUnit 5 y Maven, con CI/CD vía GitHub Actions. Suite en crecimiento sobre flujos de autenticación (login sobre the-internet).</p>
 <ul class="space-y-2 mb-5">
-<li class="flex items-start gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-base text-secondary">check_circle</span>Login de usuario (the-internet)</li>
+<li class="flex items-start gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-base text-secondary">check_circle</span><span data-i18n="spec_login_net">Login de usuario (the-internet)</span></li>
 </ul>
 <div class="bg-white border border-outline-variant/20 rounded-lg p-4 mb-5 space-y-2">
-<p class="font-label-caps text-[10px] text-secondary uppercase tracking-widest mb-1">Escenario real</p>
-<div class="flex items-start gap-2 font-body-md text-xs text-on-surface-variant italic"><span class="material-symbols-outlined text-sm text-secondary not-italic">task_alt</span>"Login exitoso en un sitio de práctica"</div>
+<p class="font-label-caps text-[10px] text-secondary uppercase tracking-widest mb-1" data-i18n="real_scenario">Escenario real</p>
+<div class="flex items-start gap-2 font-body-md text-xs text-on-surface-variant italic"><span class="material-symbols-outlined text-sm text-secondary not-italic">task_alt</span><span data-i18n="scen_se_1">"Login exitoso en un sitio de práctica"</span></div>
 </div>
 <div class="flex flex-wrap gap-2 mb-6">
 <span class="text-[10px] font-bold px-2 py-1 bg-tertiary-fixed text-primary rounded">SELENIUM WEBDRIVER</span>
@@ -564,7 +584,7 @@
 <span class="text-[10px] font-bold px-2 py-1 bg-tertiary-fixed text-primary rounded">CHROMEDRIVER</span>
 <span class="text-[10px] font-bold px-2 py-1 bg-tertiary-fixed text-primary rounded">GITHUB ACTIONS</span>
 </div>
-<button class="mt-auto inline-flex items-center justify-center gap-2 font-label-caps text-label-caps px-6 py-3 bg-primary text-on-primary rounded-lg hover:opacity-90 transition-all active:opacity-80 w-fit cursor-pointer" data-open-tests="selenium" type="button">Ver tests<span class="material-symbols-outlined text-sm">visibility</span></button>
+<button class="mt-auto inline-flex items-center justify-center gap-2 font-label-caps text-label-caps px-6 py-3 bg-primary text-on-primary rounded-lg hover:opacity-90 transition-all active:opacity-80 w-fit cursor-pointer" data-open-tests="selenium" type="button"><span data-i18n="view_tests">Ver tests</span><span class="material-symbols-outlined text-sm">visibility</span></button>
 </article>
 </div>
 </div>
@@ -579,8 +599,8 @@
 <div class="absolute top-0 right-0 w-64 h-64 bg-secondary/20 rounded-full blur-3xl -mr-32 -mt-32"></div>
 <div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 <div class="space-y-6">
-<h2 class="font-display-lg text-[32px] md:text-headline-lg text-inverse-primary leading-tight">¿Listo para trabajar juntos?</h2>
-<p class="font-body-lg text-body-lg text-on-primary-container">Estoy disponible para consultas, colaboraciones en proyectos de QA o roles de automatización de testing.</p>
+<h2 class="font-display-lg text-[32px] md:text-headline-lg text-inverse-primary leading-tight" data-i18n="contact_title">¿Listo para trabajar juntos?</h2>
+<p class="font-body-lg text-body-lg text-on-primary-container" data-i18n="contact_sub">Estoy disponible para consultas, colaboraciones en proyectos de QA o roles de automatización de testing.</p>
 <div class="space-y-4 pt-4">
 <div class="flex items-center gap-4">
 <div class="w-10 h-10 bg-on-primary-container/20 rounded-full flex items-center justify-center">
@@ -599,20 +619,20 @@
 <form class="bg-white p-6 md:p-8 rounded-2xl space-y-4 text-on-surface" id="contact-form" novalidate>
 <input aria-hidden="true" autocomplete="off" class="hidden" name="_honey" tabindex="-1" type="text">
 <div>
-<label class="block font-label-caps text-[10px] uppercase text-on-surface-variant mb-1" for="contact-name">Nombre Completo</label>
-<input class="w-full bg-transparent border-0 border-b border-tertiary py-2 focus:ring-0 focus:border-secondary transition-all" id="contact-name" name="name" placeholder="Juan Pérez" required type="text">
+<label class="block font-label-caps text-[10px] uppercase text-on-surface-variant mb-1" data-i18n="form_name" for="contact-name">Nombre Completo</label>
+<input class="w-full bg-transparent border-0 border-b border-tertiary py-2 focus:ring-0 focus:border-secondary transition-all" data-i18n-placeholder="form_name_ph" id="contact-name" name="name" placeholder="Juan Pérez" required type="text">
 </div>
 <div>
 <label class="block font-label-caps text-[10px] uppercase text-on-surface-variant mb-1" for="contact-email">Email</label>
-<input class="w-full bg-transparent border-0 border-b border-tertiary py-2 focus:ring-0 focus:border-secondary transition-all" id="contact-email" name="email" placeholder="juan@ejemplo.com" required type="email">
+<input class="w-full bg-transparent border-0 border-b border-tertiary py-2 focus:ring-0 focus:border-secondary transition-all" data-i18n-placeholder="form_email_ph" id="contact-email" name="email" placeholder="juan@ejemplo.com" required type="email">
 </div>
 <div>
-<label class="block font-label-caps text-[10px] uppercase text-on-surface-variant mb-1" for="contact-message">Mensaje</label>
-<textarea class="w-full bg-transparent border-0 border-b border-tertiary py-2 focus:ring-0 focus:border-secondary transition-all resize-none" id="contact-message" name="message" placeholder="Cuéntame sobre tu proyecto..." required rows="3"></textarea>
+<label class="block font-label-caps text-[10px] uppercase text-on-surface-variant mb-1" data-i18n="form_message" for="contact-message">Mensaje</label>
+<textarea class="w-full bg-transparent border-0 border-b border-tertiary py-2 focus:ring-0 focus:border-secondary transition-all resize-none" data-i18n-placeholder="form_message_ph" id="contact-message" name="message" placeholder="Cuéntame sobre tu proyecto..." required rows="3"></textarea>
 </div>
-<p class="hidden font-body-md text-sm text-secondary" id="contact-form-success" role="status">¡Mensaje enviado! Te responderé pronto.</p>
-<p class="hidden font-body-md text-sm text-error" id="contact-form-error" role="alert">No se pudo enviar. Intentá de nuevo o escribime directo por email.</p>
-<button class="w-full py-4 bg-primary text-on-primary font-label-caps text-label-caps rounded-lg hover:opacity-90 transition-all active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed" id="contact-submit" type="submit">
+<p class="hidden font-body-md text-sm text-secondary" data-i18n="form_success" id="contact-form-success" role="status">¡Mensaje enviado! Te responderé pronto.</p>
+<p class="hidden font-body-md text-sm text-error" data-i18n="form_error" id="contact-form-error" role="alert">No se pudo enviar. Intentá de nuevo o escribime directo por email.</p>
+<button class="w-full py-4 bg-primary text-on-primary font-label-caps text-label-caps rounded-lg hover:opacity-90 transition-all active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed" data-i18n="form_send" id="contact-submit" type="submit">
                                 Enviar Mensaje
                             </button>
 </form>
@@ -626,7 +646,7 @@
 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 px-gutter max-w-container-max mx-auto text-center md:text-left">
 <div>
 <a class="font-headline-md text-headline-md font-bold text-primary mb-4 block" href="#">Aimé Aguado</a>
-<p class="font-body-md text-body-md text-on-surface-variant max-w-sm mx-auto md:mx-0">
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm mx-auto md:mx-0" data-i18n="footer_copy">
                     © 2024 Aimé Aguado. Crafted with precision and creativity.
                 </p>
 </div>
@@ -774,6 +794,406 @@
                 closeMobileMenu();
             }
         });
+
+        // ===== Internacionalización (ES / EN / PT) =====
+        const I18N = {
+            es: {
+                ui: {
+                    nav_home: 'Inicio', nav_about: 'Sobre mí', nav_skills: 'Habilidades', nav_experience: 'Experiencia', nav_contact: 'Contacto'
+                }
+            },
+            en: {
+                ui: {
+                    nav_home: 'Home', nav_about: 'About', nav_skills: 'Skills', nav_experience: 'Experience', nav_contact: 'Get in Touch',
+                    hero_available: 'Available for new challenges', hero_role: 'QA Automation Engineer', hero_projects: 'View Projects', hero_contact: 'Contact',
+                    about_title: 'About Me',
+                    about_p1: 'I am a dynamic, committed and structured person, with a solid ability to adapt to changing environments and work efficiently under pressure.',
+                    about_p2: 'I help development teams deliver quality software by catching bugs before they reach the end user. I automate functional and API tests, and I enjoy finding that bug.',
+                    about_p3: 'Currently focused on strengthening my skills in automated testing and QA best practices.',
+                    about_soft: 'Interpersonal Skills', about_commit: 'Professional Commitment',
+                    edu_title: 'Education', edu_deg1: 'Systems Analyst Technical Degree', edu_deg1_sub: 'Higher Technical Training', edu_deg2: 'High School Diploma in Economics', edu_deg2_sub: 'Secondary Education',
+                    skills_title: 'Technical Skills', skills_sub: 'Tools and technologies I use to guarantee software quality.',
+                    skill_web: 'Web Structure', skill_visual: 'Visual Design', skill_dom: 'Logic & DOM',
+                    exp_title: 'Professional Experience', exp_own_project: 'Own Project', exp_in_progress: 'In progress', exp_present: '05/2025 - Present',
+                    exp_bronza: 'Full stack development of an E-Commerce site with React JS, Node.js, HTML and CSS. Integration of the Mercado Pago payment gateway and a WhatsApp gateway with automatic messages. Implementation of QA Automation testing with Cypress, Playwright and API testing with Postman.',
+                    exp_inmotask: 'Comprehensive web platform for real estate agencies: client CRM, property management and agile task board. Full stack with React, TypeScript, Node.js and MongoDB, with JWT authentication.',
+                    exp_am: 'Management of legal documentation, customer service and optimization of internal administrative processes in the real estate sector.',
+                    exp_luz: 'Personalized commercial advice and stock management during peak season, prioritizing customer satisfaction.',
+                    exp_gym: 'Scheduling coordination, phone and in-person support, and member membership management.',
+                    exp_aromas: 'End-to-end management of the point of sale, cash closing and maintenance of the institutional image.',
+                    exp_cafe: 'High-quality customer service in a dynamic environment, developing communication and conflict-resolution skills.',
+                    projects_title: 'Featured Projects', projects_sub: 'Test automation and software quality assurance projects.',
+                    proj_bronza_desc: 'E-Commerce built with React JS, Node.js, HTML and CSS. Mercado Pago payment gateway integration and a floating WhatsApp button with automatic message.',
+                    proj_api_title: 'REST API Testing', proj_api_desc: 'Validation of REST endpoints with automated tests for responses, status codes and schemas.',
+                    proj_inmotask_desc: 'Comprehensive web platform for real estate agencies: client CRM, property management and agile task board, with user authentication.',
+                    fw_title: 'Automation Framework', fw_desc: 'Real E2E suites built on my Bronza Club e-commerce: three frameworks automating the same critical business flows, with Page Object Model and integrated reporting.',
+                    count_pw: '6 specs · 29 cases', count_cy: '6 specs · 29 cases', count_se: '1 spec · 1 case',
+                    card_pw_desc: 'E2E suite covering the full e-commerce flow, with Page Object Model, JSON fixtures and API login for faster, more stable tests.',
+                    card_cy_desc: 'E2E suite with custom commands, smoke/regression tags for selective runs and network interception over the same business flows.',
+                    card_se_desc: 'E2E automation project with Selenium WebDriver, Java, JUnit 5 and Maven, with CI/CD via GitHub Actions. A growing suite over authentication flows (login on the-internet).',
+                    spec_login: 'User login', spec_register: 'User registration', spec_cart: 'Shopping cart',
+                    spec_mp: 'Checkout — MercadoPago Integration', spec_transfer: 'Checkout — Bank transfer payment', spec_whatsapp: 'Floating WhatsApp button',
+                    spec_login_net: 'User login (the-internet)',
+                    real_scenarios: 'Real scenarios', real_scenario: 'Real scenario',
+                    scen_pw_1: '"Confirms the order by transfer and shows the success modal"', scen_pw_2: '"Handles a backend error when creating the payment preference"', scen_pw_3: '"Updates the total when adding more than one product"', scen_pw_4: '"Keeps the session active while navigating between pages"',
+                    scen_cy_1: '"Does not allow registering an existing email"', scen_cy_2: '"Allows increasing the quantity of a product"', scen_cy_3: '"The checkout button is disabled with an empty cart"',
+                    scen_se_1: '"Successful login on a practice site"',
+                    view_tests: 'View tests',
+                    contact_title: 'Ready to work together?', contact_sub: 'I am available for inquiries, collaborations on QA projects or test automation roles.',
+                    form_name: 'Full Name', form_email: 'Email', form_message: 'Message',
+                    form_name_ph: 'John Doe', form_email_ph: 'john@example.com', form_message_ph: 'Tell me about your project...',
+                    form_success: 'Message sent! I will get back to you soon.', form_error: 'Could not send. Please try again or email me directly.', form_send: 'Send Message',
+                    footer_copy: '© 2024 Aimé Aguado. Crafted with precision and creativity.'
+                },
+                modal_labels: {
+                    goal: 'Spec goal', simple: 'In plain words · ', validates: 'What it checks · ', cases: 'cases', code_link: 'Want to see the full code?', open_github: 'open', in_github: 'on GitHub', lang_label: 'Language'
+                },
+                subtitle: 'End-to-End Testing',
+                spec_titles: {
+                    'Login de usuario': 'User login', 'Registro de usuario': 'User registration', 'Carrito de compras': 'Shopping cart',
+                    'Checkout — Integración MercadoPago': 'Checkout — MercadoPago Integration', 'Checkout — Pago por transferencia': 'Checkout — Bank transfer payment', 'Botón flotante de WhatsApp': 'Floating WhatsApp button'
+                },
+                captions: {
+                    'Login de usuario': 'Real recording: signing in with a registered account.',
+                    'Registro de usuario': 'Real recording: creating a new user with a unique email.',
+                    'Carrito de compras': 'Real recording: adding a product, increasing its quantity and watching the total update.',
+                    'Checkout — Integración MercadoPago': 'Real recording: from the cart to "Go to cart" and checkout, with the order summary and total.',
+                    'Checkout — Pago por transferencia': 'Real recording: choosing bank transfer, viewing the account details and confirming the order up to the success modal.',
+                    'Botón flotante de WhatsApp': 'Real recording: clicking the floating button and WhatsApp opens with the automatic message ready to send.'
+                },
+                suite_desc: {
+                    playwright: 'E2E suite built on the Bronza Club e-commerce with Playwright. Page Object Model, JSON fixtures, API login to start authenticated and reporting with trace + video.',
+                    cypress: 'E2E suite built on the Bronza Club e-commerce with Cypress. Custom commands, @smoke/@regression tags for selective runs and network interception to validate external integrations like MercadoPago and WhatsApp.',
+                    selenium: 'E2E automation project with Selenium WebDriver. Maven framework with Java, JUnit 5 and ChromeDriver, running automatically via GitHub Actions. Exported as an independent suite in the selenium-automation repo.'
+                }
+            },
+            pt: {
+                ui: {
+                    nav_home: 'Home', nav_about: 'Sobre', nav_skills: 'Habilidades', nav_experience: 'Experiência', nav_contact: 'Fale Comigo',
+                    hero_available: 'Disponível para novos desafios', hero_role: 'Engenheira de QA Automation', hero_projects: 'Ver Projetos', hero_contact: 'Contatar',
+                    about_title: 'Sobre mim',
+                    about_p1: 'Sou uma pessoa dinâmica, comprometida e estruturada, com sólida capacidade de me adaptar a ambientes em mudança e trabalhar de forma eficiente sob pressão.',
+                    about_p2: 'Ajudo as equipes de desenvolvimento a entregar software de qualidade, detectando erros antes que cheguem ao usuário final. Automatizo testes funcionais e de API, e adoro encontrar aquele bug.',
+                    about_p3: 'Atualmente focada em fortalecer minhas habilidades em testes automatizados e boas práticas de QA.',
+                    about_soft: 'Habilidades Interpessoais', about_commit: 'Compromisso Profissional',
+                    edu_title: 'Formação', edu_deg1: 'Curso Técnico em Análise de Sistemas', edu_deg1_sub: 'Formação Técnica Superior', edu_deg2: 'Ensino Médio em Economia', edu_deg2_sub: 'Ensino Médio',
+                    skills_title: 'Competências Técnicas', skills_sub: 'Ferramentas e tecnologias que uso para garantir a qualidade do software.',
+                    skill_web: 'Estrutura Web', skill_visual: 'Design Visual', skill_dom: 'Lógica e DOM',
+                    exp_title: 'Trajetória Profissional', exp_own_project: 'Projeto Próprio', exp_in_progress: 'Em desenvolvimento', exp_present: '05/2025 - Atual',
+                    exp_bronza: 'Desenvolvimento full stack de um site E-Commerce com React JS, Node.js, HTML e CSS. Integração do gateway de pagamento Mercado Pago e gateway de WhatsApp com mensagem automática. Implementação de testes QA Automation com Cypress, Playwright e testes de API com Postman.',
+                    exp_inmotask: 'Plataforma web completa para imobiliárias: CRM de clientes, administração de imóveis e quadro ágil de tarefas. Full stack com React, TypeScript, Node.js e MongoDB, com autenticação JWT.',
+                    exp_am: 'Gestão de documentação legal, atendimento ao cliente e otimização de processos administrativos internos no setor imobiliário.',
+                    exp_luz: 'Assessoria comercial personalizada e gestão de estoque na alta temporada, priorizando a satisfação do cliente.',
+                    exp_gym: 'Coordenação de agendas, atendimento telefônico e presencial, e gestão de mensalidades dos sócios.',
+                    exp_aromas: 'Gestão integral do ponto de venda, fechamento de caixa e manutenção da imagem institucional.',
+                    exp_cafe: 'Atendimento ao cliente de alta qualidade em um ambiente dinâmico, desenvolvendo habilidades de comunicação e resolução de conflitos.',
+                    projects_title: 'Projetos em Destaque', projects_sub: 'Projetos de automação de testes e garantia de qualidade de software.',
+                    proj_bronza_desc: 'E-Commerce desenvolvido com React JS, Node.js, HTML e CSS. Integração do gateway de pagamento Mercado Pago e botão flutuante de WhatsApp com mensagem automática.',
+                    proj_api_title: 'Testes de APIs REST', proj_api_desc: 'Validação de endpoints REST com testes automatizados de resposta, status codes e schemas.',
+                    proj_inmotask_desc: 'Plataforma web completa para imobiliárias: CRM de clientes, administração de imóveis e quadro ágil de tarefas, com autenticação de usuários.',
+                    fw_title: 'Framework de Automação', fw_desc: 'Suítes E2E reais desenvolvidas no meu e-commerce Bronza Club: três frameworks automatizando os mesmos fluxos críticos do negócio, com Page Object Model e relatórios integrados.',
+                    count_pw: '6 specs · 29 casos', count_cy: '6 specs · 29 casos', count_se: '1 spec · 1 caso',
+                    card_pw_desc: 'Suíte E2E sobre o fluxo completo do e-commerce, com Page Object Model, fixtures JSON e login via API para testes mais rápidos e estáveis.',
+                    card_cy_desc: 'Suíte E2E com comandos personalizados, tags de smoke/regressão para execuções seletivas e interceptação de rede sobre os mesmos fluxos do negócio.',
+                    card_se_desc: 'Projeto de automação E2E com Selenium WebDriver, Java, JUnit 5 e Maven, com CI/CD via GitHub Actions. Suíte em crescimento sobre fluxos de autenticação (login no the-internet).',
+                    spec_login: 'Login de usuário', spec_register: 'Cadastro de usuário', spec_cart: 'Carrinho de compras',
+                    spec_mp: 'Checkout — Integração MercadoPago', spec_transfer: 'Checkout — Pagamento por transferência', spec_whatsapp: 'Botão flutuante do WhatsApp',
+                    spec_login_net: 'Login de usuário (the-internet)',
+                    real_scenarios: 'Cenários reais', real_scenario: 'Cenário real',
+                    scen_pw_1: '"Confirma o pedido por transferência e mostra o modal de sucesso"', scen_pw_2: '"Trata um erro do backend ao criar a preferência de pagamento"', scen_pw_3: '"Atualiza o total ao adicionar mais de um produto"', scen_pw_4: '"Mantém a sessão ativa ao navegar entre páginas"',
+                    scen_cy_1: '"Não permite cadastrar um e-mail já existente"', scen_cy_2: '"Permite aumentar a quantidade de um produto"', scen_cy_3: '"O botão de checkout fica desabilitado com o carrinho vazio"',
+                    scen_se_1: '"Login bem-sucedido em um site de prática"',
+                    view_tests: 'Ver testes',
+                    contact_title: 'Pronto para trabalharmos juntos?', contact_sub: 'Estou disponível para consultas, colaborações em projetos de QA ou vagas de automação de testes.',
+                    form_name: 'Nome Completo', form_email: 'Email', form_message: 'Mensagem',
+                    form_name_ph: 'João Silva', form_email_ph: 'joao@exemplo.com', form_message_ph: 'Conte-me sobre seu projeto...',
+                    form_success: 'Mensagem enviada! Responderei em breve.', form_error: 'Não foi possível enviar. Tente novamente ou escreva diretamente por e-mail.', form_send: 'Enviar Mensagem',
+                    footer_copy: '© 2024 Aimé Aguado. Feito com precisão e criatividade.'
+                },
+                modal_labels: {
+                    goal: 'Objetivo do spec', simple: 'Em simples · ', validates: 'O que valida · ', cases: 'casos', code_link: 'Quer ver o código completo?', open_github: 'abrir', in_github: 'no GitHub', lang_label: 'Idioma'
+                },
+                subtitle: 'Testes End-to-End',
+                spec_titles: {
+                    'Login de usuario': 'Login de usuário', 'Registro de usuario': 'Cadastro de usuário', 'Carrito de compras': 'Carrinho de compras',
+                    'Checkout — Integración MercadoPago': 'Checkout — Integração MercadoPago', 'Checkout — Pago por transferencia': 'Checkout — Pagamento por transferência', 'Botón flotante de WhatsApp': 'Botão flutuante do WhatsApp'
+                },
+                captions: {
+                    'Login de usuario': 'Gravação real: login com uma conta cadastrada.',
+                    'Registro de usuario': 'Gravação real: cadastro de um novo usuário com e-mail único.',
+                    'Carrito de compras': 'Gravação real: adicionar um produto, aumentar a quantidade e ver o total atualizar.',
+                    'Checkout — Integración MercadoPago': 'Gravação real: do carrinho ao "Ir ao carrinho" e ao checkout, com o resumo do pedido e o total.',
+                    'Checkout — Pago por transferencia': 'Gravação real: escolher transferência bancária, ver os dados da conta e confirmar o pedido até o modal de sucesso.',
+                    'Botón flotante de WhatsApp': 'Gravação real: clicar no botão flutuante e o WhatsApp abre com a mensagem automática pronta para enviar.'
+                },
+                suite_desc: {
+                    playwright: 'Suíte E2E desenvolvida no e-commerce Bronza Club com Playwright. Page Object Model, fixtures JSON, login via API para começar autenticado e relatórios com trace + vídeo.',
+                    cypress: 'Suíte E2E desenvolvida no e-commerce Bronza Club com Cypress. Comandos personalizados, tags @smoke/@regression para execuções seletivas e interceptação de rede para validar integrações externas como MercadoPago e WhatsApp.',
+                    selenium: 'Projeto de automação E2E com Selenium WebDriver. Framework Maven com Java, JUnit 5 e ChromeDriver, com execução automática via GitHub Actions. Exportado como suíte independente no repositório selenium-automation.'
+                }
+            }
+        };
+
+        // Traducciones del contenido del modal (por texto fuente en español)
+        const MODAL_I18N = {
+            en: {
+                goals: {
+                    'Login de usuario|tests/e2e/auth/login.spec.js': 'Verifies access for existing users and handling of authentication errors. Each case resets the app state in a beforeEach so the scenario always starts from scratch.',
+                    'Registro de usuario|tests/e2e/auth/register.spec.js': 'Covers new user sign-up: happy path, password and email format validation, required fields and duplicate emails.',
+                    'Carrito de compras|tests/e2e/cart/cart.spec.js': 'Validates the full cart lifecycle: empty state, adding products, changing quantity, removing items, recalculating the total and the checkout button state.',
+                    'Checkout — Integración MercadoPago|tests/e2e/checkout/mercadopago.spec.js': '"Up to the contract boundary" testing strategy: nothing is automated inside the MercadoPago site (third-party domain). The creation of the payment preference is intercepted and the backend response is validated. Uses API login to start authenticated.',
+                    'Checkout — Pago por transferencia|tests/e2e/checkout/transferencia.spec.js': 'Covers the second checkout payment method: choosing bank transfer, viewing the account details and confirming the order. The test intercepts the POST request to the orders endpoint and validates the success modal with the WhatsApp proof sending.',
+                    'Botón flotante de WhatsApp|tests/e2e/navigation/whatsapp.spec.js': 'Without navigating to the external wa.me domain: it validates that the floating button is visible, points to the correct number, contains the pre-filled message and follows security good practices (target="_blank" + rel="noopener noreferrer").',
+                    'Login de usuario|cypress/e2e/auth/login.cy.js': 'The same flow as Playwright but with Cypress syntax. The @smoke/@regression tags allow running only a subset of tests from the CLI. Each case resets state with the custom command cy.resetAppState().',
+                    'Registro de usuario|cypress/e2e/auth/register.cy.js': 'Cypress fixtures (cy.fixture("users")) feed the form data. The unique email is generated with Date.now() replacing the {{timestamp}} placeholder inside the fixture.',
+                    'Carrito de compras|cypress/e2e/cart/cart.cy.js': 'Custom commands (cy.getByTestId) and static Page Object Model: the page objects expose selectors and actions as chainable properties with the Cypress API.',
+                    'Checkout — Integración MercadoPago|cypress/e2e/checkout/mercadopago.cy.js': 'MercadoPago preference creation is intercepted with cy.intercept to validate the integration without depending on the third-party service.',
+                    'Checkout — Pago por transferencia|cypress/e2e/checkout/transferencia.cy.js': 'Validates the transfer payment flow and the confirmation endpoint interception, same as the Playwright spec.',
+                    'Botón flotante de WhatsApp|cypress/e2e/navigation/whatsapp.cy.js': 'Validates visibility, target number, pre-filled message and link security attributes of the floating WhatsApp button.',
+                    'Login de usuario|src/test/java/tests/GoogleTest.java': 'Verifies successful login on a practice site (the-internet.herokuapp.com/login). Runs headless on CI with GitHub Actions.'
+                },
+                tests: {
+                    'permite iniciar sesión con credenciales válidas': ['Allows signing in with valid credentials', 'Confirms that a registered user gets in correctly and that the /login URL is left behind after logging in.'],
+                    'muestra error con contraseña incorrecta': ['Shows an error with a wrong password', 'Guarantees that an invalid password shows the on-screen error message and keeps the user on /login.'],
+                    'muestra error con un email no registrado': ['Shows an error with an unregistered email', 'Validates that a non-existent email receives on-screen error feedback and access is not allowed.'],
+                    'no permite loguear con campos vacíos': ['Does not allow logging in with empty fields', 'Checks that submitting the form without filling the fields does not log in: the user stays on /login.'],
+                    'mantiene la sesión iniciada al navegar entre páginas': ['Keeps the session active while navigating between pages', 'Verifies session persistence: back on the Home page, the "Sign in" link no longer appears in the header.'],
+                    'registra un usuario nuevo con datos válidos': ['Registers a new user with valid data', 'Uses a unique email per run (uniqueEmail) so the sign-up is always reproducible and does not collide with previous data.'],
+                    'muestra error cuando las contraseñas no coinciden': ['Shows an error when passwords do not match', 'Validates the match control between password and confirmPassword in the registration form.'],
+                    'muestra error con un formato de email inválido': ['Shows an error with an invalid email format', 'Ensures that registration rejects malformed emails and the user stays on /registro.'],
+                    'no permite enviar el formulario con campos vacíos': ['Does not allow submitting the form with empty fields', 'Checks that the submit button does not produce a sign-up with an empty form.'],
+                    'no permite registrar un email ya existente': ['Does not allow registering an existing email', 'Prevents duplicate accounts: an already registered email must show an error message.'],
+                    'muestra el carrito vacío inicialmente': ['Shows the cart empty initially', 'Business base state: with no products added, the empty cart message is shown.'],
+                    'permite agregar un producto al carrito': ['Allows adding a product to the cart', 'Adds the first product from the Home page (choosing color and size in the modal) and confirms it appears as an item in the cart.'],
+                    'permite aumentar la cantidad de un producto': ['Allows increasing the quantity of a product', 'Increases the quantity of an item and verifies the counter shows the new value (2).'],
+                    'permite eliminar un producto del carrito': ['Allows removing a product from the cart', 'Removes an item from the cart and confirms the cart returns to its empty state.'],
+                    'actualiza el total al agregar más de un producto': ['Updates the total when adding more than one product', 'Adds two different products and verifies the cart lists both items with the recalculated total.'],
+                    'el botón de checkout está deshabilitado con el carrito vacío': ['The checkout button is disabled with an empty cart', 'UX good practice: with no items in the cart you cannot proceed to payment.'],
+                    'crea la preferencia de pago en el backend al confirmar la compra': ['Creates the payment preference in the backend when confirming the purchase', 'Intercepts the POST request to the payment preference API and validates that the backend responds 200, confirming the integration fires correctly.'],
+                    'redirige al usuario al checkout de MercadoPago al confirmar la compra': ['Redirects the user to the MercadoPago checkout when confirming the purchase', 'Intercepts the POST request to the payment preference API and validates that the backend responds 200, confirming the integration fires correctly.'],
+                    'muestra el resumen de la orden con el total correcto antes de pagar': ['Shows the order summary with the correct total before paying', 'Before reaching MercadoPago, the UI must show the order summary and the total amount.'],
+                    'maneja un error del backend al crear la preferencia de pago': ['Handles a backend error when creating the payment preference', 'Simulates a backend failure (mocking with status 500) to verify the UI responds without breaking on error.'],
+                    'no permite ir a checkout si el carrito está vacío': ['Does not allow going to checkout with an empty cart', 'With no items in the cart, the option to go to checkout stays disabled.'],
+                    'ofrece elegir entre MercadoPago y transferencia bancaria': ['Offers a choice between MercadoPago and bank transfer', 'When entering checkout, both payment methods must be available to the user.'],
+                    'muestra los datos bancarios al elegir transferencia': ['Shows the bank details when choosing transfer', 'When choosing transfer, the account details and the button to confirm the order are displayed.'],
+                    'confirma el pedido por transferencia y muestra el modal de éxito': ['Confirms the transfer order and shows the success modal', 'Confirms the order against the backend and verifies the success modal appears with the button to send the proof via WhatsApp.'],
+                    'el botón de WhatsApp es visible en el inicio': ['The WhatsApp button is visible on the home page', 'The floating contact button must be present as soon as the user enters the Home page.'],
+                    'apunta al número de WhatsApp correcto': ['Points to the correct WhatsApp number', 'Reads the button href attribute and verifies it includes the number configured in the whatsapp.json fixture.'],
+                    'incluye un mensaje automático pre-cargado': ['Includes a pre-filled automatic message', 'The link must bring the welcome message already encoded, so that it arrives ready when WhatsApp opens.'],
+                    'se abre en una pestaña nueva (target=_blank)': ['Opens in a new tab (target=_blank)', 'Confirms that the WhatsApp chat does not replace the e-commerce tab.'],
+                    "usa rel='noopener noreferrer' por seguridad": ["Uses rel='noopener noreferrer' for security", 'Web security good practices when opening external windows.'],
+                    'permanece visible al hacer scroll en la página': ['Stays visible while scrolling the page', 'The floating button is sticky: it must remain visible when navigating to the end of the page.'],
+                    'login exitoso en un sitio de práctica': ['Successful login on a practice site', 'Fills the form with valid credentials and confirms the correct access message.']
+                },
+                friendly: {
+                    'permite iniciar sesión con credenciales válidas': 'Log in with a real user and the app lets you through: after logging in you are no longer on /login.',
+                    'muestra error con contraseña incorrecta': 'If you type the wrong password, the app warns you and lets you keep trying in the same place.',
+                    'muestra error con un email no registrado': 'An email with no account does not get in: the error appears and no one slips through.',
+                    'no permite loguear con campos vacíos': 'Pressing "Sign in" without filling the fields does not log you in, everything is left to complete.',
+                    'mantiene la sesión iniciada al navegar entre páginas': 'After signing in, if you browse the site you stay logged in (the "Sign in" link disappears).',
+                    'registra un usuario nuevo con datos válidos': 'Creates a new account from scratch, with a unique email so the test always works.',
+                    'muestra error cuando las contraseñas no coinciden': 'If the password and its confirmation are not equal, the app detects it and does not let you continue.',
+                    'muestra error con un formato de email inválido': 'A badly written email does not allow sign-up: the form stays for you to fix it.',
+                    'no permite enviar el formulario con campos vacíos': 'With no data in the form nothing is registered, no matter how much you press the button.',
+                    'no permite registrar un email ya existente': 'If the email already has an account, the app warns you to avoid duplicates.',
+                    'muestra el carrito vacío inicialmente': 'Entering the cart without adding anything shows the empty message.',
+                    'permite agregar un producto al carrito': 'You tap "add" on a product and it appears in the cart as an item.',
+                    'permite aumentar la cantidad de un producto': 'With the "+" button you raise the quantity and the number updates.',
+                    'permite eliminar un producto del carrito': 'With "Remove" you take the product out and the cart is empty again.',
+                    'actualiza el total al agregar más de un producto': 'You add two products and the cart recalculates the total by itself.',
+                    'el botón de checkout está deshabilitado con el carrito vacío': 'Empty cart = cannot pay: the checkout button stays disabled.',
+                    'redirige al usuario al checkout de MercadoPago al confirmar la compra': 'When confirming the purchase, the app asks the backend for the payment preference and it responds fine: it is the gateway to MercadoPago.',
+                    'crea la preferencia de pago en el backend al confirmar la compra': 'When confirming the purchase, the app asks the backend for the payment preference and it responds fine: it is the gateway to MercadoPago.',
+                    'muestra el resumen de la orden con el total correcto antes de pagar': 'Before paying, you see your order summary with the total amount on screen.',
+                    'maneja un error del backend al crear la preferencia de pago': 'They simulate a backend failure (error 500) and the app does not break: it keeps showing the summary.',
+                    'no permite ir a checkout si el carrito está vacío': 'With no products in the cart, the button to go to checkout stays blocked.',
+                    'ofrece elegir entre MercadoPago y transferencia bancaria': 'You can pay with MercadoPago or transfer: both options are available.',
+                    'muestra los datos bancarios al elegir transferencia': 'If you choose transfer, the account details and the button to confirm the order are shown.',
+                    'confirma el pedido por transferencia y muestra el modal de éxito': 'When confirming the transfer, the "Your order is confirmed!" banner appears with the button to send the proof via WhatsApp.',
+                    'el botón de WhatsApp es visible en el inicio': 'As soon as you open the page, the floating WhatsApp button is visible in the corner.',
+                    'apunta al número de WhatsApp correcto': 'It checks that the button leads to the store\'s real number.',
+                    'incluye un mensaje automático pre-cargado': 'The link already brings a ready-made message, so it arrives written when WhatsApp opens.',
+                    'se abre en una pestaña nueva (target=_blank)': 'The chat opens in another tab, without taking you out of the store.',
+                    "usa rel='noopener noreferrer' por seguridad": 'Security detail: the new tab cannot manipulate the store.',
+                    'permanece visible al hacer scroll en la página': 'No matter how far you scroll down, the button keeps floating so you do not have to go back up.',
+                    'login exitoso en un sitio de práctica': 'Fills the form with valid credentials and confirms the correct access message.'
+                }
+            },
+            pt: {
+                goals: {
+                    'Login de usuario|tests/e2e/auth/login.spec.js': 'Verifica o acesso de usuários existentes e o tratamento de erros de autenticação. Cada caso reseta o estado do app em um beforeEach para que o cenário sempre comece do zero.',
+                    'Registro de usuario|tests/e2e/auth/register.spec.js': 'Cobre o cadastro de novos usuários: caminho feliz, validação de senha e formato de e-mail, campos obrigatórios e e-mails duplicados.',
+                    'Carrito de compras|tests/e2e/cart/cart.spec.js': 'Valida o ciclo completo do carrinho: estado vazio, adicionar produtos, alterar quantidade, remover, recálculo do total e estado do botão de checkout.',
+                    'Checkout — Integración MercadoPago|tests/e2e/checkout/mercadopago.spec.js': 'Estratégia de teste "até o limite do contrato": nada é automatizado dentro do site do MercadoPago (domínio de terceiros). A criação da preferência de pagamento é interceptada e a resposta do backend é validada. Usa login via API para começar autenticado.',
+                    'Checkout — Pago por transferencia|tests/e2e/checkout/transferencia.spec.js': 'Cobre a segunda forma de pagamento do checkout: escolher transferência bancária, ver os dados da conta e confirmar o pedido. O teste intercepta a requisição POST ao endpoint de pedidos e valida o modal de sucesso com o envio do comprovante por WhatsApp.',
+                    'Botón flotante de WhatsApp|tests/e2e/navigation/whatsapp.spec.js': 'Sem navegar ao domínio externo wa.me: valida que o botão flutuante esteja visível, aponte para o número correto, contenha a mensagem pré-carregada e cumpra boas práticas de segurança (target="_blank" + rel="noopener noreferrer").',
+                    'Login de usuario|cypress/e2e/auth/login.cy.js': 'O mesmo fluxo do Playwright, mas com sintaxe do Cypress. As tags @smoke/@regression permitem executar apenas um subconjunto de testes pela CLI. Cada caso reseta o estado com o comando personalizado cy.resetAppState().',
+                    'Registro de usuario|cypress/e2e/auth/register.cy.js': 'As fixtures do Cypress (cy.fixture("users")) alimentam os dados do formulário. O e-mail único é gerado com Date.now() substituindo o placeholder {{timestamp}} dentro da fixture.',
+                    'Carrito de compras|cypress/e2e/cart/cart.cy.js': 'Comandos personalizados (cy.getByTestId) e Page Object Model estático: as page objects expõem seletores e ações como propriedades encadeáveis com a API do Cypress.',
+                    'Checkout — Integración MercadoPago|cypress/e2e/checkout/mercadopago.cy.js': 'A criação da preferência do MercadoPago é interceptada com cy.intercept para validar a integração sem depender do serviço de terceiros.',
+                    'Checkout — Pago por transferencia|cypress/e2e/checkout/transferencia.cy.js': 'Valida o fluxo de pagamento por transferência e a interceptação do endpoint de confirmação, igual ao spec do Playwright.',
+                    'Botón flotante de WhatsApp|cypress/e2e/navigation/whatsapp.cy.js': 'Valida visibilidade, número de destino, mensagem pré-carregada e atributos de segurança do link do botão flutuante do WhatsApp.',
+                    'Login de usuario|src/test/java/tests/GoogleTest.java': 'Verifica o login bem-sucedido em um site de prática (the-internet.herokuapp.com/login). Roda headless no CI com GitHub Actions.'
+                },
+                tests: {
+                    'permite iniciar sesión con credenciales válidas': ['Permite fazer login com credenciais válidas', 'Confirma que um usuário cadastrado entra corretamente e que, após o login, a URL /login é abandonada.'],
+                    'muestra error con contraseña incorrecta': ['Mostra erro com senha incorreta', 'Garante que uma senha inválida exibe a mensagem de erro na tela e mantém o usuário em /login.'],
+                    'muestra error con un email no registrado': ['Mostra erro com um e-mail não cadastrado', 'Valida que um e-mail inexistente recebe o feedback de erro na tela e não permite o acesso.'],
+                    'no permite loguear con campos vacíos': ['Não permite logar com campos vazios', 'Verifica que enviar o formulário sem preencher os campos não faz login: o usuário permanece em /login.'],
+                    'mantiene la sesión iniciada al navegar entre páginas': ['Mantém a sessão ativa ao navegar entre páginas', 'Verifica a persistência da sessão: ao voltar para a Home, o link "Entrar" não aparece mais no cabeçalho.'],
+                    'registra un usuario nuevo con datos válidos': ['Cadastra um novo usuário com dados válidos', 'Usa um e-mail único por execução (uniqueEmail) para que o cadastro seja sempre reprodutível e não colida com dados anteriores.'],
+                    'muestra error cuando las contraseñas no coinciden': ['Mostra erro quando as senhas não coincidem', 'Valida o controle de correspondência entre password e confirmPassword do formulário de cadastro.'],
+                    'muestra error con un formato de email inválido': ['Mostra erro com um formato de e-mail inválido', 'Garante que o cadastro rejeita e-mails mal formatados e o usuário permanece em /registro.'],
+                    'no permite enviar el formulario con campos vacíos': ['Não permite enviar o formulário com campos vazios', 'Verifica que o botão de envio não produz um cadastro com o formulário vazio.'],
+                    'no permite registrar un email ya existente': ['Não permite cadastrar um e-mail já existente', 'Evita contas duplicadas: um e-mail já cadastrado deve mostrar mensagem de erro.'],
+                    'muestra el carrito vacío inicialmente': ['Mostra o carrinho vazio inicialmente', 'Estado base do negócio: sem produtos adicionados, a mensagem de carrinho vazio é exibida.'],
+                    'permite agregar un producto al carrito': ['Permite adicionar um produto ao carrinho', 'Adiciona o primeiro produto da Home (escolhendo cor e tamanho no modal) e confirma que ele aparece como item no carrinho.'],
+                    'permite aumentar la cantidad de un producto': ['Permite aumentar a quantidade de um produto', 'Incrementa a quantidade de um item e verifica que o contador mostre o novo valor (2).'],
+                    'permite eliminar un producto del carrito': ['Permite remover um produto do carrinho', 'Remove um item do carrinho e confirma que o carrinho volta ao estado vazio.'],
+                    'actualiza el total al agregar más de un producto': ['Atualiza o total ao adicionar mais de um produto', 'Adiciona dois produtos diferentes e verifica que o carrinho liste ambos os itens com o total recalculado.'],
+                    'el botón de checkout está deshabilitado con el carrito vacío': ['O botão de checkout fica desabilitado com o carrinho vazio', 'Boas práticas de UX: sem itens no carrinho, não é possível avançar para o pagamento.'],
+                    'crea la preferencia de pago en el backend al confirmar la compra': ['Cria a preferência de pagamento no backend ao confirmar a compra', 'Intercepta a requisição POST à API de preferência de pagamento e valida que o backend responde 200, confirmando que a integração dispara corretamente.'],
+                    'redirige al usuario al checkout de MercadoPago al confirmar la compra': ['Redireciona o usuário ao checkout do MercadoPago ao confirmar a compra', 'Intercepta a requisição POST à API de preferência de pagamento e valida que o backend responde 200, confirmando que a integração dispara corretamente.'],
+                    'muestra el resumen de la orden con el total correcto antes de pagar': ['Mostra o resumo do pedido com o total correto antes de pagar', 'Antes de chegar ao MercadoPago, a UI deve mostrar o resumo do pedido e o valor total.'],
+                    'maneja un error del backend al crear la preferencia de pago': ['Trata um erro do backend ao criar a preferência de pagamento', 'Simula uma falha do backend (mock com status 500) para verificar que a UI responde sem quebrar diante do erro.'],
+                    'no permite ir a checkout si el carrito está vacío': ['Não permite ir ao checkout se o carrinho estiver vazio', 'Sem itens no carrinho, a opção de ir ao checkout permanece desabilitada.'],
+                    'ofrece elegir entre MercadoPago y transferencia bancaria': ['Oferece escolher entre MercadoPago e transferência bancária', 'Ao entrar no checkout, ambas as formas de pagamento devem estar disponíveis para o usuário.'],
+                    'muestra los datos bancarios al elegir transferencia': ['Mostra os dados bancários ao escolher transferência', 'Ao escolher transferência, os dados da conta e o botão para confirmar o pedido são exibidos.'],
+                    'confirma el pedido por transferencia y muestra el modal de éxito': ['Confirma o pedido por transferência e mostra o modal de sucesso', 'Confirma o pedido contra o backend e verifica que o modal de sucesso aparece com o botão para enviar o comprovante por WhatsApp.'],
+                    'el botón de WhatsApp es visible en el inicio': ['O botão do WhatsApp é visível na página inicial', 'O botão flutuante de contato deve estar presente assim que o usuário entra na Home.'],
+                    'apunta al número de WhatsApp correcto': ['Aponta para o número de WhatsApp correto', 'Lê o atributo href do botão e verifica que ele inclui o número configurado na fixture whatsapp.json.'],
+                    'incluye un mensaje automático pre-cargado': ['Inclui uma mensagem automática pré-carregada', 'O link deve trazer a mensagem de boas-vindas já codificada, para que chegue pronta ao abrir o WhatsApp.'],
+                    'se abre en una pestaña nueva (target=_blank)': ['Abre em uma nova aba (target=_blank)', 'Confirma que a conversa do WhatsApp não substitui a aba do e-commerce.'],
+                    "usa rel='noopener noreferrer' por seguridad": ["Usa rel='noopener noreferrer' por segurança", 'Boas práticas de segurança web ao abrir janelas externas.'],
+                    'permanece visible al hacer scroll en la página': ['Permanece visível ao rolar a página', 'O botão flutuante é sticky: deve continuar visível ao navegar até o final da página.'],
+                    'login exitoso en un sitio de práctica': ['Login bem-sucedido em um site de prática', 'Preenche o formulário com credenciais válidas e confirma a mensagem de acesso correto.']
+                },
+                friendly: {
+                    'permite iniciar sesión con credenciales válidas': 'Entra com um usuário real e o app deixa passar: depois do login você não está mais em /login.',
+                    'muestra error con contraseña incorrecta': 'Se você digita a senha errada, o app avisa e deixa você continuar tentando no mesmo lugar.',
+                    'muestra error con un email no registrado': 'Um e-mail sem conta não entra: o erro aparece e ninguém passa.',
+                    'no permite loguear con campos vacíos': 'Apertar "Entrar" sem preencher os campos não faz login, fica tudo para completar.',
+                    'mantiene la sesión iniciada al navegar entre páginas': 'Depois de entrar, se você navega pelo site continua logado (o link "Entrar" desaparece).',
+                    'registra un usuario nuevo con datos válidos': 'Cria uma conta nova do zero, com um e-mail único para que o teste funcione sempre.',
+                    'muestra error cuando las contraseñas no coinciden': 'Se a senha e sua confirmação não forem iguais, o app detecta e não deixa avançar.',
+                    'muestra error con un formato de email inválido': 'Com um e-mail mal escrito não é permitido o cadastro: o formulário fica para você corrigir.',
+                    'no permite enviar el formulario con campos vacíos': 'Sem dados no formulário nada é cadastrado, por mais que você aperte o botão.',
+                    'no permite registrar un email ya existente': 'Se o e-mail já tem conta, o app avisa para não criar duplicados.',
+                    'muestra el carrito vacío inicialmente': 'Ao entrar no carrinho sem adicionar nada, aparece a mensagem de que está vazio.',
+                    'permite agregar un producto al carrito': 'Você toca em "adicionar" em um produto e ele aparece no carrinho como item.',
+                    'permite aumentar la cantidad de un producto': 'Com o botão "+" você sobe a quantidade e o número se atualiza.',
+                    'permite eliminar un producto del carrito': 'Com "Remover" você tira o produto e o carrinho volta a ficar vazio.',
+                    'actualiza el total al agregar más de un producto': 'Você adiciona dois produtos e o carrinho recalcula o total sozinho.',
+                    'el botón de checkout está deshabilitado con el carrito vacío': 'Carrinho vazio = não dá para pagar: o botão de checkout fica desabilitado.',
+                    'redirige al usuario al checkout de MercadoPago al confirmar la compra': 'Ao confirmar a compra, o app pede a preferência de pagamento ao backend e ele responde bem: é a porta de entrada do MercadoPago.',
+                    'crea la preferencia de pago en el backend al confirmar la compra': 'Ao confirmar a compra, o app pede a preferência de pagamento ao backend e ele responde bem: é a porta de entrada do MercadoPago.',
+                    'muestra el resumen de la orden con el total correcto antes de pagar': 'Antes de pagar, você vê o resumo do seu pedido com o valor total na tela.',
+                    'maneja un error del backend al crear la preferencia de pago': 'Simulam que o backend falha (erro 500) e o app não quebra: continua mostrando o resumo.',
+                    'no permite ir a checkout si el carrito está vacío': 'Sem produtos no carrinho, o botão para ir ao checkout fica bloqueado.',
+                    'ofrece elegir entre MercadoPago y transferencia bancaria': 'Você pode pagar com MercadoPago ou transferência: as duas opções estão disponíveis.',
+                    'muestra los datos bancarios al elegir transferencia': 'Se você escolhe transferência, os dados da conta e o botão para confirmar o pedido são mostrados.',
+                    'confirma el pedido por transferencia y muestra el modal de éxito': 'Ao confirmar a transferência, aparece o aviso "Seu pedido está confirmado!" com o botão para enviar o comprovante por WhatsApp.',
+                    'el botón de WhatsApp es visible en el inicio': 'Assim que você abre a página, o botão flutuante do WhatsApp aparece no canto.',
+                    'apunta al número de WhatsApp correcto': 'Verifica se o botão leva ao número real da loja.',
+                    'incluye un mensaje automático pre-cargado': 'O link já traz uma mensagem pronta, para chegar escrita ao abrir o WhatsApp.',
+                    'se abre en una pestaña nueva (target=_blank)': 'O chat abre em outra aba, sem tirar você da loja.',
+                    "usa rel='noopener noreferrer' por seguridad": 'Detalhe de segurança: a nova aba não pode manipular a loja.',
+                    'permanece visible al hacer scroll en la página': 'Por mais que você role a página, o botão continua flutuando para você não ter que voltar ao topo.',
+                    'login exitoso en un sitio de práctica': 'Preenche o formulário com credenciais válidas e confirma a mensagem de acesso correto.'
+                }
+            }
+        };
+
+        let currentLang = 'es';
+
+        function t(key) {
+            if (currentLang === 'es' || !I18N[currentLang]) return null;
+            return I18N[currentLang].ui[key] ?? null;
+        }
+
+        function modalI18n() {
+            return (currentLang !== 'es' && MODAL_I18N[currentLang]) ? MODAL_I18N[currentLang] : null;
+        }
+
+        function tSpecTitle(es) {
+            const m = modalI18n();
+            return m && m.spec_titles && m.spec_titles[es] ? m.spec_titles[es] : (I18N[currentLang]?.spec_titles?.[es] ?? es);
+        }
+
+        function tGoal(spec) {
+            const m = modalI18n();
+            if (!m || !m.goals) return spec.goal;
+            return m.goals[spec.title + '|' + spec.file] ?? spec.goal;
+        }
+
+        function tTestName(esName) {
+            const m = modalI18n();
+            return m && m.tests && m.tests[esName] ? m.tests[esName][0] : esName;
+        }
+
+        function tTestWhy(esName, fallback) {
+            const m = modalI18n();
+            return m && m.tests && m.tests[esName] ? m.tests[esName][1] : fallback;
+        }
+
+        function tFriendly(esName, fallback) {
+            const m = modalI18n();
+            if (!m || !m.friendly) return FRIENDLY[esName] || fallback;
+            return m.friendly[esName] || FRIENDLY[esName] || fallback;
+        }
+
+        function tCaption(esTitle, fallback) {
+            const m = modalI18n();
+            return m && m.captions && m.captions[esTitle] ? m.captions[esTitle] : fallback;
+        }
+
+        function tSuiteDesc(key, fallback) {
+            const m = modalI18n();
+            return m && m.suite_desc && m.suite_desc[key] ? m.suite_desc[key] : fallback;
+        }
+
+        function tSubtitle(esSubtitle) {
+            if (currentLang === 'es' || !I18N[currentLang]) return esSubtitle;
+            const m = I18N[currentLang];
+            const casesLabel = { en: 'cases', pt: 'casos' }[currentLang] || 'casos';
+            return m.subtitle + esSubtitle.replace(/^End-to-End Testing/, '').replace(/\b(casos)\b/g, casesLabel);
+        }
+
+        function applyLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+            try { localStorage.setItem('bronza-portfolio-lang', lang); } catch { /* ignore */ }
+
+            // Textos estáticos
+            document.querySelectorAll('[data-i18n]').forEach((el) => {
+                const key = el.getAttribute('data-i18n');
+                if (!el.dataset.i18nEs) el.dataset.i18nEs = el.textContent;
+                const translated = I18N[lang]?.ui?.[key];
+                el.textContent = translated != null ? translated : el.dataset.i18nEs;
+            });
+            document.querySelectorAll('[data-i18n-placeholder]').forEach((el) => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (!el.dataset.i18nEsPh) el.dataset.i18nEsPh = el.getAttribute('placeholder') || '';
+                const translated = I18N[lang]?.ui?.[key];
+                el.setAttribute('placeholder', translated != null ? translated : el.dataset.i18nEsPh);
+            });
+
+            // Selector de idioma
+            const label = { es: 'ES', en: 'EN', pt: 'PT' }[lang] || 'ES';
+            const current = document.getElementById('lang-current');
+            if (current) current.textContent = label;
+            document.querySelectorAll('.lang-option').forEach((btn) => {
+                const active = btn.dataset.lang === lang;
+                btn.classList.toggle('bg-primary', active);
+                btn.classList.toggle('text-on-primary', active);
+                btn.classList.toggle('border-primary', active);
+            });
+
+            // Re-renderizar modal si está abierto
+            if (artModalOpenKey) renderTestSuite(artModalOpenKey);
+        }
+
+        let artModalOpenKey = null;
 
         // ===== Presentador de tests (Playwright & Cypress) =====
         const SPEC_MEDIA = {
@@ -1449,6 +1869,9 @@ assertTrue(
         }
 
         function testsSpecCard(spec, index) {
+            const ml = modalI18n() ? I18N[currentLang].modal_labels : { goal: 'Objetivo del spec', simple: 'En simple · ', validates: 'Qué valida · ', cases: 'casos' };
+            const displayTitle = tSpecTitle(spec.title);
+            const caption = SPEC_MEDIA[spec.title] ? tCaption(spec.title, SPEC_MEDIA[spec.title].caption) : '';
             return `
             <div class="border border-outline-variant/30 rounded-xl overflow-hidden bg-white">
               <button class="spec-toggle w-full flex items-center gap-4 p-4 md:p-5 text-left hover:bg-surface-bright transition-colors cursor-pointer" data-index="${index}" type="button" aria-expanded="false">
@@ -1456,24 +1879,24 @@ assertTrue(
                   <span class="material-symbols-outlined text-on-secondary-container">${spec.icon}</span>
                 </span>
                 <span class="flex-1 min-w-0">
-                  <span class="block font-body-md text-sm font-bold text-primary">${spec.title}</span>
-                  <span class="block font-mono text-[11px] text-on-surface-variant truncate">${spec.file} · ${spec.tests.length} casos</span>
+                  <span class="block font-body-md text-sm font-bold text-primary">${displayTitle}</span>
+                  <span class="block font-mono text-[11px] text-on-surface-variant truncate">${spec.file} · ${spec.tests.length} ${ml.cases}</span>
                 </span>
                 <span class="material-symbols-outlined text-secondary transition-transform duration-300 spec-chevron">expand_more</span>
               </button>
               <div class="spec-panel hidden">
                 <div class="px-4 md:px-5 pb-5 bg-surface-bright border-t border-outline-variant/20">
                   <p class="text-xs leading-relaxed text-on-surface-variant italic mt-4 mb-4">
-                    <span class="font-bold not-italic text-secondary uppercase tracking-wider text-[10px] block mb-1">Objetivo del spec</span>
-                    ${spec.goal}
+                    <span class="font-bold not-italic text-secondary uppercase tracking-wider text-[10px] block mb-1">${ml.goal}</span>
+                    ${tGoal(spec)}
                   </p>
                   ${SPEC_MEDIA[spec.title] ? `
                   <div class="mb-4">
-                    <video class="w-full rounded-lg border border-outline-variant/30 bg-[#211d18]" controls autoplay loop muted playsinline poster="${SPEC_MEDIA[spec.title].poster}" aria-label="Video demo: ${spec.title}">
+                    <video class="w-full rounded-lg border border-outline-variant/30 bg-[#211d18]" controls autoplay loop muted playsinline poster="${SPEC_MEDIA[spec.title].poster}" aria-label="Video demo: ${displayTitle}">
                       <source src="${SPEC_MEDIA[spec.title].video}" type="video/webm">
                       Tu navegador no soporta video.
                     </video>
-                    <p class="text-[11px] text-on-surface-variant mt-2 flex items-start gap-1"><span class="material-symbols-outlined text-sm text-secondary shrink-0">play_circle</span>${SPEC_MEDIA[spec.title].caption}</p>
+                    <p class="text-[11px] text-on-surface-variant mt-2 flex items-start gap-1"><span class="material-symbols-outlined text-sm text-secondary shrink-0">play_circle</span>${caption}</p>
                   </div>
                   ` : ''}
                   <div class="space-y-3">
@@ -1481,11 +1904,11 @@ assertTrue(
                       <div class="bg-white border border-outline-variant/20 rounded-lg p-4">
                         <div class="flex flex-wrap items-start gap-x-2 gap-y-1 mb-2">
                           <span class="material-symbols-outlined text-base text-secondary shrink-0 mt-0.5">check_circle</span>
-                          <p class="font-body-md text-sm font-semibold text-primary flex-1 min-w-0">${t.name}</p>
+                          <p class="font-body-md text-sm font-semibold text-primary flex-1 min-w-0">${tTestName(t.name)}</p>
                           ${(t.tags || []).map((g) => `<span class="text-[9px] font-bold px-1.5 py-0.5 rounded bg-tertiary-fixed text-primary uppercase whitespace-nowrap">${g}</span>`).join('')}
                         </div>
-                        <p class="text-xs text-on-surface leading-relaxed mb-1"><span class="font-bold text-secondary">En simple · </span>${FRIENDLY[t.name] || t.why}</p>
-                        <p class="text-xs text-on-surface-variant mb-3"><span class="font-bold text-secondary">Qué valida · </span>${t.why}</p>
+                        <p class="text-xs text-on-surface leading-relaxed mb-1"><span class="font-bold text-secondary">${ml.simple}</span>${tFriendly(t.name, t.why)}</p>
+                        <p class="text-xs text-on-surface-variant mb-3"><span class="font-bold text-secondary">${ml.validates}</span>${tTestWhy(t.name, t.why)}</p>
                         <pre class="bg-[#211d18] text-[#e8e0d5] rounded-md p-3 text-[11px] leading-relaxed font-mono overflow-x-auto"><code>${escapeHtml(t.code)}</code></pre>
                       </div>
                     `).join('')}
@@ -1498,26 +1921,28 @@ assertTrue(
 
         function renderTestSuite(key) {
             const suite = TEST_SUITES[key];
+            const ml = modalI18n() ? I18N[currentLang].modal_labels : { code_link: '¿Querés ver el código completo?', open_github: 'abrir', in_github: 'en GitHub' };
             testsModalTitle.textContent = suite.framework;
-            testsModalSubtitle.textContent = suite.subtitle;
+            testsModalSubtitle.textContent = tSubtitle(suite.subtitle);
             testsModalLogo.textContent = suite.monogram;
             testsModalLogo.style.background = suite.brand;
 
             testsModalBody.innerHTML = `
             <div class="px-6 md:px-10 py-6 md:py-8">
-              <p class="font-body-md text-sm text-on-surface-variant leading-relaxed">${suite.description}</p>
+              <p class="font-body-md text-sm text-on-surface-variant leading-relaxed">${tSuiteDesc(key, suite.description)}</p>
               <div class="flex flex-wrap gap-2 mt-4">
                 ${suite.characteristics.map((c) => `<span class="text-[10px] font-bold px-2 py-1 bg-tertiary-fixed text-primary rounded">${c}</span>`).join('')}
               </div>
               <div class="mt-6 space-y-3">
                 ${suite.specs.map(testsSpecCard).join('')}
               </div>
-              ${suite.githubUrl ? `<p class="mt-6 text-center text-xs text-on-surface-variant">¿Querés ver el código completo? <a class="underline decoration-2 underline-offset-2 hover:text-primary transition-colors font-semibold" href="${suite.githubUrl}" rel="noopener noreferrer" target="_blank">abrir ${suite.framework.toLowerCase()} en GitHub</a></p>` : ''}
+              ${suite.githubUrl ? `<p class="mt-6 text-center text-xs text-on-surface-variant">${ml.code_link} <a class="underline decoration-2 underline-offset-2 hover:text-primary transition-colors font-semibold" href="${suite.githubUrl}" rel="noopener noreferrer" target="_blank">${ml.open_github} ${suite.framework.toLowerCase()} ${ml.in_github}</a></p>` : ''}
             </div>
           `;
         }
 
         function openTestsModal(key) {
+            artModalOpenKey = key;
             renderTestSuite(key);
             testsModal.classList.remove('hidden');
             testsModal.classList.add('flex');
@@ -1526,6 +1951,7 @@ assertTrue(
         }
 
         function closeTestsModal() {
+            artModalOpenKey = null;
             testsModal.classList.add('hidden');
             testsModal.classList.remove('flex');
             testsModal.setAttribute('aria-hidden', 'true');
@@ -1541,6 +1967,15 @@ assertTrue(
             if (e.target.closest('[data-close-tests]')) {
                 closeTestsModal();
                 return;
+            }
+            const langBtn = e.target.closest('.lang-option');
+            if (langBtn) {
+                applyLanguage(langBtn.dataset.lang);
+                closeLangMenu();
+                return;
+            }
+            if (!e.target.closest('#lang-select-wrap')) {
+                closeLangMenu();
             }
             const toggle = e.target.closest('.spec-toggle');
             if (toggle && testsModal.contains(toggle)) {
@@ -1558,6 +1993,50 @@ assertTrue(
             if (e.key === 'Escape' && !testsModal.classList.contains('hidden')) {
                 closeTestsModal();
             }
+            if (e.key === 'Escape') closeLangMenu();
         });
+
+        // ===== Selector de idioma =====
+        const langToggle = document.getElementById('lang-toggle');
+        const langMenu = document.getElementById('lang-menu');
+        const langChevron = document.getElementById('lang-chevron');
+
+        function closeLangMenu() {
+            if (!langMenu) return;
+            langMenu.classList.add('hidden');
+            langMenu.classList.remove('flex');
+            if (langToggle) langToggle.setAttribute('aria-expanded', 'false');
+            if (langChevron) langChevron.style.transform = 'rotate(0deg)';
+        }
+
+        if (langToggle && langMenu) {
+            langToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isOpen = !langMenu.classList.contains('hidden');
+                if (isOpen) {
+                    closeLangMenu();
+                } else {
+                    langMenu.classList.remove('hidden');
+                    langMenu.classList.add('flex');
+                    langToggle.setAttribute('aria-expanded', 'true');
+                    if (langChevron) langChevron.style.transform = 'rotate(180deg)';
+                }
+            });
+        }
+
+        // ===== Inicialización de idioma (preferencia guardada → navegador → español) =====
+        (function initLanguage() {
+            let saved = null;
+            try { saved = localStorage.getItem('bronza-portfolio-lang'); } catch { /* ignore */ }
+            const supported = ['es', 'en', 'pt'];
+            let lang = supported.includes(saved) ? saved : null;
+            if (!lang) {
+                const nav = (navigator.language || navigator.userLanguage || 'es').toLowerCase();
+                if (nav.startsWith('pt')) lang = 'pt';
+                else if (nav.startsWith('en')) lang = 'en';
+                else lang = 'es';
+            }
+            applyLanguage(lang);
+        })();
     </script>
 </body></html>
