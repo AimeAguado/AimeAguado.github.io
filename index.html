@@ -141,6 +141,7 @@
 <a class="font-body-md text-body-md text-primary border-b-2 border-primary pb-1" data-i18n="nav_home" href="#home">Home</a>
 <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-i18n="nav_about" href="#about">About</a>
 <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-i18n="nav_skills" href="#skills">Skills</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-i18n="nav_certificates" href="#certificates">Certificados</a>
 <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-i18n="nav_experience" href="#experience">Experience</a>
 <div class="relative" id="lang-select-wrap">
 <button aria-haspopup="true" aria-expanded="false" class="flex items-center gap-1 font-label-caps text-label-caps px-3 py-2 border border-outline-variant/50 text-on-surface-variant hover:text-primary hover:border-primary rounded-lg transition-all cursor-pointer" id="lang-toggle" type="button">
@@ -168,6 +169,7 @@
     <a onclick="closeMobileMenu()" class="font-body-md text-lg text-on-surface-variant hover:text-primary transition-colors" data-i18n="nav_home" href="#home">Home</a>
     <a onclick="closeMobileMenu()" class="font-body-md text-lg text-on-surface-variant hover:text-primary transition-colors" data-i18n="nav_about" href="#about">About</a>
     <a onclick="closeMobileMenu()" class="font-body-md text-lg text-on-surface-variant hover:text-primary transition-colors" data-i18n="nav_skills" href="#skills">Skills</a>
+    <a onclick="closeMobileMenu()" class="font-body-md text-lg text-on-surface-variant hover:text-primary transition-colors" data-i18n="nav_certificates" href="#certificates">Certificados</a>
     <a onclick="closeMobileMenu()" class="font-body-md text-lg text-on-surface-variant hover:text-primary transition-colors" data-i18n="nav_experience" href="#experience">Experience</a>
     <div class="mt-2 flex flex-col items-center gap-3">
       <span class="font-label-caps text-label-caps text-on-surface-variant">Idioma</span>
@@ -190,7 +192,7 @@
                         Aimé Aguado
                     </h1>
 <p class="font-headline-md text-headline-md text-on-surface-variant leading-relaxed" data-i18n="hero_role">
-                        QA Automation Engineer
+                        QA Automation Junior
                     </p>
 <div class="flex flex-wrap gap-4 pt-4">
 <a class="font-label-caps text-label-caps px-8 py-4 bg-primary text-on-primary rounded-lg hover:opacity-90 transition-all flex items-center gap-2" href="#projects">
@@ -323,6 +325,47 @@
 </div>
 </div>
 </section>
+<!-- Certificates Section -->
+<section class="py-8 md:py-12 bg-surface-container-lowest opacity-100 translate-y-0" id="certificates">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="text-center max-w-2xl mx-auto mb-12">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4" data-i18n="certificates_title">Certificados</h2>
+<p class="font-body-md text-on-surface-variant" data-i18n="certificates_sub">Cursos y certificaciones que respaldan mi formación en QA y desarrollo web.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+<button class="group text-left bg-white border border-outline-variant/30 rounded-xl overflow-hidden hover:border-secondary transition-all duration-300 ambient-shadow cursor-pointer" data-open-certificate="qa" type="button">
+<div class="relative aspect-[4/3] overflow-hidden bg-surface-container">
+<img alt="Certificado Tester QA" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" loading="lazy" src="assets/certificates/Certificado-tester-QA.jpg">
+<div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/40 transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-4xl opacity-0 group-hover:opacity-100 transition-opacity">zoom_in</span>
+</div>
+</div>
+<div class="p-5 flex items-center justify-between gap-4">
+<div>
+<h3 class="font-headline-md text-[20px] text-primary" data-i18n="cert_qa_title">Tester QA</h3>
+<p class="font-body-md text-sm text-on-surface-variant" data-i18n="cert_qa_sub">Certificado de finalización</p>
+</div>
+<span class="material-symbols-outlined text-secondary">open_in_new</span>
+</div>
+</button>
+<button class="group text-left bg-white border border-outline-variant/30 rounded-xl overflow-hidden hover:border-secondary transition-all duration-300 ambient-shadow cursor-pointer" data-open-certificate="web" type="button">
+<div class="relative aspect-[4/3] overflow-hidden bg-surface-container">
+<img alt="Certificado Desarrollo Web" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" loading="lazy" src="assets/certificates/Certificado-desarrollo-web.jpg">
+<div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/40 transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-4xl opacity-0 group-hover:opacity-100 transition-opacity">zoom_in</span>
+</div>
+</div>
+<div class="p-5 flex items-center justify-between gap-4">
+<div>
+<h3 class="font-headline-md text-[20px] text-primary" data-i18n="cert_web_title">Desarrollo Web</h3>
+<p class="font-body-md text-sm text-on-surface-variant" data-i18n="cert_web_sub">Certificado de finalización</p>
+</div>
+<span class="material-symbols-outlined text-secondary">open_in_new</span>
+</div>
+</button>
+</div>
+</div>
+</section>
 <!-- Experience Section -->
 <section class="py-8 md:py-12 bg-surface-container-lowest opacity-100 translate-y-0" id="experience">
 <div class="max-w-container-max mx-auto px-gutter">
@@ -353,43 +396,7 @@
 <h3 class="font-headline-md text-headline-md text-primary">&nbsp; ADMINISTRATIVA - AM PROPIEDADES</h3>
 <span class="font-label-caps text-label-caps text-secondary bg-secondary/10 px-3 py-1 rounded-full w-fit" data-i18n="exp_present">05/2025 - Presente</span>
 </div>
-<p class="font-body-md text-on-surface-variant max-w-2xl" data-i18n="exp_am">Gestión de documentación legal, atención al cliente y optimización de procesos administrativos internos en el sector inmobiliario.</p>
-</div>
-<!-- Item 3 -->
-<div class="relative">
-<div class="timeline-dot"></div>
-<div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
-<h3 class="font-headline-md text-headline-md text-primary">&nbsp; VENDEDORA - LUZ DE MAR</h3>
-<span class="font-label-caps text-label-caps text-on-surface-variant">12/2024 - 03/2025</span>
-</div>
-<p class="font-body-md text-on-surface-variant max-w-2xl" data-i18n="exp_luz">Asesoramiento comercial personalizado y gestión de stock en temporada alta, priorizando la satisfacción del cliente.</p>
-</div>
-<!-- Item 4 -->
-<div class="relative">
-<div class="timeline-dot"></div>
-<div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
-<h3 class="font-headline-md text-headline-md text-primary">&nbsp; RECEPCIONISTA - GIMNASIO FULL FITNESS</h3>
-<span class="font-label-caps text-label-caps text-on-surface-variant">01/2024 - 12/2024</span>
-</div>
-<p class="font-body-md text-on-surface-variant max-w-2xl" data-i18n="exp_gym">Coordinación de agendas, atención telefónica y presencial, y gestión de membresías de socios.</p>
-</div>
-<!-- Item 5 -->
-<div class="relative">
-<div class="timeline-dot"></div>
-<div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
-<h3 class="font-headline-md text-headline-md text-primary">&nbsp; VENDEDORA - AP TIENDA DE AROMAS</h3>
-<span class="font-label-caps text-label-caps text-on-surface-variant">02/2022 - 11/2023</span>
-</div>
-<p class="font-body-md text-on-surface-variant max-w-2xl" data-i18n="exp_aromas">Gestión integral del punto de venta, cierre de caja y mantenimiento de la imagen institucional.</p>
-</div>
-<!-- Item 6 -->
-<div class="relative">
-<div class="timeline-dot"></div>
-<div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
-<h3 class="font-headline-md text-headline-md text-primary">&nbsp; MOZA - BONAFIDE CAFE</h3>
-<span class="font-label-caps text-label-caps text-on-surface-variant">12/2017 - 09/2021</span>
-</div>
-<p class="font-body-md text-on-surface-variant max-w-2xl" data-i18n="exp_cafe">Servicio al cliente de alta calidad en un entorno dinámico, desarrollando habilidades de comunicación y resolución de conflictos.</p>
+<p class="font-body-md text-on-surface-variant max-w-2xl" data-i18n="exp_am">Gestión de documentación legal, atención al cliente y optimización de procesos administrativos internos en el sector inmobiliario. Inicié el proyecto de desarrollo de una landing page para la inmobiliaria, actualmente en proceso.</p>
 </div>
 </div>
 </div>
@@ -656,7 +663,7 @@
 <a class="text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4 transition-opacity font-label-caps text-label-caps" href="https://github.com/AimeAguado" rel="noopener noreferrer" target="_blank">GitHub</a>
 <a class="text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4 transition-opacity font-label-caps text-label-caps" href="mailto:aime.natalia.2406@gmail.com" id="footer-email">Email</a>
 </div>
-<p class="font-label-caps text-[10px] text-on-surface-variant opacity-70">QA AUTOMATION ENGINEER</p>
+<p class="font-label-caps text-[10px] text-on-surface-variant opacity-70">QA AUTOMATION JUNIOR</p>
 </div>
 </div>
 </footer>
@@ -673,6 +680,29 @@
 <button aria-label="Cerrar" class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors shrink-0 cursor-pointer" data-close-tests type="button"><span class="material-symbols-outlined">close</span></button>
 </div>
 <div class="overflow-y-auto max-h-[calc(90vh-84px)]" id="tests-modal-body"></div>
+</div>
+</div>
+<!-- Certificate Modal -->
+<div aria-hidden="true" class="fixed inset-0 z-[80] hidden items-center justify-center p-4 md:p-6" id="certificate-modal">
+<div class="absolute inset-0 bg-[#1a1c1c]/60 backdrop-blur-sm" data-close-certificate></div>
+<div class="relative bg-surface w-full max-w-4xl max-h-[90vh] overflow-hidden rounded-2xl shadow-2xl modal-pop-in" role="dialog" aria-modal="true" aria-labelledby="certificate-modal-title">
+<div class="sticky top-0 z-10 bg-surface/95 backdrop-blur-sm border-b border-outline-variant/30 px-6 md:px-10 py-5 flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-secondary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-secondary-container">workspace_premium</span>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="font-headline-md text-headline-md text-primary leading-tight truncate" id="certificate-modal-title">Certificado</h4>
+<p class="text-[11px] uppercase tracking-wider text-secondary font-bold truncate" data-i18n="cert_modal_sub">Certificado de finalización</p>
+</div>
+<a class="hidden sm:inline-flex items-center gap-2 font-label-caps text-label-caps px-4 py-2 border border-outline-variant/50 text-on-surface-variant hover:text-primary hover:border-primary rounded-lg transition-all" href="#" id="certificate-modal-open" rel="noopener noreferrer" target="_blank">
+<span data-i18n="cert_open">Abrir</span>
+<span class="material-symbols-outlined text-sm">open_in_new</span>
+</a>
+<button aria-label="Cerrar" class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors shrink-0 cursor-pointer" data-close-certificate type="button"><span class="material-symbols-outlined">close</span></button>
+</div>
+<div class="overflow-auto max-h-[calc(90vh-84px)] p-4 md:p-6 bg-surface-container-low">
+<img alt="" class="w-full h-auto rounded-lg border border-outline-variant/30 mx-auto" id="certificate-modal-img" src="">
+</div>
 </div>
 </div>
 <script>
@@ -804,8 +834,8 @@
             },
             en: {
                 ui: {
-                    nav_home: 'Home', nav_about: 'About', nav_skills: 'Skills', nav_experience: 'Experience', nav_contact: 'Get in Touch',
-                    hero_available: 'Available for new challenges', hero_role: 'QA Automation Engineer', hero_projects: 'View Projects', hero_contact: 'Contact',
+                    nav_home: 'Home', nav_about: 'About', nav_skills: 'Skills', nav_experience: 'Experience', nav_certificates: 'Certificates', nav_contact: 'Get in Touch',
+                    hero_available: 'Available for new challenges', hero_role: 'QA Automation Junior', hero_projects: 'View Projects', hero_contact: 'Contact',
                     about_title: 'About Me',
                     about_p1: 'I am a dynamic, committed and structured person, with a solid ability to adapt to changing environments and work efficiently under pressure.',
                     about_p2: 'I help development teams deliver quality software by catching bugs before they reach the end user. I automate functional and API tests, and I enjoy finding that bug.',
@@ -817,11 +847,7 @@
                     exp_title: 'Professional Experience', exp_own_project: 'Own Project', exp_in_progress: 'In progress', exp_present: '05/2025 - Present',
                     exp_bronza: 'Full stack development of an E-Commerce site with React JS, Node.js, HTML and CSS. Integration of the Mercado Pago payment gateway and a WhatsApp gateway with automatic messages. Implementation of QA Automation testing with Cypress, Playwright and API testing with Postman.',
                     exp_inmotask: 'Comprehensive web platform for real estate agencies: client CRM, property management and agile task board. Full stack with React, TypeScript, Node.js and MongoDB, with JWT authentication.',
-                    exp_am: 'Management of legal documentation, customer service and optimization of internal administrative processes in the real estate sector.',
-                    exp_luz: 'Personalized commercial advice and stock management during peak season, prioritizing customer satisfaction.',
-                    exp_gym: 'Scheduling coordination, phone and in-person support, and member membership management.',
-                    exp_aromas: 'End-to-end management of the point of sale, cash closing and maintenance of the institutional image.',
-                    exp_cafe: 'High-quality customer service in a dynamic environment, developing communication and conflict-resolution skills.',
+                    exp_am: 'Management of legal documentation, customer service and optimization of internal administrative processes in the real estate sector. I started the project of creating a landing page for the real estate agency, currently in progress.',
                     projects_title: 'Featured Projects', projects_sub: 'Test automation and software quality assurance projects.',
                     proj_bronza_desc: 'E-Commerce built with React JS, Node.js, HTML and CSS. Mercado Pago payment gateway integration and a floating WhatsApp button with automatic message.',
                     proj_api_title: 'REST API Testing', proj_api_desc: 'Validation of REST endpoints with automated tests for responses, status codes and schemas.',
@@ -843,6 +869,9 @@
                     form_name: 'Full Name', form_email: 'Email', form_message: 'Message',
                     form_name_ph: 'John Doe', form_email_ph: 'john@example.com', form_message_ph: 'Tell me about your project...',
                     form_success: 'Message sent! I will get back to you soon.', form_error: 'Could not send. Please try again or email me directly.', form_send: 'Send Message',
+                    certificates_title: 'Certificates', certificates_sub: 'Courses and certifications that support my QA and web development training.',
+                    cert_qa_title: 'QA Tester', cert_qa_sub: 'Certificate of completion', cert_web_title: 'Web Development', cert_web_sub: 'Certificate of completion',
+                    cert_modal_sub: 'Certificate of completion', cert_open: 'Open',
                     footer_copy: '© 2026 Aimé Aguado. Crafted with precision and creativity.'
                 },
                 modal_labels: {
@@ -869,7 +898,7 @@
             },
             pt: {
                 ui: {
-                    nav_home: 'Home', nav_about: 'Sobre', nav_skills: 'Habilidades', nav_experience: 'Experiência', nav_contact: 'Fale Comigo',
+                    nav_home: 'Home', nav_about: 'Sobre', nav_skills: 'Habilidades', nav_experience: 'Experiência', nav_certificates: 'Certificados', nav_contact: 'Fale Comigo',
                     hero_available: 'Disponível para novos desafios', hero_role: 'Engenheira de QA Automation', hero_projects: 'Ver Projetos', hero_contact: 'Contatar',
                     about_title: 'Sobre mim',
                     about_p1: 'Sou uma pessoa dinâmica, comprometida e estruturada, com sólida capacidade de me adaptar a ambientes em mudança e trabalhar de forma eficiente sob pressão.',
@@ -882,11 +911,7 @@
                     exp_title: 'Trajetória Profissional', exp_own_project: 'Projeto Próprio', exp_in_progress: 'Em desenvolvimento', exp_present: '05/2025 - Atual',
                     exp_bronza: 'Desenvolvimento full stack de um site E-Commerce com React JS, Node.js, HTML e CSS. Integração do gateway de pagamento Mercado Pago e gateway de WhatsApp com mensagem automática. Implementação de testes QA Automation com Cypress, Playwright e testes de API com Postman.',
                     exp_inmotask: 'Plataforma web completa para imobiliárias: CRM de clientes, administração de imóveis e quadro ágil de tarefas. Full stack com React, TypeScript, Node.js e MongoDB, com autenticação JWT.',
-                    exp_am: 'Gestão de documentação legal, atendimento ao cliente e otimização de processos administrativos internos no setor imobiliário.',
-                    exp_luz: 'Assessoria comercial personalizada e gestão de estoque na alta temporada, priorizando a satisfação do cliente.',
-                    exp_gym: 'Coordenação de agendas, atendimento telefônico e presencial, e gestão de mensalidades dos sócios.',
-                    exp_aromas: 'Gestão integral do ponto de venda, fechamento de caixa e manutenção da imagem institucional.',
-                    exp_cafe: 'Atendimento ao cliente de alta qualidade em um ambiente dinâmico, desenvolvendo habilidades de comunicação e resolução de conflitos.',
+                    exp_am: 'Gestão de documentação legal, atendimento ao cliente e otimização de processos administrativos internos no setor imobiliário. Iniciei o projeto de criação de uma landing page para a imobiliária, atualmente em andamento.',
                     projects_title: 'Projetos em Destaque', projects_sub: 'Projetos de automação de testes e garantia de qualidade de software.',
                     proj_bronza_desc: 'E-Commerce desenvolvido com React JS, Node.js, HTML e CSS. Integração do gateway de pagamento Mercado Pago e botão flutuante de WhatsApp com mensagem automática.',
                     proj_api_title: 'Testes de APIs REST', proj_api_desc: 'Validação de endpoints REST com testes automatizados de resposta, status codes e schemas.',
@@ -908,6 +933,9 @@
                     form_name: 'Nome Completo', form_email: 'Email', form_message: 'Mensagem',
                     form_name_ph: 'João Silva', form_email_ph: 'joao@exemplo.com', form_message_ph: 'Conte-me sobre seu projeto...',
                     form_success: 'Mensagem enviada! Responderei em breve.', form_error: 'Não foi possível enviar. Tente novamente ou escreva diretamente por e-mail.', form_send: 'Enviar Mensagem',
+                    certificates_title: 'Certificados', certificates_sub: 'Cursos e certificações que respaldam minha formação em QA e desenvolvimento web.',
+                    cert_qa_title: 'Testador QA', cert_qa_sub: 'Certificado de conclusão', cert_web_title: 'Desenvolvimento Web', cert_web_sub: 'Certificado de conclusão',
+                    cert_modal_sub: 'Certificado de conclusão', cert_open: 'Abrir',
                     footer_copy: '© 2026 Aimé Aguado. Feito com precisão e criatividade.'
                 },
                 modal_labels: {
@@ -1191,9 +1219,11 @@
 
             // Re-renderizar modal si está abierto
             if (artModalOpenKey) renderTestSuite(artModalOpenKey);
+            if (certificateOpenKey) renderCertificateModal(certificateOpenKey);
         }
 
         let artModalOpenKey = null;
+        let certificateOpenKey = null;
 
         // ===== Presentador de tests (Playwright & Cypress) =====
         const SPEC_MEDIA = {
@@ -1958,6 +1988,44 @@ assertTrue(
             document.body.style.overflow = '';
         }
 
+        // ===== Certificados =====
+        const CERTIFICATES = {
+            qa: { src: 'assets/certificates/Certificado-tester-QA.jpg', title: { es: 'Tester QA', en: 'QA Tester', pt: 'Testador QA' } },
+            web: { src: 'assets/certificates/Certificado-desarrollo-web.jpg', title: { es: 'Desarrollo Web', en: 'Web Development', pt: 'Desenvolvimento Web' } }
+        };
+        const certificateModal = document.getElementById('certificate-modal');
+        const certificateModalTitle = document.getElementById('certificate-modal-title');
+        const certificateModalImg = document.getElementById('certificate-modal-img');
+        const certificateModalOpen = document.getElementById('certificate-modal-open');
+
+        function renderCertificateModal(key) {
+            const cert = CERTIFICATES[key];
+            if (!cert) return;
+            const title = cert.title[currentLang] || cert.title.es;
+            certificateModalTitle.textContent = title;
+            certificateModalImg.src = cert.src;
+            certificateModalImg.alt = title;
+            certificateModalOpen.href = cert.src;
+        }
+
+        function openCertificateModal(key) {
+            if (!CERTIFICATES[key]) return;
+            certificateOpenKey = key;
+            renderCertificateModal(key);
+            certificateModal.classList.remove('hidden');
+            certificateModal.classList.add('flex');
+            certificateModal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCertificateModal() {
+            certificateOpenKey = null;
+            certificateModal.classList.add('hidden');
+            certificateModal.classList.remove('flex');
+            certificateModal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
         document.addEventListener('click', (e) => {
             const openBtn = e.target.closest('[data-open-tests]');
             if (openBtn) {
@@ -1966,6 +2034,15 @@ assertTrue(
             }
             if (e.target.closest('[data-close-tests]')) {
                 closeTestsModal();
+                return;
+            }
+            const certBtn = e.target.closest('[data-open-certificate]');
+            if (certBtn) {
+                openCertificateModal(certBtn.dataset.openCertificate);
+                return;
+            }
+            if (e.target.closest('[data-close-certificate]')) {
+                closeCertificateModal();
                 return;
             }
             const langBtn = e.target.closest('.lang-option');
@@ -1992,6 +2069,9 @@ assertTrue(
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && !testsModal.classList.contains('hidden')) {
                 closeTestsModal();
+            }
+            if (e.key === 'Escape' && !certificateModal.classList.contains('hidden')) {
+                closeCertificateModal();
             }
             if (e.key === 'Escape') closeLangMenu();
         });
