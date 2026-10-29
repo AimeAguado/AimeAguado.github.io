@@ -142,7 +142,8 @@
 <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-i18n="nav_about" href="#about">About</a>
 <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-i18n="nav_skills" href="#skills">Skills</a>
 <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-i18n="nav_certificates" href="#certificates">Certificados</a>
-<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-i18n="nav_experience" href="#experience">Experience</a>
+  <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-i18n="nav_experience" href="#experience">Experience</a>
+  <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#qa-manual">Testing Manual</a>
 <div class="relative" id="lang-select-wrap">
 <button aria-haspopup="true" aria-expanded="false" class="flex items-center gap-1 font-label-caps text-label-caps px-3 py-2 border border-outline-variant/50 text-on-surface-variant hover:text-primary hover:border-primary rounded-lg transition-all cursor-pointer" id="lang-toggle" type="button">
 <span class="material-symbols-outlined text-base">language</span>
@@ -171,6 +172,7 @@
     <a onclick="closeMobileMenu()" class="font-body-md text-lg text-on-surface-variant hover:text-primary transition-colors" data-i18n="nav_skills" href="#skills">Skills</a>
     <a onclick="closeMobileMenu()" class="font-body-md text-lg text-on-surface-variant hover:text-primary transition-colors" data-i18n="nav_certificates" href="#certificates">Certificados</a>
     <a onclick="closeMobileMenu()" class="font-body-md text-lg text-on-surface-variant hover:text-primary transition-colors" data-i18n="nav_experience" href="#experience">Experience</a>
+    <a onclick="closeMobileMenu()" class="font-body-md text-lg text-on-surface-variant hover:text-primary transition-colors" href="#qa-manual">Testing Manual</a>
     <div class="mt-2 flex flex-col items-center gap-3">
       <span class="font-label-caps text-label-caps text-on-surface-variant">Idioma</span>
       <div class="flex gap-2">
@@ -655,6 +657,35 @@
 </div>
 </div>
 </section>
+<!-- QA Manual Section -->
+<section class="py-8 md:py-12 bg-background opacity-100 translate-y-0" id="qa-manual">
+  <div class="max-w-container-max mx-auto px-gutter">
+    <div class="md:col-span-2 lg:col-span-3 bg-white rounded-2xl border border-outline-variant/30 ambient-shadow p-6 md:p-10 space-y-6">
+      <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+        <div class="max-w-2xl">
+          <h2 class="font-headline-lg text-headline-lg text-primary mb-2">Testing Manual — Bronza Club</h2>
+          <p class="font-body-md text-on-surface-variant mb-4">Testing manual funcional de caja negra sobre https://bronza.vercel.app/.</p>
+          <ul class="space-y-2 font-body-md text-sm text-on-surface-variant mb-4">
+            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-base text-secondary shrink-0">check_circle</span><span>25 casos ejecutados en Chromium (1440×900, es-AR) — 28/10/2026</span></li>
+            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-base text-secondary shrink-0">check_circle</span><span>Resultado: 25 Pass · 0 Fail · 0 Blocked</span></li>
+            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-base text-secondary shrink-0">check_circle</span><span>Cubierto: navegación, catálogo, login/registro, carrito, checkout, Mercado Pago y WhatsApp</span></li>
+            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-base text-secondary shrink-0">check_circle</span><span>Sin pagos reales · Cuenta de prueba · Evidencias con capturas</span></li>
+          </ul>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-5">
+            <div class="rounded-xl bg-surface-container-low p-4"><strong class="block text-2xl text-primary">25</strong><span class="text-xs text-on-surface-variant">Casos ejecutados</span></div>
+            <div class="rounded-xl bg-green-50 p-4"><strong class="block text-2xl text-green-800">25</strong><span class="text-xs text-green-800">Aprobados</span></div>
+            <div class="rounded-xl bg-red-50 p-4"><strong class="block text-2xl text-red-800">0</strong><span class="text-xs text-red-800">Fallidos</span></div>
+            <div class="rounded-xl bg-amber-50 p-4"><strong class="block text-2xl text-amber-800">0</strong><span class="text-xs text-amber-800">Bloqueados</span></div>
+          </div>
+        </div>
+        <button class="inline-flex items-center justify-center gap-2 font-label-caps text-label-caps px-6 py-3 bg-primary text-on-primary rounded-lg hover:opacity-90 transition-all active:opacity-80 cursor-pointer shrink-0" data-open-qa-manual type="button">
+          <span>Ver documento completo</span>
+          <span class="material-symbols-outlined text-sm">visibility</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
 <!-- Contact Section -->
 <section class="py-8 md:py-12 bg-surface-container-low opacity-100 translate-y-0" id="contact">
 <div class="max-w-container-max mx-auto px-gutter">
@@ -702,7 +733,7 @@
 </form>
 </div>
 </div>
-</div>
+  </div>
 </section>
 </main>
 <!-- Footer -->
@@ -724,10 +755,27 @@
 </div>
 </div>
 </footer>
+<!-- Testing Manual Modal -->
+<div aria-hidden="true" class="fixed inset-0 z-[80] hidden items-center justify-center p-2 md:p-6" id="qa-manual-modal">
+  <div class="absolute inset-0 bg-[#1a1c1c]/60 backdrop-blur-sm" data-close-qa-manual></div>
+  <div class="relative bg-surface w-full max-w-6xl h-[94vh] overflow-hidden rounded-2xl shadow-2xl modal-pop-in flex flex-col" role="dialog" aria-labelledby="qa-manual-modal-title" aria-modal="true">
+    <div class="px-6 py-5 border-b border-outline-variant/30 flex items-center gap-4">
+      <div class="w-12 h-12 rounded-xl bg-secondary-container flex items-center justify-center shrink-0">
+        <span class="material-symbols-outlined text-on-secondary-container">description</span>
+      </div>
+      <div class="flex-1 min-w-0">
+         <h4 class="font-headline-md text-[18px] text-primary leading-tight" id="qa-manual-modal-title">Testing Manual — Bronza Club</h4>
+         <p class="text-[11px] uppercase tracking-wider text-secondary font-bold">Ejecución completada · 25 casos aprobados</p>
+       </div>
+       <button aria-label="Cerrar" class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors shrink-0 cursor-pointer" data-close-qa-manual type="button"><span class="material-symbols-outlined">close</span></button>
+     </div>
+     <iframe class="w-full flex-1 min-h-0 bg-white" id="qa-manual-frame" title="Documento de testing manual de Bronza Club" src="assets/qa-manual.html"></iframe>
+  </div>
+</div>
 <!-- Tests Modal -->
 <div aria-hidden="true" class="fixed inset-0 z-[80] hidden items-center justify-center p-4 md:p-6" id="tests-modal">
-<div class="absolute inset-0 bg-[#1a1c1c]/60 backdrop-blur-sm" data-close-tests></div>
-<div class="relative bg-surface w-full max-w-4xl max-h-[90vh] overflow-hidden rounded-2xl shadow-2xl modal-pop-in" role="dialog" aria-label="Detalle de tests automatizados" aria-modal="true">
+  <div class="absolute inset-0 bg-[#1a1c1c]/60 backdrop-blur-sm" data-close-tests></div>
+  <div class="relative bg-surface w-full max-w-4xl max-h-[90vh] overflow-hidden rounded-2xl shadow-2xl modal-pop-in" role="dialog" aria-label="Detalle de tests automatizados" aria-modal="true">
 <div class="sticky top-0 z-10 bg-surface/95 backdrop-blur-sm border-b border-outline-variant/30 px-6 md:px-10 py-5 flex items-center gap-4">
 <div class="w-12 h-12 rounded-xl flex items-center justify-center text-on-primary font-headline-md text-sm font-bold shrink-0" id="tests-modal-logo">PW</div>
 <div class="flex-1 min-w-0">
@@ -2245,6 +2293,51 @@ assertTrue(homePage.whatsappButton().isDisplayed());`
             }
         };
 
+        // QA Manual modal
+        const qaManualModal = document.getElementById('qa-manual-modal');
+        const openQaManualBtn = document.querySelector('[data-open-qa-manual]');
+        const qaManualFrame = document.getElementById('qa-manual-frame');
+        const closeQaManualModal = () => {
+            qaManualModal.classList.add('hidden');
+            qaManualModal.classList.remove('flex');
+            qaManualModal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        };
+        if (qaManualFrame) {
+            qaManualFrame.addEventListener('load', () => {
+                const manualStyle = qaManualFrame.contentDocument.createElement('style');
+                manualStyle.textContent = `
+                    html { scroll-behavior: smooth; background: #f3f3f4; }
+                    body { max-width: 900px; margin: 0 auto; padding: 32px clamp(20px, 5vw, 64px); color: #29251c; background: #fff; font: 15px/1.7 Manrope, Arial, sans-serif; }
+                    h1, h2, h3 { color: #322214; font-family: Montserrat, Arial, sans-serif; line-height: 1.25; margin: 1.8em 0 .6em; }
+                    h1 { font-size: 1.65rem; border-bottom: 1px solid #d2c4bb; padding-bottom: .4em; }
+                    p { margin: .65em 0; } table { width: 100%; border-collapse: collapse; margin: 1.25em 0; }
+                    td, th { border: 1px solid #d2c4bb; padding: 10px 12px; vertical-align: top; }
+                    img { display: block; max-width: 100%; height: auto; margin: 16px auto; border-radius: 8px; }
+                    @media (max-width: 600px) { body { padding: 20px 16px; font-size: 14px; } }
+                `;
+                qaManualFrame.contentDocument.head.appendChild(manualStyle);
+            });
+        }
+        if (openQaManualBtn && qaManualModal) {
+            openQaManualBtn.addEventListener('click', () => {
+                qaManualModal.classList.remove('hidden');
+                qaManualModal.classList.add('flex');
+                qaManualModal.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+            });
+        }
+        if (qaManualModal) {
+            qaManualModal.querySelectorAll('[data-close-qa-manual]').forEach(btn => {
+                btn.addEventListener('click', closeQaManualModal);
+            });
+            qaManualModal.addEventListener('click', (e) => {
+                if (e.target === qaManualModal) {
+                    closeQaManualModal();
+                }
+            });
+        }
+
         const testsModal = document.getElementById('tests-modal');
         const testsModalBody = document.getElementById('tests-modal-body');
         const testsModalTitle = document.getElementById('tests-modal-title');
@@ -2471,6 +2564,9 @@ assertTrue(homePage.whatsappButton().isDisplayed());`
         });
 
         document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !qaManualModal.classList.contains('hidden')) {
+                closeQaManualModal();
+            }
             if (e.key === 'Escape' && !testsModal.classList.contains('hidden')) {
                 closeTestsModal();
             }
